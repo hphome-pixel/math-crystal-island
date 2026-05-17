@@ -579,6 +579,231 @@ const slotIcons = {
   pet: "寵",
 };
 
+const i18n = {
+  "zh-Hant": {
+    appSubtitle: "Math Dress Up",
+    appTitle: "數學水晶島",
+    navHome: "水晶島",
+    navPractice: "數學練習",
+    navChest: "魔法寶箱",
+    navDress: "Aveline衣櫥",
+    navGm: "GM測試",
+    settingsButton: "設定",
+    homeEyebrow: "Aveline Island",
+    homeIntro: "練習數學拿藍水晶，去魔法寶箱抽 Aveline 的新造型。",
+    homeToday: "Today",
+    homeCurrent: "Aveline 目前造型",
+    homePracticeTitle: "數學練習",
+    homePracticeText: "答對題目拿藍水晶",
+    homeChestTitle: "魔法寶箱",
+    homeChestText: "50 藍水晶抽裝備",
+    homeDressTitle: "Aveline 衣櫃",
+    homeDressText: "換裝和看套裝",
+    settingsEyebrow: "Settings",
+    settingsTitle: "設定",
+    settingsIntro: "調整遊戲聲音與本機設定。",
+    soundTitle: "音效",
+    soundText: "控制答題、按鈕、娃娃互動與穿上音效。",
+    languageTitle: "語言",
+    languageText: "先保存語言偏好，之後可接全站翻譯文字。",
+    versionTitle: "版本控制",
+    versionText: "目前先使用本機版本資訊，正式上架時可接 Android 版本號。",
+    footerPrivacy: "隱私權政策",
+    footerAbout: "關於",
+    footerParentGuide: "家長指南",
+    footerContact: "聯絡我們",
+    inventoryHint: "物品",
+    emptyInventoryTitle: "衣櫃還是空的",
+    emptyInventoryText: "完成數學練習收集藍水晶，再去魔法寶箱抽新造型。",
+    emptyFilterTitle: "這一類還沒有物品",
+    emptyFilterText: "換個分類看看，或去魔法寶箱抽新裝備。",
+    openChestReady: "可以開寶箱了",
+    chestNeed: "還需要",
+    crystals: "藍水晶",
+    openChest: "開啟寶箱",
+    openingChest: "開箱中",
+    roundText: "第",
+    questionUnit: "題",
+    correctFeedback: "答對了！藍水晶",
+    missingAnswer: "先在答案格寫答案，或點下面小格修正數字。",
+    wrongFeedback: "差一點，答案是",
+    setAnimation: "播放套裝動畫",
+    footerAria: "網站資訊",
+    slot: {
+      background: "背景",
+      head: "髮型/表情",
+      top: "衣服",
+      bottom: "下身",
+      shoe: "鞋子",
+      bag: "包包",
+      accessory: "配件",
+      aura: "光效",
+      pet: "寵物",
+    },
+    infoPages: {
+      privacy: `
+        <p class="eyebrow">Privacy Policy</p>
+        <h2 id="privacyTitle">隱私權政策</h2>
+        <p>數學水晶島目前是一個瀏覽器版學習與換裝原型。遊戲進度、藍水晶、衣櫃物品與設定會儲存在使用者裝置的瀏覽器 localStorage 中，不會由本網站主動上傳到伺服器。</p>
+        <div class="info-grid">
+          <article><h3>我們目前不收集的資料</h3><p>本版本不要求登入、不要求姓名、生日、地址、電話，也不會要求孩子輸入可識別個人的資料。</p></article>
+          <article><h3>本機儲存</h3><p>遊戲會在同一台裝置與同一個瀏覽器中保存進度。清除瀏覽器資料後，進度可能會消失。</p></article>
+          <article><h3>第三方服務</h3><p>若未來加入廣告、分析或帳號功能，本頁會更新說明使用的第三方服務、資料用途與家長選項。</p></article>
+          <article><h3>家長提醒</h3><p>本遊戲以兒童學習為方向，建議家長陪同使用並協助管理瀏覽器資料與螢幕時間。</p></article>
+        </div>
+        <p class="info-note">最後更新：2026-05-17</p>
+      `,
+      about: `
+        <p class="eyebrow">About</p>
+        <h2 id="aboutTitle">關於數學水晶島</h2>
+        <p>數學水晶島是一個結合數學練習、藍水晶獎勵、魔法寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。</p>
+        <div class="info-grid">
+          <article><h3>學習目標</h3><p>透過加法、減法、乘法與除法練習，讓孩子在短回合中累積成就感。</p></article>
+          <article><h3>遊戲循環</h3><p>答題取得藍水晶，再用藍水晶開啟魔法寶箱，收集不同套裝與動畫。</p></article>
+          <article><h3>目前狀態</h3><p>本網站仍是早期原型，會持續調整題型、手機排版、家長設定與素材整理。</p></article>
+          <article><h3>適合使用方式</h3><p>建議每次練習 10 題，完成後讓孩子檢查答題紀錄，再回到首頁或衣櫃休息一下。</p></article>
+        </div>
+      `,
+      parentGuide: `
+        <p class="eyebrow">Parent Guide</p>
+        <h2 id="parentGuideTitle">家長指南</h2>
+        <p>這份指南協助家長了解孩子在數學水晶島裡會做什麼，以及如何陪伴孩子使用。</p>
+        <div class="info-grid">
+          <article><h3>建議節奏</h3><p>一次以 10 題為一輪。答對 1 題可獲得 1 顆藍水晶，完成一輪後可查看剛剛的答題結果。</p></article>
+          <article><h3>獎勵規則</h3><p>10 題答對 5 題、8 題、10 題會有額外藍水晶。建議把獎勵當成練習動機，而不是壓力。</p></article>
+          <article><h3>陪伴方式</h3><p>孩子答錯時，可以先看本輪檢查，再一起討論位數、進位、借位或乘除概念。</p></article>
+          <article><h3>裝置與資料</h3><p>目前進度存在本機瀏覽器。換裝置或清除瀏覽器資料後，衣櫃與藍水晶可能無法保留。</p></article>
+        </div>
+      `,
+      contact: `
+        <p class="eyebrow">Contact</p>
+        <h2 id="contactTitle">聯絡我們</h2>
+        <p>如果你想回報問題、提出建議，或討論素材與授權，可以透過 GitHub repository 的 Issues 聯絡。</p>
+        <div class="contact-card">
+          <strong>GitHub Issues</strong>
+          <a href="https://github.com/hphome-pixel/math-crystal-island/issues" target="_blank" rel="noreferrer">https://github.com/hphome-pixel/math-crystal-island/issues</a>
+        </div>
+        <p class="info-note">請不要在公開 issue 中貼上孩子的姓名、照片、學校、地址或其他個人資料。</p>
+      `,
+    },
+  },
+  en: {
+    appSubtitle: "Math Dress Up",
+    appTitle: "Math Crystal Island",
+    navHome: "Crystal Island",
+    navPractice: "Math Practice",
+    navChest: "Magic Chest",
+    navDress: "Aveline Closet",
+    navGm: "GM Test",
+    settingsButton: "Settings",
+    homeEyebrow: "Aveline Island",
+    homeIntro: "Practice math to collect blue crystals, then open the magic chest for Aveline's new outfits.",
+    homeToday: "Today",
+    homeCurrent: "Aveline Current Look",
+    homePracticeTitle: "Math Practice",
+    homePracticeText: "Answer questions to earn blue crystals",
+    homeChestTitle: "Magic Chest",
+    homeChestText: "Spend 50 blue crystals for an item",
+    homeDressTitle: "Aveline Closet",
+    homeDressText: "Dress up and view outfit sets",
+    settingsEyebrow: "Settings",
+    settingsTitle: "Settings",
+    settingsIntro: "Adjust sound, language, and local app settings.",
+    soundTitle: "Sound",
+    soundText: "Controls answer, button, doll interaction, and equip sounds.",
+    languageTitle: "Language",
+    languageText: "Save your language preference for this browser.",
+    versionTitle: "Version",
+    versionText: "Local app and save-data version information.",
+    footerPrivacy: "Privacy Policy",
+    footerAbout: "About",
+    footerParentGuide: "Parent Guide",
+    footerContact: "Contact",
+    inventoryHint: "items",
+    emptyInventoryTitle: "Your closet is empty",
+    emptyInventoryText: "Practice math to collect blue crystals, then open the magic chest for new looks.",
+    emptyFilterTitle: "No items in this category",
+    emptyFilterText: "Try another category or open the magic chest for new items.",
+    openChestReady: "Ready to open the chest",
+    chestNeed: "Need",
+    crystals: "blue crystals",
+    openChest: "Open Chest",
+    openingChest: "Opening",
+    roundText: "Question",
+    questionUnit: "",
+    correctFeedback: "Correct! Blue crystal",
+    missingAnswer: "Write the answer first, or tap the small boxes below to fix the digits.",
+    wrongFeedback: "Almost. The answer is",
+    setAnimation: "Play outfit animation",
+    footerAria: "Site information",
+    slot: {
+      background: "Background",
+      head: "Hair / Face",
+      top: "Top",
+      bottom: "Bottom",
+      shoe: "Shoes",
+      bag: "Bag",
+      accessory: "Accessory",
+      aura: "Aura",
+      pet: "Pet",
+    },
+    infoPages: {
+      privacy: `
+        <p class="eyebrow">Privacy Policy</p>
+        <h2 id="privacyTitle">Privacy Policy</h2>
+        <p>Math Crystal Island is currently a browser-based learning and dress-up prototype. Game progress, blue crystals, closet items, and settings are stored in this browser's localStorage on the user's device. This site does not actively upload that data to a server.</p>
+        <div class="info-grid">
+          <article><h3>Data we do not collect</h3><p>This version does not require sign-in, names, birthdays, addresses, phone numbers, or personal information from children.</p></article>
+          <article><h3>Local storage</h3><p>Progress is saved on the same device and browser. Clearing browser data may remove saved progress.</p></article>
+          <article><h3>Third-party services</h3><p>If ads, analytics, or account features are added later, this page will be updated with the services used, purposes, and parent choices.</p></article>
+          <article><h3>Parent note</h3><p>This game is designed for children's learning. Parents are encouraged to supervise use and help manage browser data and screen time.</p></article>
+        </div>
+        <p class="info-note">Last updated: 2026-05-17</p>
+      `,
+      about: `
+        <p class="eyebrow">About</p>
+        <h2 id="aboutTitle">About Math Crystal Island</h2>
+        <p>Math Crystal Island combines math practice, blue crystal rewards, a magic chest, and Aveline paper-doll dress-up in a kid-friendly learning game.</p>
+        <div class="info-grid">
+          <article><h3>Learning goal</h3><p>Children practice addition, subtraction, multiplication, and division in short, motivating rounds.</p></article>
+          <article><h3>Game loop</h3><p>Answer questions to earn blue crystals, then open the magic chest to collect outfit sets and animations.</p></article>
+          <article><h3>Current status</h3><p>This website is an early prototype and will continue improving question types, mobile layout, parent settings, and asset organization.</p></article>
+          <article><h3>Suggested use</h3><p>Practice 10 questions at a time, review the result list, then return to the island or closet for a short break.</p></article>
+        </div>
+      `,
+      parentGuide: `
+        <p class="eyebrow">Parent Guide</p>
+        <h2 id="parentGuideTitle">Parent Guide</h2>
+        <p>This guide helps parents understand what children do in Math Crystal Island and how to support their learning.</p>
+        <div class="info-grid">
+          <article><h3>Suggested rhythm</h3><p>Each round has 10 questions. A correct answer earns 1 blue crystal, and the result screen helps children review their work.</p></article>
+          <article><h3>Reward rules</h3><p>Extra blue crystals are awarded for 5, 8, or 10 correct answers in a 10-question round. Treat rewards as motivation, not pressure.</p></article>
+          <article><h3>How to help</h3><p>When a child misses a question, review the round together and talk about place value, carrying, borrowing, or multiplication and division ideas.</p></article>
+          <article><h3>Device and data</h3><p>Progress is saved in the local browser. Changing devices or clearing browser data may remove closet items and blue crystals.</p></article>
+        </div>
+      `,
+      contact: `
+        <p class="eyebrow">Contact</p>
+        <h2 id="contactTitle">Contact</h2>
+        <p>To report an issue, suggest an idea, or discuss assets and licensing, please use the repository's GitHub Issues page.</p>
+        <div class="contact-card">
+          <strong>GitHub Issues</strong>
+          <a href="https://github.com/hphome-pixel/math-crystal-island/issues" target="_blank" rel="noreferrer">https://github.com/hphome-pixel/math-crystal-island/issues</a>
+        </div>
+        <p class="info-note">Please do not post a child's name, photo, school, address, or other personal information in a public issue.</p>
+      `,
+    },
+  },
+};
+
+function tr(key) {
+  return i18n[state?.language || "zh-Hant"]?.[key] ?? i18n["zh-Hant"][key] ?? key;
+}
+
+function getSlotLabel(slot) {
+  return tr("slot")?.[slot] ?? slotLabels[slot] ?? slot;
+}
+
 const state = {
   characterId: "master_base",
   currentFilter: "all",
@@ -959,19 +1184,36 @@ function updatePracticeSettings() {
 }
 
 function makePracticeSummary(mode) {
-  const modeLabels = {
-    add: "加法練習",
-    subtract: "減法練習",
-    multiply: "乘法練習",
-    divide: "除法練習",
-    mixed: "混合練習",
-  };
-  const digitsLabels = {
-    1: "個位",
-    2: "十位",
-    3: "百位",
-    4: "千位",
-  };
+  const modeLabels =
+    state.language === "en"
+      ? {
+          add: "Addition",
+          subtract: "Subtraction",
+          multiply: "Multiplication",
+          divide: "Division",
+          mixed: "Mixed",
+        }
+      : {
+          add: "加法練習",
+          subtract: "減法練習",
+          multiply: "乘法練習",
+          divide: "除法練習",
+          mixed: "混合練習",
+        };
+  const digitsLabels =
+    state.language === "en"
+      ? {
+          1: "ones",
+          2: "tens",
+          3: "hundreds",
+          4: "thousands",
+        }
+      : {
+          1: "個位",
+          2: "十位",
+          3: "百位",
+          4: "千位",
+        };
 
   if (mode === "multiply") {
     return `${modeLabels[mode]}・${multiplyModeSelect.options[multiplyModeSelect.selectedIndex].text}`;
@@ -986,7 +1228,7 @@ function handleSubmit(event) {
   event.preventDefault();
   const writtenAnswer = recognizeAnswer();
   if (!writtenAnswer) {
-    feedbackText.textContent = "先在答案格寫答案，或點下面小格修正數字。";
+    feedbackText.textContent = tr("missingAnswer");
     feedbackText.className = "feedback wrong";
     return;
   }
@@ -1005,12 +1247,12 @@ function handleSubmit(event) {
     state.blueCrystals += CRYSTAL_REWARD;
     playSound(correctSound, 0.42);
     showCrystalPop();
-    feedbackText.textContent = `答對了！藍水晶 +${CRYSTAL_REWARD}`;
+    feedbackText.textContent = `${tr("correctFeedback")} +${CRYSTAL_REWARD}`;
     feedbackText.className = "feedback correct";
   } else {
     state.streak = 0;
     playSound(incorrectSound, 0.34);
-    feedbackText.textContent = `差一點，答案是 ${state.currentQuestion.answer}`;
+    feedbackText.textContent = `${tr("wrongFeedback")} ${state.currentQuestion.answer}`;
     feedbackText.className = "feedback wrong";
   }
 
@@ -1038,11 +1280,18 @@ function showRoundResult() {
   answerForm.classList.add("hidden");
   roundResult.classList.remove("hidden");
   roundCorrectText.textContent = `${correctCount} / ${ROUND_SIZE}`;
-  roundBaseRewardText.textContent = `${baseReward} 藍水晶`;
-  roundBonusText.textContent = bonusReward ? `+${bonusReward} 藍水晶` : "0";
-  roundTotalRewardText.textContent = `${totalReward} 藍水晶`;
+  roundBaseRewardText.textContent = `${baseReward} ${tr("crystals")}`;
+  roundBonusText.textContent = bonusReward ? `+${bonusReward} ${tr("crystals")}` : "0";
+  roundTotalRewardText.textContent = `${totalReward} ${tr("crystals")}`;
   roundReview.innerHTML = renderRoundReview();
-  feedbackText.textContent = bonusReward ? `本輪額外獎勵 +${bonusReward} 藍水晶` : "本輪完成，繼續加油！";
+  feedbackText.textContent =
+    state.language === "en"
+      ? bonusReward
+        ? `Round bonus +${bonusReward} ${tr("crystals")}`
+        : "Round complete. Keep going!"
+      : bonusReward
+        ? `本輪額外獎勵 +${bonusReward} 藍水晶`
+        : "本輪完成，繼續加油！";
   feedbackText.className = bonusReward ? "feedback correct" : "feedback";
   renderStats();
 }
@@ -1053,16 +1302,20 @@ function renderRoundReview() {
       (answer) => `
         <div class="round-review-row ${answer.isCorrect ? "is-correct" : "is-wrong"}">
           <strong>${answer.index}. ${answer.question}</strong>
-          <span>你答 ${answer.userAnswer || "未填"}，答案 ${answer.correctAnswer}</span>
-          <b>${answer.isCorrect ? "答對" : "訂正"}</b>
+          <span>${
+            state.language === "en"
+              ? `You answered ${answer.userAnswer || "blank"}, answer ${answer.correctAnswer}`
+              : `你答 ${answer.userAnswer || "未填"}，答案 ${answer.correctAnswer}`
+          }</span>
+          <b>${state.language === "en" ? (answer.isCorrect ? "Correct" : "Review") : answer.isCorrect ? "答對" : "訂正"}</b>
         </div>
       `,
     )
     .join("");
   return `
     <div class="round-review-heading">
-      <strong>本輪題目檢查</strong>
-      <span>看一看剛剛哪題答對、哪題需要訂正。</span>
+      <strong>${state.language === "en" ? "Round Review" : "本輪題目檢查"}</strong>
+      <span>${state.language === "en" ? "Check which questions were correct and which need review." : "看一看剛剛哪題答對、哪題需要訂正。"}</span>
     </div>
     <div class="round-review-list">${rows}</div>
   `;
@@ -1115,11 +1368,99 @@ function updateSoundSetting() {
 function updateLanguageSetting() {
   state.language = languageSelect.value === "en" ? "en" : "zh-Hant";
   applyLanguageSetting();
+  updatePracticeSettings();
+  renderStats();
+  renderInventory();
+  renderDoll();
   saveGame();
 }
 
 function applyLanguageSetting() {
   document.documentElement.lang = state.language;
+  translateStaticText();
+}
+
+function setText(selector, text) {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.textContent = text;
+  }
+}
+
+function translateStaticText() {
+  setText(".topbar .eyebrow", tr("appSubtitle"));
+  setText(".topbar h1", tr("appTitle"));
+  setText('.app-tab[data-page="home"]', tr("navHome"));
+  setText('.app-tab[data-page="practice"]', tr("navPractice"));
+  setText('.app-tab[data-page="chest"]', tr("navChest"));
+  setText('.app-tab[data-page="dress"]', tr("navDress"));
+  setText('.app-tab[data-page="gm"]', tr("navGm"));
+  settingsButton.lastChild.textContent = ` ${tr("settingsButton")}`;
+
+  setText(".home-copy .eyebrow", tr("homeEyebrow"));
+  setText("#homeTitle", tr("homeIntro"));
+  setText(".home-doll-card .eyebrow", tr("homeToday"));
+  setText(".home-doll-card h2", tr("homeCurrent"));
+  setText('.home-card[data-go-page="practice"] strong', tr("homePracticeTitle"));
+  setText('.home-card[data-go-page="practice"] small', tr("homePracticeText"));
+  setText('.home-card[data-go-page="chest"] strong', tr("homeChestTitle"));
+  setText('.home-card[data-go-page="chest"] small', tr("homeChestText"));
+  setText('.home-card[data-go-page="dress"] strong', tr("homeDressTitle"));
+  setText('.home-card[data-go-page="dress"] small', tr("homeDressText"));
+
+  const en = state.language === "en";
+  setText("#characterSelectTitle", en ? "Choose Character" : "選人物");
+  setText("#dressRoomTitle", en ? "Current Look" : "目前造型");
+  setText("#closetTitle", en ? "Closet Slots" : "物品欄位");
+  setText("#resetOutfitButton", en ? "Remove All" : "脫掉全部");
+  setText("#practiceTitle", en ? "Practice Setup" : "試題練習");
+  setText("#startPracticeButton", en ? "Start 10 Questions" : "開始 10 題");
+  setText("#stopPracticeButton", en ? "Settings" : "設定");
+  setText("#quitPracticeButton", en ? "Stop Practice" : "停止練習");
+  setText("#clearWritingButton", en ? "Clear Writing" : "清除手寫");
+  setText('#answerForm .primary-button[type="submit"]', en ? "Submit Answer" : "送出答案");
+  setText(".practice-reward-note > span", en ? "Correct answers earn" : "答對題目可獲得");
+  document.querySelector(".practice-reward-note strong").innerHTML = `<span class="crystal-icon" aria-hidden="true"></span> +1 ${tr("crystals")}`;
+  setText("#chestTitle", en ? "Magic Chest" : "魔法寶箱");
+  setText(".chest-rules .eyebrow", en ? "Rules" : "Rules");
+  setText(".chest-rules h3", en ? "One Magic Chest" : "一個魔法寶箱");
+  setText(
+    ".chest-rules > p",
+    en
+      ? "Spend 50 blue crystals to open a random item from all current outfit sets. Duplicate items refund 25 blue crystals."
+      : "消耗 50 個藍水晶，隨機開出目前所有套裝裝備；抽到已擁有物品會返還 25 藍水晶。",
+  );
+  setText(".crystal-rules strong", en ? "Blue Crystal Rules" : "藍水晶規則");
+
+  const closetLabels = en
+    ? ["All", "Background", "Hair / Face", "Top", "Bottom", "Shoes", "Bag", "Accessory", "Aura", "Pet"]
+    : ["全部", "背景", "髮型/表情", "衣服", "下身", "鞋子", "包包", "配件", "光效", "寵物"];
+  document.querySelectorAll(".closet-tab").forEach((button, index) => {
+    button.textContent = closetLabels[index] ?? button.textContent;
+  });
+
+  setText(".settings-page-panel .eyebrow", tr("settingsEyebrow"));
+  setText("#settingsTitle", tr("settingsTitle"));
+  setText(".settings-page-panel > div > p:not(.eyebrow)", tr("settingsIntro"));
+  setText(".settings-list label:nth-child(1) strong", tr("soundTitle"));
+  setText(".settings-list label:nth-child(1) small", tr("soundText"));
+  setText(".settings-list label:nth-child(2) strong", tr("languageTitle"));
+  setText(".settings-list label:nth-child(2) small", tr("languageText"));
+  setText(".settings-version > span strong", tr("versionTitle"));
+  setText(".settings-version > span small", tr("versionText"));
+
+  const infoPages = tr("infoPages");
+  document.querySelector("#privacyPage .info-page-panel").innerHTML = infoPages.privacy;
+  document.querySelector("#aboutPage .info-page-panel").innerHTML = infoPages.about;
+  document.querySelector("#parentGuidePage .info-page-panel").innerHTML = infoPages.parentGuide;
+  document.querySelector("#contactPage .info-page-panel").innerHTML = infoPages.contact;
+
+  setText('.site-footer [data-go-page="privacy"]', tr("footerPrivacy"));
+  setText('.site-footer [data-go-page="about"]', tr("footerAbout"));
+  setText('.site-footer [data-go-page="parent-guide"]', tr("footerParentGuide"));
+  setText('.site-footer [data-go-page="contact"]', tr("footerContact"));
+  document.querySelector(".site-footer").setAttribute("aria-label", tr("footerAria"));
+  hydrateCrystalIcons();
 }
 
 function renderVersionInfo() {
@@ -1699,8 +2040,8 @@ function playOpenChestVideo(onComplete) {
 
   resetRewardModalMode();
   state.rewardAction = "close";
-  rewardTitle.textContent = "寶箱開啟中";
-  rewardMessage.textContent = "魔法寶箱正在打開...";
+  rewardTitle.textContent = state.language === "en" ? "Opening Chest" : "寶箱開啟中";
+  rewardMessage.textContent = state.language === "en" ? "The magic chest is opening..." : "魔法寶箱正在打開...";
   closeRewardButton.classList.add("hidden");
   rewardPreview.innerHTML = `
     <video id="modalChestOpenVideo" src="assets/Chest/OpenChest.mp4" autoplay playsinline></video>
@@ -1749,7 +2090,7 @@ function grantChestReward(preferUnowned = false, { refundDuplicate = false } = {
   const rarity = getItemRarity(item);
   resetRewardModalMode();
   state.rewardAction = "goDress";
-  rewardTitle.textContent = `獲得物品 - ${slotLabels[item.slot] ?? "裝備"}`;
+  rewardTitle.textContent = state.language === "en" ? `New Item - ${getSlotLabel(item.slot)}` : `獲得物品 - ${getSlotLabel(item.slot)}`;
   rewardPreview.innerHTML = `
     <div class="reward-item-card rarity-${rarity.toLowerCase()}">
       <span class="reward-set-icon">${renderSetIcon(set)}</span>
@@ -1757,9 +2098,16 @@ function grantChestReward(preferUnowned = false, { refundDuplicate = false } = {
       <span class="reward-rarity">${getRarityLabel(rarity)}</span>
     </div>
   `;
-  const duplicateNote = refundAmount ? `已擁有，返還 ${refundAmount} 藍水晶` : "已擁有";
+  const duplicateNote =
+    state.language === "en"
+      ? refundAmount
+        ? `already owned, refunded ${refundAmount} ${tr("crystals")}`
+        : "already owned"
+      : refundAmount
+        ? `已擁有，返還 ${refundAmount} 藍水晶`
+        : "已擁有";
   rewardMessage.textContent = isNew ? `${makeRewardItemName(item)}` : `${makeRewardItemName(item)}（${duplicateNote}）`;
-  closeRewardButton.textContent = "穿上";
+  closeRewardButton.textContent = state.language === "en" ? "Equip" : "穿上";
   closeRewardButton.classList.remove("hidden");
   rewardModal.classList.remove("hidden");
 
@@ -1802,17 +2150,26 @@ function getItemRarity(item) {
 }
 
 function getRarityLabel(rarity) {
-  return {
-    Common: "普通",
-    Rare: "稀有",
-    Epic: "史詩",
-    Legendary: "傳說",
-  }[rarity] ?? "普通";
+  const labels =
+    state.language === "en"
+      ? {
+          Common: "Common",
+          Rare: "Rare",
+          Epic: "Epic",
+          Legendary: "Legendary",
+        }
+      : {
+          Common: "普通",
+          Rare: "稀有",
+          Epic: "史詩",
+          Legendary: "傳說",
+        };
+  return labels[rarity] ?? labels.Common;
 }
 
 function makeRewardItemName(item) {
   const set = getSetById(item.setId);
-  return `${set?.name ?? "其他物品"} - ${slotLabels[item.slot] ?? item.name}`;
+  return `${set?.name ?? (state.language === "en" ? "Other Items" : "其他物品")} - ${getSlotLabel(item.slot)}`;
 }
 
 function closeReward() {
@@ -1820,7 +2177,7 @@ function closeReward() {
   rewardModal.classList.add("hidden");
   resetRewardModalMode();
   closeRewardButton.classList.remove("hidden");
-  closeRewardButton.textContent = "收下";
+  closeRewardButton.textContent = state.language === "en" ? "OK" : "收下";
   resetChestVideoToIdle();
   if (shouldPlayWearSound) {
     playSound(wearSound, 0.42);
@@ -1890,16 +2247,21 @@ function unequipSlot(slot) {
 }
 
 function renderStats() {
-  roundText.textContent = `第 ${state.questionIndex} / ${ROUND_SIZE} 題`;
+  roundText.textContent =
+    state.language === "en"
+      ? `${tr("roundText")} ${state.questionIndex} / ${ROUND_SIZE}`
+      : `${tr("roundText")} ${state.questionIndex} / ${ROUND_SIZE} ${tr("questionUnit")}`;
   scoreText.textContent = state.score;
   streakText.textContent = state.streak;
   chestProgressText.textContent = state.blueCrystals;
   openChestButton.disabled = state.blueCrystals < CHEST_COST || state.isOpeningChest;
-  openChestButton.textContent = state.isOpeningChest ? "開箱中" : "開啟寶箱";
+  openChestButton.textContent = state.isOpeningChest ? tr("openingChest") : tr("openChest");
   rewardText.textContent =
     state.blueCrystals >= CHEST_COST
-      ? `可以開寶箱了（消耗 ${CHEST_COST}）`
-      : `還需要 ${CHEST_COST - state.blueCrystals} 藍水晶`;
+      ? state.language === "en"
+        ? `${tr("openChestReady")} (cost ${CHEST_COST})`
+        : `${tr("openChestReady")}（消耗 ${CHEST_COST}）`
+      : `${tr("chestNeed")} ${CHEST_COST - state.blueCrystals} ${tr("crystals")}`;
   saveGame();
 }
 
@@ -1907,12 +2269,12 @@ function renderInventory() {
   const owned = itemCatalog.filter((item) => state.ownedItems.has(item.id) && isItemCompatibleWithCurrentBase(item));
   const visibleItems = state.currentFilter === "all" ? owned : owned.filter((item) => item.slot === state.currentFilter);
   const compatibleTotal = itemCatalog.filter((item) => isItemCompatibleWithCurrentBase(item)).length;
-  inventoryHint.textContent = `${owned.length} / ${compatibleTotal} 物品`;
+  inventoryHint.textContent = `${owned.length} / ${compatibleTotal} ${tr("inventoryHint")}`;
 
   if (!owned.length) {
     inventoryGrid.innerHTML = makeEmptyInventoryCard(
-      "衣櫃還是空的",
-      "完成數學練習收集藍水晶，再去魔法寶箱抽新造型。",
+      tr("emptyInventoryTitle"),
+      tr("emptyInventoryText"),
     );
     renderSlots();
     return;
@@ -1920,8 +2282,8 @@ function renderInventory() {
 
   if (!visibleItems.length) {
     inventoryGrid.innerHTML = makeEmptyInventoryCard(
-      "這一類還沒有物品",
-      "換個分類看看，或去魔法寶箱抽新裝備。",
+      tr("emptyFilterTitle"),
+      tr("emptyFilterText"),
     );
     renderSlots();
     return;
@@ -1974,7 +2336,9 @@ function renderSetGroups(items) {
 
   const looseItems = items.filter((item) => !item.setId);
   const groupsMarkup = setGroups.map(({ set, items: setItems }) => renderSetGroup(set, setItems)).join("");
-  const looseMarkup = looseItems.length ? renderSetGroup({ name: "其他物品", requiredItemIds: [] }, looseItems) : "";
+  const looseMarkup = looseItems.length
+    ? renderSetGroup({ name: state.language === "en" ? "Other Items" : "其他物品", requiredItemIds: [] }, looseItems)
+    : "";
   return groupsMarkup + looseMarkup;
 }
 
@@ -1989,7 +2353,7 @@ function renderSetGroup(set, items) {
   const animationButton = canToggle
     ? `<button class="set-animation-action ${completed ? "" : "is-locked"}" type="button" ${
         completed ? `data-play-set-id="${set.id}"` : "disabled"
-      }>${completed ? "播放" : "未完成"}</button>`
+      }>${completed ? (state.language === "en" ? "Play" : "播放") : state.language === "en" ? "Locked" : "未完成"}</button>`
     : "";
   return `
     <section class="set-group ${completed ? "is-complete" : ""} ${isExpanded ? "is-expanded" : "is-collapsed"}">
@@ -1998,12 +2362,12 @@ function renderSetGroup(set, items) {
           <span class="set-icon" aria-hidden="true">${renderSetIcon(set)}</span>
           <div>
             <strong>${set.name}</strong>
-            <span>${ownedCount} / ${requiredCount || items.length}${completed ? "・動畫可播放" : ""}</span>
+            <span>${ownedCount} / ${requiredCount || items.length}${completed ? (state.language === "en" ? " · Animation ready" : "・動畫可播放") : ""}</span>
           </div>
         </button>
         <div class="set-group-actions">
           ${animationButton}
-          <button class="set-toggle-mark" type="button" ${canToggle ? `data-toggle-set-id="${set.id}" aria-expanded="${isExpanded}"` : "disabled"}>${isExpanded ? "收合" : "展開"}</button>
+          <button class="set-toggle-mark" type="button" ${canToggle ? `data-toggle-set-id="${set.id}" aria-expanded="${isExpanded}"` : "disabled"}>${isExpanded ? (state.language === "en" ? "Collapse" : "收合") : state.language === "en" ? "Expand" : "展開"}</button>
         </div>
       </div>
       ${
@@ -2023,7 +2387,7 @@ function renderInventoryItem(item) {
   return `
     <button class="item-button rarity-${rarity.toLowerCase()} ${equipped ? "is-equipped" : ""}" type="button" data-item-id="${item.id}">
       <span class="item-icon" aria-hidden="true">${slotIcons[item.slot] ?? "物"}</span>
-      <strong>${slotLabels[item.slot] ?? item.name}</strong>
+      <strong>${getSlotLabel(item.slot) ?? item.name}</strong>
       <span>${equipped ? "穿戴中" : getRarityLabel(rarity)}</span>
     </button>
   `;
@@ -2052,13 +2416,18 @@ function renderSlotButton(button, slot) {
   const item = getEquippedItem(slot);
   const set = item ? getSetById(item.setId) : null;
   button.classList.toggle("is-equipped", Boolean(item));
-  button.setAttribute("aria-label", `${slotLabels[slot]}：${item ? "已穿，點一下脫掉" : "未穿"}`);
+  button.setAttribute(
+    "aria-label",
+    state.language === "en"
+      ? `${getSlotLabel(slot)}: ${item ? "equipped, tap to remove" : "empty"}`
+      : `${getSlotLabel(slot)}：${item ? "已穿，點一下脫掉" : "未穿"}`,
+  );
   button.innerHTML = `
     <span class="slot-thumb">
-      ${item ? renderSetIcon(set) : `<span aria-hidden="true">空</span>`}
+      ${item ? renderSetIcon(set) : `<span aria-hidden="true">${state.language === "en" ? "Empty" : "空"}</span>`}
     </span>
-    <span class="slot-name">${slotLabels[slot]}</span>
-    <span class="slot-state">${item ? "已穿" : "空"}</span>
+    <span class="slot-name">${getSlotLabel(slot)}</span>
+    <span class="slot-state">${item ? (state.language === "en" ? "Equipped" : "已穿") : state.language === "en" ? "Empty" : "空"}</span>
   `;
 }
 
@@ -2156,7 +2525,7 @@ function getCompletedSets() {
 
 function renderSetAnimationState() {
   playSetAnimationButton.classList.add("hidden");
-  playSetAnimationButton.textContent = "播放套裝動畫";
+  playSetAnimationButton.textContent = tr("setAnimation");
 }
 
 function playCompletedSetAnimation(setId) {
@@ -2172,7 +2541,7 @@ function playCompletedSetAnimation(setId) {
   resetRewardModalMode();
   rewardModal.classList.add("set-animation-modal");
   rewardPreview.classList.add("set-animation-preview");
-  rewardTitle.textContent = "套裝完成";
+  rewardTitle.textContent = state.language === "en" ? "Outfit Set Complete" : "套裝完成";
   rewardPreview.innerHTML = `
     <div class="set-animation-summary">
       <span class="set-animation-icon">${renderSetIcon(completedSet)}</span>
@@ -2184,8 +2553,11 @@ function playCompletedSetAnimation(setId) {
     <video src="${completedSet.animationPath}" autoplay playsinline controls></video>
   `;
   state.rewardAction = "close";
-  rewardMessage.textContent = "已收集完成，可以播放套裝動畫。";
-  closeRewardButton.textContent = "關閉";
+  rewardMessage.textContent =
+    state.language === "en"
+      ? "The outfit set is complete. You can play the set animation."
+      : "已收集完成，可以播放套裝動畫。";
+  closeRewardButton.textContent = state.language === "en" ? "Close" : "關閉";
   closeRewardButton.classList.remove("hidden");
   rewardModal.classList.remove("hidden");
 }

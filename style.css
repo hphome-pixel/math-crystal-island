@@ -1849,22 +1849,21 @@ select {
   justify-content: center;
   gap: 10px;
   margin-top: 22px;
+  border-top: 1px solid rgba(23, 32, 51, 0.12);
   padding: 18px 0 4px;
 }
 
 .site-footer button {
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.56);
-  color: #526071;
-  padding: 9px 12px;
+  border: 0;
+  background: transparent;
+  color: #178a68;
+  padding: 7px 5px;
   font-weight: 850;
-  backdrop-filter: blur(10px);
 }
 
 .site-footer button:hover {
-  color: #172033;
-  background: rgba(255, 255, 255, 0.78);
+  color: #0e6f54;
+  text-decoration: underline;
 }
 
 .digit-chooser {

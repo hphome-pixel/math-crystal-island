@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>數學水晶島</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Math Dress Up</p>
+          <h1>數學水晶島</h1>
+        </div>
+        <div class="top-controls top-settings">
+          <button class="settings-button" id="settingsButton" type="button" aria-expanded="false">
+            <span aria-hidden="true">⚙</span>
+            設定
+          </button>
+        </div>
+      </header>
+
+      <div class="nav-resource-row">
+        <nav class="app-tabs" aria-label="主要頁面">
+          <button class="app-tab is-active" type="button" data-page="home">水晶島</button>
+          <button class="app-tab" type="button" data-page="practice">數學練習</button>
+          <button class="app-tab" type="button" data-page="chest">魔法寶箱</button>
+          <button class="app-tab" type="button" data-page="dress">Aveline衣櫥</button>
+          <button class="app-tab" type="button" data-page="gm">GM測試</button>
+        </nav>
+        <div class="resource-pill resource-pill-inline" aria-label="藍水晶數量">
+          <span class="crystal-icon" aria-hidden="true"></span>
+          <strong id="chestProgressText">0</strong>
+        </div>
+      </div>
+
+      <section class="app-page is-active" id="homePage" data-page-panel="home">
+        <section class="home-panel" aria-labelledby="homeTitle">
+          <div class="home-copy">
+            <p class="eyebrow">Aveline Island</p>
+            <p id="homeTitle">練習數學拿藍水晶，去魔法寶箱抽 Aveline 的新造型。</p>
+          </div>
+          <div class="home-doll-card" aria-label="Aveline 目前造型">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Today</p>
+                <h2>Aveline 目前造型</h2>
+              </div>
+            </div>
+            <div class="home-doll-stage">
+              <div class="soft-shadow"></div>
+              <div class="doll-speech hidden" id="homeDollSpeech" aria-live="polite">今天也一起練習吧！</div>
+              <img class="doll-layer background-layer hidden" id="homeBackgroundLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer base-layer" id="homeBaseLayer" src="assets/paper-doll/MasterBase.png" alt="Aveline 目前造型" />
+              <img class="doll-layer item-layer head-layer hidden" id="homeHeadLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer bottom-layer hidden" id="homeBottomLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer top-layer hidden" id="homeTopLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer shoe-layer hidden" id="homeShoeLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer bag-layer hidden" id="homeBagLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer accessory-layer hidden" id="homeAccessoryLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer aura-layer hidden" id="homeAuraLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer pet-layer hidden" id="homePetLayer" alt="" aria-hidden="true" />
+            </div>
+          </div>
+          <div class="home-actions" aria-label="功能入口">
+            <button class="home-card" type="button" data-go-page="practice">
+              <span class="home-card-media">
+                <video
+                  src="assets/paper-doll/首頁_icon/數學練習idle.mp4"
+                  poster="assets/paper-doll/首頁_icon/數學練習.png"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  aria-hidden="true"
+                ></video>
+              </span>
+              <span class="home-card-copy">
+                <strong>數學練習</strong>
+                <small>答對題目拿藍水晶</small>
+              </span>
+            </button>
+            <button class="home-card" type="button" data-go-page="chest">
+              <span class="home-card-media">
+                <video
+                  src="assets/paper-doll/首頁_icon/Chestidle.mp4"
+                  poster="assets/paper-doll/首頁_icon/魔法寶箱.png"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  aria-hidden="true"
+                ></video>
+              </span>
+              <span class="home-card-copy">
+                <strong>魔法寶箱</strong>
+                <small>50 藍水晶抽裝備</small>
+              </span>
+            </button>
+            <button class="home-card" type="button" data-go-page="dress">
+              <span class="home-card-media">
+                <video
+                  src="assets/paper-doll/首頁_icon/Aveline衣櫃idle.mp4"
+                  poster="assets/paper-doll/首頁_icon/Aveline衣櫃.png"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  aria-hidden="true"
+                ></video>
+              </span>
+              <span class="home-card-copy">
+                <strong>Aveline 衣櫃</strong>
+                <small>換裝和看套裝</small>
+              </span>
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-page" id="dressPage" data-page-panel="dress">
+        <section class="character-select" aria-labelledby="characterSelectTitle">
+          <div>
+            <p class="eyebrow">Character</p>
+            <h2 id="characterSelectTitle">選人物</h2>
+          </div>
+          <div class="character-options">
+            <button class="character-option is-selected" id="girlCharacterButton" type="button">
+              <img src="assets/paper-doll/MasterBase.png" alt="" />
+              <span>Aveline</span>
+            </button>
+            <button class="character-option" id="boyCharacterButton" type="button" disabled>
+              <span class="empty-avatar">?</span>
+              <span>男孩素材待放入</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="dress-room" aria-labelledby="dressRoomTitle">
+          <section class="doll-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">My Doll</p>
+                <h2 id="dressRoomTitle">目前造型</h2>
+              </div>
+              <button class="ghost-button" id="resetOutfitButton" type="button">脫掉全部</button>
+            </div>
+
+            <div class="doll-stage" aria-label="紙娃娃預覽">
+              <div class="soft-shadow"></div>
+              <img class="doll-layer background-layer hidden" id="backgroundLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer base-layer" id="baseLayer" src="assets/paper-doll/MasterBase.png" alt="角色本體" />
+              <img class="doll-layer item-layer head-layer hidden" id="headLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer bottom-layer hidden" id="bottomLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer top-layer hidden" id="topLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer shoe-layer hidden" id="shoeLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer bag-layer hidden" id="bagLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer accessory-layer hidden" id="accessoryLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer aura-layer hidden" id="auraLayer" alt="" aria-hidden="true" />
+              <img class="doll-layer item-layer pet-layer hidden" id="petLayer" alt="" aria-hidden="true" />
+            </div>
+            <button class="primary-button animation-button hidden" id="playSetAnimationButton" type="button">播放套裝動畫</button>
+          </section>
+
+          <section class="closet-panel" aria-labelledby="closetTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Closet</p>
+                <h2 id="closetTitle">物品欄位</h2>
+              </div>
+              <span id="inventoryHint">開寶箱取得裝飾</span>
+            </div>
+
+            <div class="equipped-slots" aria-label="已穿戴裝備">
+              <button class="slot-button" id="backgroundSlotButton" type="button">背景：未使用</button>
+              <button class="slot-button" id="headSlotButton" type="button">髮型/表情：未使用</button>
+              <button class="slot-button" id="topSlotButton" type="button">衣服：未穿</button>
+              <button class="slot-button" id="bottomSlotButton" type="button">下身：未穿</button>
+              <button class="slot-button" id="shoeSlotButton" type="button">鞋子：未穿</button>
+              <button class="slot-button" id="bagSlotButton" type="button">包包：未穿</button>
+              <button class="slot-button" id="accessorySlotButton" type="button">配件：未穿</button>
+              <button class="slot-button" id="auraSlotButton" type="button">光效：未穿</button>
+              <button class="slot-button" id="petSlotButton" type="button">寵物：未使用</button>
+            </div>
+
+            <div class="closet-tabs" role="tablist" aria-label="換裝分類">
+              <button class="closet-tab is-active" type="button" data-filter="all">全部</button>
+              <button class="closet-tab" type="button" data-filter="background">背景</button>
+              <button class="closet-tab" type="button" data-filter="head">髮型/表情</button>
+              <button class="closet-tab" type="button" data-filter="top">衣服</button>
+              <button class="closet-tab" type="button" data-filter="bottom">下身</button>
+              <button class="closet-tab" type="button" data-filter="shoe">鞋子</button>
+              <button class="closet-tab" type="button" data-filter="bag">包包</button>
+              <button class="closet-tab" type="button" data-filter="accessory">配件</button>
+              <button class="closet-tab" type="button" data-filter="aura">光效</button>
+              <button class="closet-tab" type="button" data-filter="pet">寵物</button>
+            </div>
+
+            <div class="inventory-grid" id="inventoryGrid"></div>
+          </section>
+        </section>
+      </section>
+
+      <section class="app-page" id="practicePage" data-page-panel="practice">
+      <section class="practice-panel" aria-labelledby="practiceTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Practice</p>
+            <h2 id="practiceTitle">試題練習</h2>
+          </div>
+          <strong class="practice-summary" id="practiceSummary">加法練習・十位</strong>
+        </div>
+
+        <section class="practice-settings" id="practiceSettingsView" aria-label="練習設定">
+          <div class="mode-cards" role="radiogroup" aria-label="選擇練習">
+            <label class="mode-card is-selected">
+              <input type="radio" name="practiceMode" value="add" checked />
+              <strong>+</strong>
+              <span>加法練習</span>
+              <small>直式加法</small>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="practiceMode" value="subtract" />
+              <strong>-</strong>
+              <span>減法練習</span>
+              <small>直式減法</small>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="practiceMode" value="multiply" />
+              <strong>×</strong>
+              <span>乘法練習</span>
+              <small>乘法表與直式</small>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="practiceMode" value="divide" />
+              <strong>÷</strong>
+              <span>除法練習</span>
+              <small>橫式與長除法</small>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="practiceMode" value="mixed" />
+              <strong>★</strong>
+              <span>混合練習</span>
+              <small>加減乘除</small>
+            </label>
+          </div>
+
+          <div class="settings-grid" aria-label="題目設定">
+          <label class="setting-control" data-setting="digits">
+            <span>位數</span>
+            <select id="digitsSelect">
+              <option value="1">個位</option>
+              <option value="2" selected>十位</option>
+              <option value="3">百位</option>
+              <option value="4">千位</option>
+            </select>
+          </label>
+          <label class="setting-control" data-setting="add">
+            <span>加法</span>
+            <select id="addDifficultySelect">
+              <option value="mixed">混合</option>
+              <option value="noCarry">不進位</option>
+              <option value="carry">有進位</option>
+            </select>
+          </label>
+          <label class="setting-control hidden" data-setting="subtract">
+            <span>減法</span>
+            <select id="subtractDifficultySelect">
+              <option value="mixed">混合</option>
+              <option value="noBorrow">不借位</option>
+              <option value="borrow">有借位</option>
+            </select>
+          </label>
+          <label class="setting-control hidden" data-setting="multiply">
+            <span>乘法</span>
+            <select id="multiplyModeSelect">
+              <option value="table-2">2 表</option>
+              <option value="table-3">3 表</option>
+              <option value="table-4">4 表</option>
+              <option value="table-5">5 表</option>
+              <option value="table-6">6 表</option>
+              <option value="table-7">7 表</option>
+              <option value="table-8">8 表</option>
+              <option value="table-9" selected>9 表</option>
+              <option value="tens">十位乘法</option>
+              <option value="hundreds">百位乘法</option>
+            </select>
+          </label>
+          <label class="setting-control hidden" data-setting="divide">
+            <span>除法</span>
+            <select id="divideModeSelect">
+              <option value="divide-2">除以 2</option>
+              <option value="divide-3">除以 3</option>
+              <option value="divide-4">除以 4</option>
+              <option value="divide-5">除以 5</option>
+              <option value="divide-6">除以 6</option>
+              <option value="divide-7">除以 7</option>
+              <option value="divide-8">除以 8</option>
+              <option value="divide-9" selected>除以 9</option>
+              <option value="tens">十位除法</option>
+            </select>
+          </label>
+        </div>
+          <div class="practice-start-row">
+            <button class="primary-button start-practice-button" id="startPracticeButton" type="button">開始 10 題</button>
+          </div>
+        </section>
+
+        <section class="practice-workspace hidden" id="practiceQuestionView" aria-label="作答區">
+        <div class="quest-toolbar">
+          <button class="ghost-button" id="stopPracticeButton" type="button">設定</button>
+          <button class="ghost-button" id="quitPracticeButton" type="button">停止練習</button>
+        </div>
+
+        <div class="stats-row">
+          <div>
+            <span>本輪</span>
+            <strong id="roundText">第 1 / 10 題</strong>
+          </div>
+          <div>
+            <span>答對</span>
+            <strong id="scoreText">0</strong>
+          </div>
+          <div>
+            <span>連勝</span>
+            <strong id="streakText">0</strong>
+          </div>
+        </div>
+
+        <form class="question-card" id="answerForm">
+          <div class="crystal-pop hidden" id="crystalPop" aria-live="polite">
+            <span class="crystal-icon" aria-hidden="true"></span>
+            <strong>+1 藍水晶</strong>
+          </div>
+          <div class="question-text" id="questionText"></div>
+          <div class="practice-actions">
+            <button class="ghost-button" id="clearWritingButton" type="button">清除手寫</button>
+            <button class="primary-button" type="submit">送出答案</button>
+          </div>
+          <p class="feedback" id="feedbackText" aria-live="polite"></p>
+        </form>
+
+        <div class="practice-reward-note">
+          <span>答對題目可獲得</span>
+          <strong><span class="crystal-icon" aria-hidden="true"></span> +1 藍水晶</strong>
+        </div>
+
+        <section class="round-result hidden" id="roundResult" aria-live="polite">
+          <p class="eyebrow">Result</p>
+          <h3>本輪完成</h3>
+          <div class="round-result-grid">
+            <div>
+              <span>答對</span>
+              <strong id="roundCorrectText">0 / 10</strong>
+            </div>
+            <div>
+              <span>基本獎勵</span>
+              <strong id="roundBaseRewardText">0</strong>
+            </div>
+            <div>
+              <span>額外獎勵</span>
+              <strong id="roundBonusText">0</strong>
+            </div>
+            <div>
+              <span>總獲得</span>
+              <strong id="roundTotalRewardText">0</strong>
+            </div>
+          </div>
+          <button class="primary-button" id="backToPracticeSettingsButton" type="button">回到設定</button>
+          <div class="round-review" id="roundReview" aria-label="本輪題目檢查"></div>
+        </section>
+        </section>
+      </section>
+      </section>
+
+      <section class="app-page" id="chestPage" data-page-panel="chest">
+        <section class="chest-panel" aria-labelledby="chestTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Treasure</p>
+              <h2 id="chestTitle">魔法寶箱</h2>
+            </div>
+          </div>
+          <div class="reward-panel chest-reward-panel">
+            <div class="chest-machine" aria-label="裝備寶箱">
+              <video
+                class="chest-video"
+                id="chestIdleVideo"
+                src="assets/Chest/Chestidot.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <video
+                class="chest-video hidden"
+                id="chestOpenVideo"
+                src="assets/Chest/OpenChest.mp4"
+                playsinline
+                preload="auto"
+              ></video>
+            </div>
+            <div class="chest-rules">
+              <p class="eyebrow">Rules</p>
+              <h3>一個魔法寶箱</h3>
+              <p>消耗 50 個藍水晶，隨機開出目前所有套裝裝備；抽到已擁有物品會返還 25 藍水晶。</p>
+              <div class="crystal-rules" aria-label="藍水晶規則">
+                <strong>藍水晶規則</strong>
+                <span>答對 1 題：+1</span>
+                <span>10 題答對 5 題：額外 +2</span>
+                <span>10 題答對 8 題：額外 +3</span>
+                <span>10 題全對：額外 +5</span>
+              </div>
+              <div class="rate-list" aria-label="裝備分級機率">
+                <span><i class="rate-dot rarity-common"></i>普通 60%</span>
+                <span><i class="rate-dot rarity-rare"></i>稀有 25%</span>
+                <span><i class="rate-dot rarity-epic"></i>史詩 12%</span>
+                <span><i class="rate-dot rarity-legendary"></i>傳說 3%</span>
+              </div>
+              <strong id="rewardText">開箱需要 50 藍水晶</strong>
+              <button class="treasure-button" id="openChestButton" type="button" disabled>開啟寶箱</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-page" id="settingsPage" data-page-panel="settings">
+        <section class="settings-page-panel" aria-labelledby="settingsTitle">
+          <div>
+            <p class="eyebrow">Settings</p>
+            <h2 id="settingsTitle">設定</h2>
+            <p>調整遊戲聲音與本機設定。</p>
+          </div>
+          <div class="settings-list">
+            <label class="settings-row">
+              <span>
+                <strong>音效</strong>
+                <small>控制答題、按鈕、娃娃互動與穿上音效。</small>
+              </span>
+              <input id="soundToggle" type="checkbox" checked />
+            </label>
+            <label class="settings-row">
+              <span>
+                <strong>語言</strong>
+                <small>先保存語言偏好，之後可接全站翻譯文字。</small>
+              </span>
+              <select class="settings-select" id="languageSelect">
+                <option value="zh-Hant">繁體中文</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <section class="settings-row settings-version" aria-label="版本控制">
+              <span>
+                <strong>版本控制</strong>
+                <small>目前先使用本機版本資訊，正式上架時可接 Android 版本號。</small>
+              </span>
+              <div class="version-grid">
+                <div>
+                  <span>App</span>
+                  <strong id="appVersionText">v0.1.0</strong>
+                </div>
+                <div>
+                  <span>Save</span>
+                  <strong id="saveVersionText">v1</strong>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
+
+      <section class="app-page" id="gmPage" data-page-panel="gm">
+        <section class="gm-panel standalone-gm" aria-labelledby="gmTitle">
+          <div>
+            <p class="eyebrow">GM Test</p>
+            <h2 id="gmTitle">素材測試</h2>
+          </div>
+          <div class="gm-actions">
+            <button class="ghost-button" id="gmUnlockAllButton" type="button">解鎖全部服裝</button>
+            <button class="ghost-button" id="gmAddCrystalButton" type="button">+500 藍水晶</button>
+            <button class="ghost-button" id="gmChestButton" type="button">測試開箱</button>
+            <button class="ghost-button" id="gmResetButton" type="button">重置背包</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="modal hidden" id="rewardModal" role="dialog" aria-modal="true" aria-labelledby="rewardTitle">
+      <div class="modal-card">
+        <p class="eyebrow">Reward</p>
+        <h2 id="rewardTitle">寶箱打開了</h2>
+        <div class="reward-preview" id="rewardPreview"></div>
+        <p id="rewardMessage"></p>
+        <button class="primary-button" id="closeRewardButton" type="button">收下</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

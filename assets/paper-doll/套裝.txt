@@ -1,0 +1,55 @@
+套裝名稱:Cozy Milk Tea Winter 
+總共 (8) 件組
+Cozy Milk Tea Winter_head (Rare)
+Cozy Milk Tea Winter_top (Epic)
+Cozy Milk Tea Winter_bottom (Epic)
+Cozy Milk Tea Winter_shoe (Common)
+Cozy Milk Tea Winter_scarf (Common)
+Cozy Milk Tea Winter_bag (Common)
+Cozy Milk Tea Winter_aura (Rare)
+Cozy Milk Tea Winter_background (Legendary)
+
+套裝名稱:Lemon Cream Daydream
+總共 (8) 件組
+Lemon Cream Daydream_head (Rare)
+Lemon Cream Daydream_top (Epic)
+Lemon Cream Daydream_bottom (Epic)
+Lemon Cream Daydream_shoe (Common)
+Lemon Cream Daydream_bag (Common)
+Lemon Cream Daydream_keychain (Common)
+Lemon Cream Daydream_aura (Rare)
+Lemon Cream Daydream_background (Legendary)
+
+套裝名稱:Rainy Blue Memory
+總共 (8) 件組
+Rainy Blue Memory_head (Rare)
+Rainy Blue Memory_top (Epic)
+Rainy Blue Memory_bottom (Epic)
+Rainy Blue Memory_shoe (Common)
+Rainy Blue Memory_bag (Common)
+Rainy Blue Memory_earphone (Common)
+Rainy Blue Memory_aura (Rare)
+Rainy Blue Memory_background (Legendary)
+
+套裝名稱:Cherry Blossom Picnic
+總共 (8) 件組
+Cherry Blossom Picnic_head (Rare)
+Cherry Blossom Picnic_top (Epic)
+Cherry Blossom Picnic_bottom (Epic)
+Cherry Blossom Picnic_shoe (Common)
+Cherry Blossom Picnic_clip (Common)
+Cherry Blossom Picnic_bag (Common)
+Cherry Blossom Picnic_aura (Rare)
+Cherry Blossom Picnic_background (Legendary)
+
+套裝名稱:Sage Garden Cafe
+總共 (8) 件組
+Sage Garden Cafe_head (Rare).
+Sage Garden Cafe_top (Epic).
+Sage Garden Cafe_bottom (Epic).
+Sage Garden Cafe_shoe (Common).
+Sage Garden Cafe_clip (Common).
+Sage Garden Cafe_bag (Common).
+Sage Garden Cafe_aura (Rare)
+Sage Garden Cafe_background (Legendary).
+

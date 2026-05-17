@@ -534,6 +534,8 @@ h3 {
   min-height: 520px;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  --tap-glow-rgb: 118, 213, 255;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(238, 242, 245, 0.84)),
     repeating-linear-gradient(90deg, rgba(97, 118, 137, 0.08) 0 1px, transparent 1px 36px);
@@ -544,10 +546,15 @@ h3 {
   position: absolute;
   inset: 18%;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(119, 213, 255, 0.28), transparent 66%);
+  background: radial-gradient(circle, rgba(var(--tap-glow-rgb), 0.34), transparent 66%);
   opacity: 0;
   pointer-events: none;
   z-index: 11;
+}
+
+.home-doll-stage.is-cheering,
+.doll-stage.is-cheering {
+  animation: stageGlow 0.9s ease-out;
 }
 
 .home-doll-stage.is-cheering::after {
@@ -711,9 +718,66 @@ select {
   min-height: 470px;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  --tap-glow-rgb: 118, 213, 255;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(238, 242, 245, 0.84)),
-    repeating-linear-gradient(90deg, rgba(97, 118, 137, 0.08) 0 1px, transparent 1px 36px);
+    radial-gradient(ellipse at 50% 62%, rgba(126, 231, 200, 0.16) 0%, rgba(126, 231, 200, 0) 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(238, 242, 245, 0.9)),
+    repeating-linear-gradient(90deg, rgba(97, 118, 137, 0.075) 0 1px, transparent 1px 36px);
+}
+
+.doll-stage::after {
+  content: "";
+  position: absolute;
+  inset: 17%;
+  z-index: 11;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(var(--tap-glow-rgb), 0.38), transparent 66%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.doll-stage.is-cheering::after {
+  animation: dollSpark 0.85s ease-out;
+}
+
+.doll-stage.is-cheering .base-layer,
+.doll-stage.is-cheering .item-layer {
+  animation: dollCheer 0.72s ease-out;
+}
+
+.dressing-room-glow {
+  position: absolute;
+  z-index: 0;
+  bottom: 74px;
+  left: 50%;
+  width: min(72%, 320px);
+  height: 210px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(118, 213, 255, 0.2) 0%, rgba(118, 213, 255, 0.08) 44%, transparent 72%),
+    radial-gradient(ellipse at center, rgba(255, 211, 110, 0.12) 0%, transparent 58%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.dressing-room-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.58;
+  background:
+    radial-gradient(circle at 22% 24%, rgba(118, 213, 255, 0.42) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 22%, rgba(255, 211, 110, 0.34) 0 2px, transparent 3px),
+    radial-gradient(circle at 18% 68%, rgba(200, 167, 255, 0.34) 0 2px, transparent 3px),
+    radial-gradient(circle at 83% 72%, rgba(126, 231, 200, 0.36) 0 2px, transparent 3px);
+}
+
+.doll-stage.has-background .dressing-room-glow,
+.doll-stage.has-background .dressing-room-sparkles {
+  display: none;
 }
 
 .soft-shadow {
@@ -798,8 +862,8 @@ select {
 
 .equipped-slots {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 12px;
   margin-bottom: 12px;
 }
 
@@ -824,12 +888,12 @@ select {
 
 .slot-button {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 52px minmax(0, 1fr);
   grid-template-rows: auto auto;
   align-items: center;
-  min-height: 66px;
-  gap: 2px 8px;
-  overflow-wrap: anywhere;
+  min-height: 74px;
+  gap: 2px 10px;
+  overflow-wrap: normal;
   text-align: left;
 }
 
@@ -843,8 +907,8 @@ select {
   grid-row: span 2;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   overflow: hidden;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
@@ -861,7 +925,11 @@ select {
 }
 
 .slot-thumb img {
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.empty-slot-icon {
+  padding: 4px;
 }
 
 .slot-button.is-equipped .slot-thumb {
@@ -873,10 +941,14 @@ select {
 .slot-name,
 .slot-state {
   display: block;
+  min-width: 0;
 }
 
 .slot-name {
   font-size: 0.92rem;
+  line-height: 1.18;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .slot-state {
@@ -900,6 +972,13 @@ select {
 .closet-tabs {
   gap: 8px;
   margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.closet-tab {
+  min-height: 48px;
+  white-space: normal;
+  word-break: normal;
 }
 
 .closet-tab.is-active {
@@ -2098,6 +2177,24 @@ select {
   100% {
     opacity: 0;
     transform: scale(1.18);
+  }
+}
+
+@keyframes stageGlow {
+  0% {
+    box-shadow:
+      inset 0 0 0 1px rgba(var(--tap-glow-rgb), 0),
+      0 0 0 rgba(var(--tap-glow-rgb), 0);
+  }
+  36% {
+    box-shadow:
+      inset 0 0 0 2px rgba(var(--tap-glow-rgb), 0.5),
+      0 0 26px rgba(var(--tap-glow-rgb), 0.3);
+  }
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(var(--tap-glow-rgb), 0),
+      0 0 0 rgba(var(--tap-glow-rgb), 0);
   }
 }
 

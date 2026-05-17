@@ -579,6 +579,20 @@ const slotIcons = {
   pet: "寵",
 };
 
+const emptySlotIcons = {
+  background: "assets/paper-doll/ICONs/Empty_ICON/empty_backgrounds.png",
+  head: "assets/paper-doll/ICONs/Empty_ICON/empty_girl_head.png",
+  top: "assets/paper-doll/ICONs/Empty_ICON/empty_tops.png",
+  bottom: "assets/paper-doll/ICONs/Empty_ICON/empty_bottoms.png",
+  shoe: "assets/paper-doll/ICONs/Empty_ICON/empty_shoes.png",
+  bag: "assets/paper-doll/ICONs/Empty_ICON/empty_bags.png",
+  accessory: "assets/paper-doll/ICONs/Empty_ICON/empty_accessory.png",
+  aura: "assets/paper-doll/ICONs/Empty_ICON/empty_auras.png",
+  pet: "assets/paper-doll/ICONs/Empty_ICON/empty_pets.jpg",
+};
+
+const dollGlowColors = ["118, 213, 255", "126, 231, 200", "200, 167, 255", "255, 173, 201", "255, 211, 110", "119, 240, 255"];
+
 const i18n = {
   "zh-Hant": {
     appSubtitle: "Math Dress Up",
@@ -622,6 +636,33 @@ const i18n = {
     crystals: "藍水晶",
     openChest: "開啟寶箱",
     openingChest: "開箱中",
+    chestEyebrow: "Rules",
+    chestHeading: "一個魔法寶箱",
+    chestDescription: "消耗 50 個藍水晶，隨機開出目前所有套裝裝備；抽到已擁有物品會返還 25 藍水晶。",
+    crystalRulesTitle: "藍水晶規則",
+    crystalRules: ["答對 1 題：+1", "10 題答對 5 題：額外 +2", "10 題答對 8 題：額外 +3", "10 題全對：額外 +5"],
+    rarityRates: ["普通 60%", "稀有 25%", "史詩 12%", "傳說 3%"],
+    practiceModes: {
+      add: ["加法練習", "直式加法"],
+      subtract: ["減法練習", "直式減法"],
+      multiply: ["乘法練習", "乘法表與直式"],
+      divide: ["除法練習", "橫式與長除法"],
+      mixed: ["混合練習", "加減乘除"],
+    },
+    practiceSettingLabels: {
+      digits: "位數",
+      add: "加法",
+      subtract: "減法",
+      multiply: "乘法",
+      divide: "除法",
+    },
+    selectOptions: {
+      digits: ["個位", "十位", "百位", "千位"],
+      add: ["混合", "不進位", "有進位"],
+      subtract: ["混合", "不借位", "有借位"],
+      multiply: ["2 表", "3 表", "4 表", "5 表", "6 表", "7 表", "8 表", "9 表", "十位乘法", "百位乘法"],
+      divide: ["除以 2", "除以 3", "除以 4", "除以 5", "除以 6", "除以 7", "除以 8", "除以 9", "十位除法"],
+    },
     roundText: "第",
     questionUnit: "題",
     correctFeedback: "答對了！藍水晶",
@@ -729,6 +770,33 @@ const i18n = {
     crystals: "blue crystals",
     openChest: "Open Chest",
     openingChest: "Opening",
+    chestEyebrow: "Rules",
+    chestHeading: "One Magic Chest",
+    chestDescription: "Spend 50 blue crystals to open a random item from all current outfit sets. Duplicate items refund 25 blue crystals.",
+    crystalRulesTitle: "Blue Crystal Rules",
+    crystalRules: ["1 correct answer: +1", "5 correct in 10: bonus +2", "8 correct in 10: bonus +3", "10 correct in 10: bonus +5"],
+    rarityRates: ["Common 60%", "Rare 25%", "Epic 12%", "Legendary 3%"],
+    practiceModes: {
+      add: ["Addition Practice", "Vertical addition"],
+      subtract: ["Subtraction Practice", "Vertical subtraction"],
+      multiply: ["Multiplication Practice", "Tables and vertical"],
+      divide: ["Division Practice", "Facts and long division"],
+      mixed: ["Mixed Practice", "All operations"],
+    },
+    practiceSettingLabels: {
+      digits: "Place Value",
+      add: "Addition",
+      subtract: "Subtraction",
+      multiply: "Multiplication",
+      divide: "Division",
+    },
+    selectOptions: {
+      digits: ["Ones", "Tens", "Hundreds", "Thousands"],
+      add: ["Mixed", "No carrying", "With carrying"],
+      subtract: ["Mixed", "No borrowing", "With borrowing"],
+      multiply: ["2 times table", "3 times table", "4 times table", "5 times table", "6 times table", "7 times table", "8 times table", "9 times table", "Tens multiplication", "Hundreds multiplication"],
+      divide: ["Divide by 2", "Divide by 3", "Divide by 4", "Divide by 5", "Divide by 6", "Divide by 7", "Divide by 8", "Divide by 9", "Tens division"],
+    },
     roundText: "Question",
     questionUnit: "",
     correctFeedback: "Correct! Blue crystal",
@@ -896,6 +964,7 @@ const dollTapSounds = [
 const inventoryGrid = document.querySelector("#inventoryGrid");
 const inventoryHint = document.querySelector("#inventoryHint");
 const dollStage = document.querySelector(".doll-stage");
+const dressDollSpeech = document.querySelector("#dressDollSpeech");
 const backgroundLayer = document.querySelector("#backgroundLayer");
 const baseLayer = document.querySelector("#baseLayer");
 const headLayer = document.querySelector("#headLayer");
@@ -951,6 +1020,7 @@ startPracticeButton.addEventListener("click", startRound);
 stopPracticeButton.addEventListener("click", showPracticeSettings);
 quitPracticeButton.addEventListener("click", showPracticeSettings);
 homeDollStage.addEventListener("click", cheerHomeDoll);
+dollStage.addEventListener("click", () => cheerDressDoll());
 settingsButton.addEventListener("click", () => {
   playSound(flippingSound, 0.28);
   showPage("settings");
@@ -1387,6 +1457,15 @@ function setText(selector, text) {
   }
 }
 
+function setOptionText(selectElement, labels) {
+  if (!selectElement || !labels) {
+    return;
+  }
+  Array.from(selectElement.options).forEach((option, index) => {
+    option.textContent = labels[index] ?? option.textContent;
+  });
+}
+
 function translateStaticText() {
   setText(".topbar .eyebrow", tr("appSubtitle"));
   setText(".topbar h1", tr("appTitle"));
@@ -1422,15 +1501,49 @@ function translateStaticText() {
   setText(".practice-reward-note > span", en ? "Correct answers earn" : "答對題目可獲得");
   document.querySelector(".practice-reward-note strong").innerHTML = `<span class="crystal-icon" aria-hidden="true"></span> +1 ${tr("crystals")}`;
   setText("#chestTitle", en ? "Magic Chest" : "魔法寶箱");
-  setText(".chest-rules .eyebrow", en ? "Rules" : "Rules");
-  setText(".chest-rules h3", en ? "One Magic Chest" : "一個魔法寶箱");
-  setText(
-    ".chest-rules > p",
-    en
-      ? "Spend 50 blue crystals to open a random item from all current outfit sets. Duplicate items refund 25 blue crystals."
-      : "消耗 50 個藍水晶，隨機開出目前所有套裝裝備；抽到已擁有物品會返還 25 藍水晶。",
-  );
-  setText(".crystal-rules strong", en ? "Blue Crystal Rules" : "藍水晶規則");
+  setText(".chest-rules .eyebrow", tr("chestEyebrow"));
+  setText(".chest-rules h3", tr("chestHeading"));
+  const chestDescription = document.querySelectorAll(".chest-rules > p")[1];
+  if (chestDescription) {
+    chestDescription.textContent = tr("chestDescription");
+  }
+  setText(".crystal-rules strong", tr("crystalRulesTitle"));
+  document.querySelectorAll(".crystal-rules span").forEach((span, index) => {
+    span.textContent = tr("crystalRules")[index] ?? span.textContent;
+  });
+  document.querySelectorAll(".rate-list span").forEach((span, index) => {
+    const dot = span.querySelector(".rate-dot")?.outerHTML ?? "";
+    span.innerHTML = `${dot}${tr("rarityRates")[index] ?? span.textContent}`;
+  });
+
+  modeCards.forEach((card) => {
+    const mode = card.querySelector("input")?.value;
+    const labels = tr("practiceModes")?.[mode];
+    if (!labels) {
+      return;
+    }
+    const title = card.querySelector("span");
+    const subtitle = card.querySelector("small");
+    if (title) {
+      title.textContent = labels[0];
+    }
+    if (subtitle) {
+      subtitle.textContent = labels[1];
+    }
+  });
+  document.querySelectorAll(".setting-control").forEach((control) => {
+    const label = tr("practiceSettingLabels")?.[control.dataset.setting];
+    const span = control.querySelector(":scope > span");
+    if (span && label) {
+      span.textContent = label;
+    }
+  });
+  const selectOptions = tr("selectOptions");
+  setOptionText(digitsSelect, selectOptions.digits);
+  setOptionText(addDifficultySelect, selectOptions.add);
+  setOptionText(subtractDifficultySelect, selectOptions.subtract);
+  setOptionText(multiplyModeSelect, selectOptions.multiply);
+  setOptionText(divideModeSelect, selectOptions.divide);
 
   const closetLabels = en
     ? ["All", "Background", "Hair / Face", "Top", "Bottom", "Shoes", "Bag", "Accessory", "Aura", "Pet"]
@@ -1509,12 +1622,11 @@ function cheerHomeDoll() {
   const sound = dollTapSounds[state.dollTapSoundIndex % dollTapSounds.length];
   state.dollTapSoundIndex = (state.dollTapSoundIndex + 1) % dollTapSounds.length;
   playSound(sound, 0.38);
-  const messages = [
-    "今天也一起練習吧！",
-    "去拿藍水晶吧！",
-    "這套看起來很適合今天！",
-    "再開一個魔法寶箱吧！",
-  ];
+  const messages =
+    state.language === "en"
+      ? ["Let's practice today!", "Let's collect blue crystals!", "This look is perfect today!", "Open another magic chest!"]
+      : ["今天也一起練習吧！", "去拿藍水晶吧！", "這套看起來很適合今天！", "再開一個魔法寶箱吧！"];
+  homeDollStage.style.setProperty("--tap-glow-rgb", pick(dollGlowColors));
   homeDollSpeech.textContent = pick(messages);
   homeDollSpeech.classList.remove("hidden");
   homeDollStage.classList.remove("is-cheering");
@@ -1525,6 +1637,27 @@ function cheerHomeDoll() {
     homeDollSpeech.classList.add("hidden");
     homeDollStage.classList.remove("is-cheering");
   }, 2300);
+}
+
+function cheerDressDoll(message = null) {
+  const sound = dollTapSounds[state.dollTapSoundIndex % dollTapSounds.length];
+  state.dollTapSoundIndex = (state.dollTapSoundIndex + 1) % dollTapSounds.length;
+  playSound(sound, 0.32);
+  const messages =
+    state.language === "en"
+      ? ["So cute!", "Try another look!", "Sparkle check!", "That outfit shines!", "Aveline is ready!"]
+      : ["今天這套不錯！", "再搭一件看看！", "亮晶晶！", "這樣很好看！", "Aveline 準備好了！"];
+  dollStage.style.setProperty("--tap-glow-rgb", pick(dollGlowColors));
+  dressDollSpeech.textContent = message ?? pick(messages);
+  dressDollSpeech.classList.remove("hidden");
+  dollStage.classList.remove("is-cheering");
+  void dollStage.offsetWidth;
+  dollStage.classList.add("is-cheering");
+  window.clearTimeout(state.dressDollSpeechTimer);
+  state.dressDollSpeechTimer = window.setTimeout(() => {
+    dressDollSpeech.classList.add("hidden");
+    dollStage.classList.remove("is-cheering");
+  }, 1900);
 }
 
 function renderQuestion(question) {
@@ -2230,6 +2363,7 @@ function equipItem(itemId) {
     return;
   }
 
+  const wasEquipped = state.equipped[item.slot] === item.id;
   if (state.equipped[item.slot] === item.id) {
     state.equipped[item.slot] = null;
   } else {
@@ -2238,6 +2372,9 @@ function equipItem(itemId) {
 
   renderInventory();
   renderDoll();
+  if (!wasEquipped) {
+    cheerDressDoll(state.language === "en" ? "New look equipped!" : "換上新造型！");
+  }
 }
 
 function unequipSlot(slot) {
@@ -2388,7 +2525,7 @@ function renderInventoryItem(item) {
     <button class="item-button rarity-${rarity.toLowerCase()} ${equipped ? "is-equipped" : ""}" type="button" data-item-id="${item.id}">
       <span class="item-icon" aria-hidden="true">${slotIcons[item.slot] ?? "物"}</span>
       <strong>${getSlotLabel(item.slot) ?? item.name}</strong>
-      <span>${equipped ? "穿戴中" : getRarityLabel(rarity)}</span>
+      <span>${equipped ? (state.language === "en" ? "Equipped" : "穿戴中") : getRarityLabel(rarity)}</span>
     </button>
   `;
 }
@@ -2400,16 +2537,29 @@ function renderSetIcon(set) {
   return `<span aria-hidden="true">${set?.icon ?? "★"}</span>`;
 }
 
+function renderEmptySlotIcon(slot) {
+  const iconPath = emptySlotIcons[slot];
+  if (!iconPath) {
+    return `<span aria-hidden="true">${state.language === "en" ? "Empty" : "空"}</span>`;
+  }
+  return `<img class="empty-slot-icon" src="${iconPath}" alt="" aria-hidden="true" />`;
+}
+
 function renderSlots() {
-  renderSlotButton(backgroundSlotButton, "background");
-  renderSlotButton(headSlotButton, "head");
-  renderSlotButton(topSlotButton, "top");
-  renderSlotButton(bottomSlotButton, "bottom");
-  renderSlotButton(shoeSlotButton, "shoe");
-  renderSlotButton(bagSlotButton, "bag");
-  renderSlotButton(accessorySlotButton, "accessory");
-  renderSlotButton(auraSlotButton, "aura");
-  renderSlotButton(petSlotButton, "pet");
+  [
+    [headSlotButton, "head"],
+    [topSlotButton, "top"],
+    [bottomSlotButton, "bottom"],
+    [accessorySlotButton, "accessory"],
+    [shoeSlotButton, "shoe"],
+    [bagSlotButton, "bag"],
+    [backgroundSlotButton, "background"],
+    [auraSlotButton, "aura"],
+    [petSlotButton, "pet"],
+  ].forEach(([button, slot]) => {
+    button.parentElement?.append(button);
+    renderSlotButton(button, slot);
+  });
 }
 
 function renderSlotButton(button, slot) {
@@ -2424,7 +2574,7 @@ function renderSlotButton(button, slot) {
   );
   button.innerHTML = `
     <span class="slot-thumb">
-      ${item ? renderSetIcon(set) : `<span aria-hidden="true">${state.language === "en" ? "Empty" : "空"}</span>`}
+      ${item ? renderSetIcon(set) : renderEmptySlotIcon(slot)}
     </span>
     <span class="slot-name">${getSlotLabel(slot)}</span>
     <span class="slot-state">${item ? (state.language === "en" ? "Equipped" : "已穿") : state.language === "en" ? "Empty" : "空"}</span>

@@ -2365,6 +2365,89 @@ select {
   }
 }
 
+@media (min-width: 721px) and (max-width: 900px) {
+  .question-card {
+    padding: 18px 10px;
+  }
+
+  .question-text {
+    min-height: 560px;
+    overflow-x: auto;
+  }
+
+  .horizontal-question,
+  .long-division-question {
+    width: min(760px, 100%);
+  }
+
+  .worksheet {
+    width: max-content;
+    min-width: 100%;
+    gap: 8px;
+  }
+
+  .worksheet-row,
+  .horizontal-answer,
+  .long-division-answer {
+    grid-auto-columns: 100px;
+    gap: 8px;
+  }
+
+  .worksheet-spacer,
+  .worksheet-cell {
+    width: 100px;
+    height: 92px;
+  }
+
+  .answer-canvas,
+  .carry-canvas,
+  .scratch-canvas {
+    width: 100px;
+  }
+
+  .carry-canvas {
+    height: 88px;
+  }
+
+  .answer-canvas,
+  .horizontal-answer .answer-canvas,
+  .long-division-answer .answer-canvas {
+    height: 132px;
+  }
+
+  .scratch-canvas {
+    height: 104px;
+  }
+
+  .preview-cell {
+    min-height: 46px;
+    font-size: 1.7rem;
+  }
+
+  .long-division-grid {
+    grid-template-columns: 100px auto;
+    gap: 8px;
+  }
+
+  .long-divisor {
+    min-height: 92px;
+    font-size: 3.1rem;
+  }
+
+  .long-division-answer,
+  .long-division-preview,
+  .long-dividend,
+  .long-division-scratch {
+    grid-template-columns: repeat(var(--columns), 100px);
+    gap: 8px;
+  }
+
+  .long-digit-cell {
+    min-height: 92px;
+    font-size: 3.2rem;
+  }
+}
+
 @media (max-width: 560px) {
   .home-card {
     grid-template-columns: minmax(96px, 118px) minmax(0, 1fr);

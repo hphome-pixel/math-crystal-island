@@ -622,6 +622,18 @@ const i18n = {
     languageText: "先保存語言偏好，之後可接全站翻譯文字。",
     versionTitle: "版本控制",
     versionText: "目前先使用本機版本資訊，正式上架時可接 Android 版本號。",
+    transferTitle: "存檔轉移",
+    transferText: "可匯出目前進度，並在另一台裝置匯入。",
+    downloadSave: "下載存檔",
+    copySaveCode: "複製存檔碼",
+    chooseSaveFile: "匯入檔案",
+    importSaveCode: "匯入存檔碼",
+    clearSaveCode: "清除",
+    saveCodePlaceholder: "貼上存檔碼",
+    saveCopied: "存檔碼已複製。",
+    saveDownloaded: "存檔已下載。",
+    saveImported: "存檔已匯入。",
+    saveImportError: "存檔格式不正確，請重新匯入。",
     footerPrivacy: "隱私權政策",
     footerAbout: "關於",
     footerParentGuide: "家長指南",
@@ -756,6 +768,18 @@ const i18n = {
     languageText: "Save your language preference for this browser.",
     versionTitle: "Version",
     versionText: "Local app and save-data version information.",
+    transferTitle: "Save Transfer",
+    transferText: "Export progress here, then import it on another device.",
+    downloadSave: "Download Save",
+    copySaveCode: "Copy Save Code",
+    chooseSaveFile: "Import File",
+    importSaveCode: "Import Save Code",
+    clearSaveCode: "Clear",
+    saveCodePlaceholder: "Paste save code",
+    saveCopied: "Save code copied.",
+    saveDownloaded: "Save downloaded.",
+    saveImported: "Save imported.",
+    saveImportError: "This save format is not valid. Try importing again.",
     footerPrivacy: "Privacy Policy",
     footerAbout: "About",
     footerParentGuide: "Parent Guide",
@@ -942,6 +966,14 @@ const soundToggle = document.querySelector("#soundToggle");
 const languageSelect = document.querySelector("#languageSelect");
 const appVersionText = document.querySelector("#appVersionText");
 const saveVersionText = document.querySelector("#saveVersionText");
+const downloadSaveButton = document.querySelector("#downloadSaveButton");
+const copySaveCodeButton = document.querySelector("#copySaveCodeButton");
+const chooseSaveFileButton = document.querySelector("#chooseSaveFileButton");
+const importSaveCodeButton = document.querySelector("#importSaveCodeButton");
+const clearSaveCodeButton = document.querySelector("#clearSaveCodeButton");
+const saveCodeInput = document.querySelector("#saveCodeInput");
+const saveFileInput = document.querySelector("#saveFileInput");
+const saveTransferStatus = document.querySelector("#saveTransferStatus");
 const rewardText = document.querySelector("#rewardText");
 const openChestButton = document.querySelector("#openChestButton");
 const chestIdleVideo = document.querySelector("#chestIdleVideo");
@@ -955,6 +987,7 @@ const homeCardSounds = {
   chest: new Audio("assets/sfx/魔法寶箱.mp3"),
   dress: new Audio("assets/sfx/Aveline衣櫃.mp3"),
 };
+const chestOpenSound = new Audio("assets/sfx/魔法寶箱.mp3");
 const dollTapSounds = [
   new Audio("assets/sfx/doll_tap_1.mp3"),
   new Audio("assets/sfx/doll_tap_2.mp3"),
@@ -1000,8 +1033,10 @@ const playSetAnimationButton = document.querySelector("#playSetAnimationButton")
 const rewardModal = document.querySelector("#rewardModal");
 const rewardTitle = document.querySelector("#rewardTitle");
 const rewardPreview = document.querySelector("#rewardPreview");
+const rewardPreviewContent = document.querySelector("#rewardPreviewContent");
 const rewardMessage = document.querySelector("#rewardMessage");
 const closeRewardButton = document.querySelector("#closeRewardButton");
+const modalChestOpenVideo = document.querySelector("#modalChestOpenVideo");
 const resetOutfitButton = document.querySelector("#resetOutfitButton");
 const gmUnlockAllButton = document.querySelector("#gmUnlockAllButton");
 const gmAddCrystalButton = document.querySelector("#gmAddCrystalButton");
@@ -1027,6 +1062,12 @@ settingsButton.addEventListener("click", () => {
 });
 soundToggle.addEventListener("change", updateSoundSetting);
 languageSelect.addEventListener("change", updateLanguageSetting);
+downloadSaveButton.addEventListener("click", downloadSaveFile);
+copySaveCodeButton.addEventListener("click", copySaveCode);
+chooseSaveFileButton.addEventListener("click", () => saveFileInput.click());
+importSaveCodeButton.addEventListener("click", importSaveCode);
+clearSaveCodeButton.addEventListener("click", clearSaveCode);
+saveFileInput.addEventListener("change", importSaveFile);
 openChestButton.addEventListener("click", () => startChestOpening({ requiresCrystals: true }));
 closeRewardButton.addEventListener("click", closeReward);
 resetOutfitButton.addEventListener("click", resetOutfit);
@@ -1099,11 +1140,47 @@ showPracticeSettings();
 renderInventory();
 renderDoll();
 document.body.dataset.page = "home";
+preloadModalChestVideo();
 
 function chooseCharacter(characterId) {
   state.characterId = characterId;
   girlCharacterButton.classList.toggle("is-selected", characterId === "master_base");
   renderDoll();
+}
+
+function createSavePayload() {
+  return {
+    version: SAVE_VERSION,
+    appVersion: APP_VERSION,
+    exportedAt: new Date().toISOString(),
+    characterId: state.characterId,
+    blueCrystals: state.blueCrystals,
+    soundEnabled: state.soundEnabled,
+    language: state.language,
+    ownedItems: [...state.ownedItems],
+    equipped: state.equipped,
+  };
+}
+
+function applySavePayload(save) {
+  if (!save || typeof save !== "object") {
+    throw new Error("Invalid save data");
+  }
+
+  const validItemIds = new Set(itemCatalog.map((item) => item.id));
+  state.characterId = characterCatalog[save.characterId] ? save.characterId : "master_base";
+  state.blueCrystals = Number.isFinite(save.blueCrystals) ? Math.max(0, save.blueCrystals) : 0;
+  state.soundEnabled = save.soundEnabled !== false;
+  state.language = save.language === "en" ? "en" : "zh-Hant";
+  soundToggle.checked = state.soundEnabled;
+  languageSelect.value = state.language;
+  applyLanguageSetting();
+  state.ownedItems = new Set((save.ownedItems || []).filter((itemId) => validItemIds.has(itemId)));
+
+  Object.keys(state.equipped).forEach((slot) => {
+    const itemId = save.equipped?.[slot] ?? null;
+    state.equipped[slot] = itemId && state.ownedItems.has(itemId) ? itemId : null;
+  });
 }
 
 function loadGame() {
@@ -1117,21 +1194,7 @@ function loadGame() {
     }
 
     const save = JSON.parse(rawSave);
-    const validItemIds = new Set(itemCatalog.map((item) => item.id));
-
-    state.characterId = characterCatalog[save.characterId] ? save.characterId : "master_base";
-    state.blueCrystals = Number.isFinite(save.blueCrystals) ? Math.max(0, save.blueCrystals) : 0;
-    state.soundEnabled = save.soundEnabled !== false;
-    state.language = save.language === "en" ? "en" : "zh-Hant";
-    soundToggle.checked = state.soundEnabled;
-    languageSelect.value = state.language;
-    applyLanguageSetting();
-    state.ownedItems = new Set((save.ownedItems || []).filter((itemId) => validItemIds.has(itemId)));
-
-    Object.keys(state.equipped).forEach((slot) => {
-      const itemId = save.equipped?.[slot] ?? null;
-      state.equipped[slot] = itemId && state.ownedItems.has(itemId) ? itemId : null;
-    });
+    applySavePayload(save);
   } catch {
     soundToggle.checked = state.soundEnabled;
     languageSelect.value = state.language;
@@ -1141,19 +1204,101 @@ function loadGame() {
 
 function saveGame() {
   try {
-    localStorage.setItem(
-      SAVE_KEY,
-      JSON.stringify({
-        version: SAVE_VERSION,
-        characterId: state.characterId,
-        blueCrystals: state.blueCrystals,
-        soundEnabled: state.soundEnabled,
-        language: state.language,
-        ownedItems: [...state.ownedItems],
-        equipped: state.equipped,
-      }),
-    );
+    localStorage.setItem(SAVE_KEY, JSON.stringify(createSavePayload()));
   } catch {}
+}
+
+function encodeSaveCode(payload) {
+  return `MCI1-${btoa(unescape(encodeURIComponent(JSON.stringify(payload))))}`;
+}
+
+function decodeSaveCode(code) {
+  const cleaned = code.trim();
+  const encoded = cleaned.startsWith("MCI1-") ? cleaned.slice(5) : cleaned;
+  return JSON.parse(decodeURIComponent(escape(atob(encoded))));
+}
+
+function setSaveTransferStatus(message, isError = false) {
+  saveTransferStatus.textContent = message;
+  saveTransferStatus.classList.toggle("is-error", isError);
+}
+
+function downloadSaveFile() {
+  saveGame();
+  const payload = createSavePayload();
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  const date = new Date().toISOString().slice(0, 10);
+  link.href = URL.createObjectURL(blob);
+  link.download = `math-crystal-island-save-${date}.json`;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 0);
+  setSaveTransferStatus(tr("saveDownloaded"));
+}
+
+async function copySaveCode() {
+  saveGame();
+  const code = encodeSaveCode(createSavePayload());
+  saveCodeInput.value = code;
+  try {
+    await navigator.clipboard.writeText(code);
+    setSaveTransferStatus(tr("saveCopied"));
+  } catch {
+    saveCodeInput.focus();
+    saveCodeInput.select();
+    setSaveTransferStatus(tr("saveCopied"));
+  }
+}
+
+function clearSaveCode() {
+  saveCodeInput.value = "";
+  setSaveTransferStatus("");
+}
+
+function importSaveCode() {
+  try {
+    const payload = decodeSaveCode(saveCodeInput.value);
+    importSavePayload(payload);
+  } catch {
+    setSaveTransferStatus(tr("saveImportError"), true);
+  }
+}
+
+function importSaveFile() {
+  const file = saveFileInput.files?.[0];
+  if (!file) {
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    try {
+      importSavePayload(JSON.parse(String(reader.result)));
+    } catch {
+      setSaveTransferStatus(tr("saveImportError"), true);
+    } finally {
+      saveFileInput.value = "";
+    }
+  });
+  reader.addEventListener("error", () => {
+    saveFileInput.value = "";
+    setSaveTransferStatus(tr("saveImportError"), true);
+  });
+  reader.readAsText(file);
+}
+
+function importSavePayload(payload) {
+  try {
+    applySavePayload(payload);
+    saveGame();
+    chooseCharacter(state.characterId);
+    renderStats();
+    renderInventory();
+    renderDoll();
+    setSaveTransferStatus(tr("saveImported"));
+  } catch {
+    setSaveTransferStatus(tr("saveImportError"), true);
+  }
 }
 
 function showPage(pageName) {
@@ -1167,6 +1312,7 @@ function showPage(pageName) {
     page.classList.toggle("is-active", page.dataset.pagePanel === pageName);
   });
   if (pageName === "chest") {
+    preloadModalChestVideo();
     resetChestVideoToIdle();
   }
 }
@@ -1561,6 +1707,14 @@ function translateStaticText() {
   setText(".settings-list label:nth-child(2) small", tr("languageText"));
   setText(".settings-version > span strong", tr("versionTitle"));
   setText(".settings-version > span small", tr("versionText"));
+  setText(".settings-transfer > span strong", tr("transferTitle"));
+  setText(".settings-transfer > span small", tr("transferText"));
+  setText("#downloadSaveButton", tr("downloadSave"));
+  setText("#copySaveCodeButton", tr("copySaveCode"));
+  setText("#chooseSaveFileButton", tr("chooseSaveFile"));
+  setText("#importSaveCodeButton", tr("importSaveCode"));
+  setText("#clearSaveCodeButton", tr("clearSaveCode"));
+  saveCodeInput.placeholder = tr("saveCodePlaceholder");
 
   const infoPages = tr("infoPages");
   document.querySelector("#privacyPage .info-page-panel").innerHTML = infoPages.privacy;
@@ -2166,7 +2320,7 @@ function startChestOpening({ requiresCrystals, preferUnowned = false }) {
 }
 
 function playOpenChestVideo(onComplete) {
-  if (!rewardModal || !rewardPreview) {
+  if (!rewardModal || !rewardPreview || !modalChestOpenVideo) {
     onComplete();
     return;
   }
@@ -2176,22 +2330,36 @@ function playOpenChestVideo(onComplete) {
   rewardTitle.textContent = state.language === "en" ? "Opening Chest" : "寶箱開啟中";
   rewardMessage.textContent = state.language === "en" ? "The magic chest is opening..." : "魔法寶箱正在打開...";
   closeRewardButton.classList.add("hidden");
-  rewardPreview.innerHTML = `
-    <video id="modalChestOpenVideo" src="assets/Chest/OpenChest.mp4" autoplay playsinline></video>
-  `;
+  rewardPreviewContent.innerHTML = "";
+  rewardPreview.classList.add("is-opening");
+  modalChestOpenVideo.classList.remove("hidden");
+  modalChestOpenVideo.pause();
+  modalChestOpenVideo.muted = !state.soundEnabled;
+  modalChestOpenVideo.volume = 0.82;
+  try {
+    modalChestOpenVideo.currentTime = 0;
+  } catch {}
+  if (modalChestOpenVideo.readyState === 0) {
+    modalChestOpenVideo.load();
+  }
   rewardModal.classList.remove("hidden");
   chestIdleVideo?.pause();
-  const modalChestOpenVideo = document.querySelector("#modalChestOpenVideo");
 
   const finish = () => {
-    modalChestOpenVideo?.removeEventListener("ended", finish);
+    modalChestOpenVideo.removeEventListener("ended", finish);
+    modalChestOpenVideo.pause();
+    modalChestOpenVideo.classList.add("hidden");
+    rewardPreview.classList.remove("is-opening");
     onComplete();
   };
 
-  modalChestOpenVideo?.addEventListener("ended", finish, { once: true });
-  const playResult = modalChestOpenVideo?.play();
+  modalChestOpenVideo.addEventListener("ended", finish, { once: true });
+  const playResult = modalChestOpenVideo.play();
   if (playResult?.catch) {
-    playResult.catch(() => finish());
+    playResult.catch(() => {
+      playSound(chestOpenSound, 0.46);
+      finish();
+    });
   }
 }
 
@@ -2209,6 +2377,13 @@ function resetChestVideoToIdle() {
   }
 }
 
+function preloadModalChestVideo() {
+  if (!modalChestOpenVideo || modalChestOpenVideo.readyState > 0) {
+    return;
+  }
+  modalChestOpenVideo.load();
+}
+
 function grantChestReward(preferUnowned = false, { refundDuplicate = false } = {}) {
   const item = pickChestItem(preferUnowned);
   const isNew = !state.ownedItems.has(item.id);
@@ -2224,7 +2399,7 @@ function grantChestReward(preferUnowned = false, { refundDuplicate = false } = {
   resetRewardModalMode();
   state.rewardAction = "goDress";
   rewardTitle.textContent = state.language === "en" ? `New Item - ${getSlotLabel(item.slot)}` : `獲得物品 - ${getSlotLabel(item.slot)}`;
-  rewardPreview.innerHTML = `
+  rewardPreviewContent.innerHTML = `
     <div class="reward-item-card rarity-${rarity.toLowerCase()}">
       <span class="reward-set-icon">${renderSetIcon(set)}</span>
       <span class="reward-slot-icon" aria-hidden="true">${slotIcons[item.slot] ?? "物"}</span>
@@ -2308,6 +2483,8 @@ function makeRewardItemName(item) {
 function closeReward() {
   const shouldPlayWearSound = state.rewardAction === "goDress";
   rewardModal.classList.add("hidden");
+  modalChestOpenVideo?.pause();
+  modalChestOpenVideo?.classList.add("hidden");
   resetRewardModalMode();
   closeRewardButton.classList.remove("hidden");
   closeRewardButton.textContent = state.language === "en" ? "OK" : "收下";
@@ -2322,6 +2499,8 @@ function closeReward() {
 function resetRewardModalMode() {
   rewardModal.classList.remove("set-animation-modal");
   rewardPreview.classList.remove("set-animation-preview");
+  rewardPreview.classList.remove("is-opening");
+  modalChestOpenVideo?.classList.add("hidden");
 }
 
 function unlockAllItems() {
@@ -2692,7 +2871,7 @@ function playCompletedSetAnimation(setId) {
   rewardModal.classList.add("set-animation-modal");
   rewardPreview.classList.add("set-animation-preview");
   rewardTitle.textContent = state.language === "en" ? "Outfit Set Complete" : "套裝完成";
-  rewardPreview.innerHTML = `
+  rewardPreviewContent.innerHTML = `
     <div class="set-animation-summary">
       <span class="set-animation-icon">${renderSetIcon(completedSet)}</span>
       <span>

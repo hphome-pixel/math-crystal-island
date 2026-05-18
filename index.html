@@ -469,6 +469,26 @@
                 </div>
               </div>
             </section>
+            <section class="settings-row settings-transfer" aria-label="存檔轉移">
+              <span>
+                <strong>存檔轉移</strong>
+                <small>可匯出目前進度，並在另一台裝置匯入。</small>
+              </span>
+              <div class="save-transfer-panel">
+                <div class="save-transfer-actions">
+                  <button class="ghost-button" id="downloadSaveButton" type="button">下載存檔</button>
+                  <button class="ghost-button" id="copySaveCodeButton" type="button">複製存檔碼</button>
+                  <button class="ghost-button" id="chooseSaveFileButton" type="button">匯入檔案</button>
+                </div>
+                <textarea id="saveCodeInput" rows="4" placeholder="貼上存檔碼"></textarea>
+                <div class="save-transfer-actions">
+                  <button class="primary-button" id="importSaveCodeButton" type="button">匯入存檔碼</button>
+                  <button class="ghost-button" id="clearSaveCodeButton" type="button">清除</button>
+                </div>
+                <p class="save-transfer-status" id="saveTransferStatus" aria-live="polite"></p>
+                <input class="hidden" id="saveFileInput" type="file" accept="application/json,.json" />
+              </div>
+            </section>
           </div>
         </section>
       </section>
@@ -592,7 +612,16 @@
       <div class="modal-card">
         <p class="eyebrow">Reward</p>
         <h2 id="rewardTitle">寶箱打開了</h2>
-        <div class="reward-preview" id="rewardPreview"></div>
+        <div class="reward-preview" id="rewardPreview">
+          <video
+            class="modal-chest-video hidden"
+            id="modalChestOpenVideo"
+            src="assets/Chest/OpenChest.mp4"
+            preload="auto"
+            playsinline
+          ></video>
+          <div class="reward-preview-content" id="rewardPreviewContent"></div>
+        </div>
         <p id="rewardMessage"></p>
         <button class="primary-button" id="closeRewardButton" type="button">收下</button>
       </div>

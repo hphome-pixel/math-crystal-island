@@ -1,55 +1,65 @@
 套裝名稱:Cozy Milk Tea Winter 
 總共 (8) 件組
-Cozy Milk Tea Winter_head (Rare)
-Cozy Milk Tea Winter_top (Epic)
-Cozy Milk Tea Winter_bottom (Epic)
-Cozy Milk Tea Winter_shoe (Common)
-Cozy Milk Tea Winter_scarf (Common)
-Cozy Milk Tea Winter_bag (Common)
-Cozy Milk Tea Winter_aura (Rare)
-Cozy Milk Tea Winter_background (Legendary)
+Cozy Milk Tea Winter_head | 髮型/表情 | (Rare)
+Cozy Milk Tea Winter_top | 衣服 | (Epic)
+Cozy Milk Tea Winter_bottom | 下身 | (Epic)
+Cozy Milk Tea Winter_shoe | 鞋子 | (Common)
+Cozy Milk Tea Winter_scarf | 配件 | (Common)
+Cozy Milk Tea Winter_bag | 包包 | (Common)
+Cozy Milk Tea Winter_aura | 光效 | (Rare)
+Cozy Milk Tea Winter_background | 背景 | (Legendary)
 
 套裝名稱:Lemon Cream Daydream
 總共 (8) 件組
-Lemon Cream Daydream_head (Rare)
-Lemon Cream Daydream_top (Epic)
-Lemon Cream Daydream_bottom (Epic)
-Lemon Cream Daydream_shoe (Common)
-Lemon Cream Daydream_bag (Common)
-Lemon Cream Daydream_keychain (Common)
-Lemon Cream Daydream_aura (Rare)
-Lemon Cream Daydream_background (Legendary)
+Lemon Cream Daydream_head | 髮型/表情 | (Rare)
+Lemon Cream Daydream_top | 衣服 | (Epic)
+Lemon Cream Daydream_bottom | 下身 | (Epic)
+Lemon Cream Daydream_shoe | 鞋子 | (Common)
+Lemon Cream Daydream_bag | 包包 | (Common)
+Lemon Cream Daydream_keychain | 配件 | (Common)
+Lemon Cream Daydream_aura | 光效 | (Rare)
+Lemon Cream Daydream_background | 背景 | (Legendary)
 
 套裝名稱:Rainy Blue Memory
 總共 (8) 件組
-Rainy Blue Memory_head (Rare)
-Rainy Blue Memory_top (Epic)
-Rainy Blue Memory_bottom (Epic)
-Rainy Blue Memory_shoe (Common)
-Rainy Blue Memory_bag (Common)
-Rainy Blue Memory_earphone (Common)
-Rainy Blue Memory_aura (Rare)
-Rainy Blue Memory_background (Legendary)
+Rainy Blue Memory_head | 髮型/表情 | (Rare)
+Rainy Blue Memory_top | 衣服 | (Epic)
+Rainy Blue Memory_bottom | 下身 | (Epic)
+Rainy Blue Memory_shoe | 鞋子 | (Common)
+Rainy Blue Memory_bag | 包包 | (Common)
+Rainy Blue Memory_earphone | 配件 | (Common)
+Rainy Blue Memory_aura | 光效 | (Rare)
+Rainy Blue Memory_background | 背景 | (Legendary)
 
 套裝名稱:Cherry Blossom Picnic
 總共 (8) 件組
-Cherry Blossom Picnic_head (Rare)
-Cherry Blossom Picnic_top (Epic)
-Cherry Blossom Picnic_bottom (Epic)
-Cherry Blossom Picnic_shoe (Common)
-Cherry Blossom Picnic_clip (Common)
-Cherry Blossom Picnic_bag (Common)
-Cherry Blossom Picnic_aura (Rare)
-Cherry Blossom Picnic_background (Legendary)
+Cherry Blossom Picnic_head | 髮型/表情 | (Rare)
+Cherry Blossom Picnic_top | 衣服 | (Epic)
+Cherry Blossom Picnic_bottom | 下身 | (Epic)
+Cherry Blossom Picnic_shoe | 鞋子 | (Common)
+Cherry Blossom Picnic_clip | 配件 | (Common)
+Cherry Blossom Picnic_bag | 包包 | (Common)
+Cherry Blossom Picnic_aura | 光效 | (Rare)
+Cherry Blossom Picnic_background | 背景 | (Legendary)
 
 套裝名稱:Sage Garden Cafe
 總共 (8) 件組
-Sage Garden Cafe_head (Rare).
-Sage Garden Cafe_top (Epic).
-Sage Garden Cafe_bottom (Epic).
-Sage Garden Cafe_shoe (Common).
-Sage Garden Cafe_clip (Common).
-Sage Garden Cafe_bag (Common).
-Sage Garden Cafe_aura (Rare)
-Sage Garden Cafe_background (Legendary).
+Sage Garden Cafe_head | 髮型/表情 | (Rare)
+Sage Garden Cafe_top | 衣服 | (Epic)
+Sage Garden Cafe_bottom | 下身 | (Epic)
+Sage Garden Cafe_shoe | 鞋子 | (Common)
+Sage Garden Cafe_clip | 配件 | (Common)
+Sage Garden Cafe_bag | 包包 | (Common)
+Sage Garden Cafe_aura | 光效 | (Rare)
+Sage Garden Cafe_background | 背景 | (Legendary)
+
+[Extra Items]
+extra_head_Rose Cocoa Melt | 髮型/表情 | Rare
+extra_head_Cocoa_Ribbon_Wave_hair | 髮型/表情 | Epic
+extra_head_Cotton_Candy_Twin_Tail | 髮型/表情 | Legendary
+extra_Sakura Pufflet | 寵物 | Legendary
+extra_Petal Puff | 寵物 | Legendary
+extra_Lemon Mochi | 寵物 | Legendary
+extra_Sage Puff | 寵物 | Legendary
+extra_Maple Puff | 寵物 | Legendary
 

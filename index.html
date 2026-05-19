@@ -24,9 +24,9 @@
       <div class="nav-resource-row">
         <nav class="app-tabs" aria-label="主要頁面">
           <button class="app-tab is-active" type="button" data-page="home">水晶島</button>
-          <button class="app-tab" type="button" data-page="practice">數學練習</button>
-          <button class="app-tab" type="button" data-page="chest">魔法寶箱</button>
-          <button class="app-tab" type="button" data-page="dress">Aveline衣櫥</button>
+          <button class="app-tab" type="button" data-page="practice">水晶試煉</button>
+          <button class="app-tab" type="button" data-page="chest">星光寶箱</button>
+          <button class="app-tab" type="button" data-page="dress">魔法衣櫥</button>
           <button class="app-tab" type="button" data-page="gm">GM測試</button>
         </nav>
         <div class="resource-pill resource-pill-inline" aria-label="藍水晶數量">
@@ -36,16 +36,23 @@
       </div>
 
       <section class="app-page is-active" id="homePage" data-page-panel="home">
-        <section class="home-panel" aria-labelledby="homeTitle">
-          <div class="home-copy">
+        <section class="home-hero" aria-labelledby="heroTitle">
+          <div class="home-hero-copy">
             <p class="eyebrow">Aveline Island</p>
-            <p id="homeTitle">練習數學拿藍水晶，去魔法寶箱抽 Aveline 的新造型。</p>
+            <h2 id="heroTitle">用數學力量
+點亮水晶島</h2>
+            <p>完成練習、收集藍水晶，解鎖 Aveline 的夢幻穿搭與星光寶箱。</p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" data-go-page="practice">開始冒險</button>
+              <button class="ghost-button" type="button" data-go-page="parent-guide">家長指南</button>
+            </div>
           </div>
-          <div class="home-doll-card" aria-label="Aveline 目前造型">
+
+          <div class="home-doll-card" aria-label="Aveline 今日造型">
             <div class="panel-heading">
               <div>
                 <p class="eyebrow">Today</p>
-                <h2>Aveline 目前造型</h2>
+                <h2>Aveline 今日造型</h2>
               </div>
             </div>
             <div class="home-doll-stage">
@@ -77,8 +84,8 @@
                 ></video>
               </span>
               <span class="home-card-copy">
-                <strong>數學練習</strong>
-                <small>答對題目拿藍水晶</small>
+                <strong>水晶試煉</strong>
+                <small>完成題目獲得藍水晶</small>
               </span>
             </button>
             <button class="home-card" type="button" data-go-page="chest">
@@ -94,8 +101,8 @@
                 ></video>
               </span>
               <span class="home-card-copy">
-                <strong>魔法寶箱</strong>
-                <small>50 藍水晶抽裝備</small>
+                <strong>星光寶箱</strong>
+                <small>收集稀有服裝與飾品</small>
               </span>
             </button>
             <button class="home-card" type="button" data-go-page="dress">
@@ -111,32 +118,62 @@
                 ></video>
               </span>
               <span class="home-card-copy">
-                <strong>Aveline 衣櫃</strong>
-                <small>換裝和看套裝</small>
+                <strong>魔法衣櫥</strong>
+                <small>打造專屬穿搭風格</small>
               </span>
             </button>
+          </div>
+          <section class="home-daily-quest" aria-labelledby="dailyQuestTitle">
+            <div class="daily-quest-art" aria-hidden="true">
+              <video
+                src="assets/paper-doll/首頁_icon/每日任務idle.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+            </div>
+            <div class="daily-quest-copy">
+              <p class="eyebrow">Daily Quest</p>
+              <h3 id="dailyQuestTitle">今日任務</h3>
+              <p id="dailyQuestText">完成 3 輪水晶試煉</p>
+              <div class="daily-quest-progress" aria-label="今日任務進度">
+                <span id="dailyQuestProgressBar"></span>
+              </div>
+              <strong id="dailyQuestProgressText">0 / 3</strong>
+            </div>
+            <button class="daily-quest-button" id="dailyQuestClaimButton" type="button" disabled>獎勵 60 藍水晶</button>
+          </section>
+        </section>
+
+        <section class="home-flow-panel" aria-labelledby="flowTitle">
+          <div>
+            <p class="eyebrow">How It Works</p>
+            <h2 id="flowTitle">今天的冒險</h2>
+          </div>
+          <div class="flow-steps">
+            <span>完成題目</span>
+            <span>收集藍水晶</span>
+            <span>開啟星光寶箱</span>
+            <span>解鎖穿搭</span>
+          </div>
+        </section>
+
+        <section class="home-learning-panel" aria-labelledby="learningTitle">
+          <div>
+            <p class="eyebrow">Learning</p>
+            <h2 id="learningTitle">今天的魔法課</h2>
+          </div>
+          <div class="learning-grid">
+            <article><strong>＋</strong><span>加法</span><small>進位與位數練習</small></article>
+            <article><strong>－</strong><span>減法</span><small>借位與直式練習</small></article>
+            <article><strong>×</strong><span>乘法</span><small>九九乘法與直式</small></article>
+            <article><strong>÷</strong><span>除法</span><small>除法表與長除法</small></article>
           </div>
         </section>
       </section>
 
       <section class="app-page" id="dressPage" data-page-panel="dress">
-        <section class="character-select" aria-labelledby="characterSelectTitle">
-          <div>
-            <p class="eyebrow">Character</p>
-            <h2 id="characterSelectTitle">選人物</h2>
-          </div>
-          <div class="character-options">
-            <button class="character-option is-selected" id="girlCharacterButton" type="button">
-              <img src="assets/paper-doll/MasterBase.png" alt="" />
-              <span>Aveline</span>
-            </button>
-            <button class="character-option" id="boyCharacterButton" type="button" disabled>
-              <span class="empty-avatar">?</span>
-              <span>男孩素材待放入</span>
-            </button>
-          </div>
-        </section>
-
         <section class="dress-room" aria-labelledby="dressRoomTitle">
           <section class="doll-panel">
             <div class="panel-heading">
@@ -240,12 +277,6 @@
               <strong>÷</strong>
               <span>除法練習</span>
               <small>橫式與長除法</small>
-            </label>
-            <label class="mode-card">
-              <input type="radio" name="practiceMode" value="mixed" />
-              <strong>★</strong>
-              <span>混合練習</span>
-              <small>加減乘除</small>
             </label>
           </div>
 
@@ -382,7 +413,7 @@
           <div class="panel-heading">
             <div>
               <p class="eyebrow">Treasure</p>
-              <h2 id="chestTitle">魔法寶箱</h2>
+              <h2 id="chestTitle">星光寶箱</h2>
             </div>
           </div>
           <div class="reward-panel chest-reward-panel">
@@ -406,8 +437,8 @@
             </div>
             <div class="chest-rules">
               <p class="eyebrow">Rules</p>
-              <h3>一個魔法寶箱</h3>
-              <p>消耗 50 個藍水晶，隨機開出目前所有套裝裝備；抽到已擁有物品會返還 25 藍水晶。</p>
+              <h3>一個星光寶箱</h3>
+              <p>消耗 50 個藍水晶，隨機開出目前所有套裝與額外裝飾品；抽到已擁有物品會返還 25 藍水晶。</p>
               <div class="crystal-rules" aria-label="藍水晶規則">
                 <strong>藍水晶規則</strong>
                 <span>答對 1 題：+1</span>
@@ -503,6 +534,7 @@
             <button class="ghost-button" id="gmUnlockAllButton" type="button">解鎖全部服裝</button>
             <button class="ghost-button" id="gmAddCrystalButton" type="button">+500 藍水晶</button>
             <button class="ghost-button" id="gmChestButton" type="button">測試開箱</button>
+            <button class="ghost-button" id="gmTenChestButton" type="button">測試 10 連抽</button>
             <button class="ghost-button" id="gmResetButton" type="button">重置背包</button>
           </div>
         </section>
@@ -539,7 +571,7 @@
         <section class="info-page-panel" aria-labelledby="aboutTitle">
           <p class="eyebrow">About</p>
           <h2 id="aboutTitle">關於數學水晶島</h2>
-          <p>數學水晶島是一個結合數學練習、藍水晶獎勵、魔法寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。</p>
+          <p>數學水晶島是一個結合水晶試煉、藍水晶獎勵、星光寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。</p>
           <div class="info-grid">
             <article>
               <h3>學習目標</h3>
@@ -547,7 +579,7 @@
             </article>
             <article>
               <h3>遊戲循環</h3>
-              <p>答題取得藍水晶，再用藍水晶開啟魔法寶箱，收集不同套裝與動畫。</p>
+              <p>答題取得藍水晶，再用藍水晶開啟星光寶箱，收集不同套裝與動畫。</p>
             </article>
             <article>
               <h3>目前狀態</h3>

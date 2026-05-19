@@ -22,13 +22,10 @@ body {
 body[data-page="home"] {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.48) 58%, rgba(246, 247, 251, 0.78) 100%),
-    url("assets/Background/Floating_crystal_island_in_the_sky_magical.png") center top / 100vw auto no-repeat,
+    url("assets/Background/水晶島_Background_Desktop.png") center top / cover no-repeat,
     linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
 }
 
-body[data-page="practice"],
-body[data-page="chest"],
-body[data-page="dress"],
 body[data-page="settings"],
 body[data-page="gm"],
 body[data-page="privacy"],
@@ -37,7 +34,28 @@ body[data-page="parent-guide"],
 body[data-page="contact"] {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.48) 58%, rgba(246, 247, 251, 0.78) 100%),
-    url("assets/Background/Floating_crystal_island_in_the_sky_magical.png") center top / 100vw auto no-repeat,
+    url("assets/Background/水晶島_Background_Desktop.png") center top / cover no-repeat,
+    linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+}
+
+body[data-page="practice"] {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 58%, rgba(246, 247, 251, 0.8) 100%),
+    url("assets/Background/水晶試煉_Background_Desktop.png") center top / cover no-repeat,
+    linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+}
+
+body[data-page="chest"] {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 58%, rgba(246, 247, 251, 0.8) 100%),
+    url("assets/Background/星光寶箱_Background_Desktop.png") center top / cover no-repeat,
+    linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+}
+
+body[data-page="dress"] {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 58%, rgba(246, 247, 251, 0.8) 100%),
+    url("assets/Background/魔法衣櫃_Background_Desktop.png") center top / cover no-repeat,
     linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
 }
 
@@ -467,68 +485,148 @@ h3 {
   font-size: 0.92rem;
 }
 
-.home-panel {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.8fr);
-  gap: 18px;
-  align-items: stretch;
+.home-hero,
+.home-learning-panel,
+.home-flow-panel {
   border: 1px solid rgba(23, 32, 51, 0.1);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.56);
-  backdrop-filter: blur(7px);
   box-shadow: 0 18px 48px rgba(23, 32, 51, 0.1);
-  padding: 20px;
-  overflow: hidden;
 }
 
-.home-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.56), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.5));
-  pointer-events: none;
-}
-
-.home-panel > * {
+.home-hero {
   position: relative;
-  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1.12fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 18px;
+  padding: clamp(18px, 3vw, 28px);
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 48%, rgba(255, 255, 255, 0.28) 100%),
+    url("assets/Background/水晶島_Background_Desktop.png") center center / cover no-repeat;
 }
 
-.home-copy {
-  grid-column: 1 / -1;
+.home-hero-copy {
+  display: grid;
+  align-content: center;
+  width: min(100%, 560px);
+  min-height: 330px;
+  padding: clamp(16px, 3vw, 28px);
 }
 
-.home-copy p {
-  max-width: 720px;
-  margin-bottom: 0;
+.home-hero #heroTitle {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 4.1vw, 3.85rem);
+  line-height: 1.08;
+  white-space: pre-line;
+}
+
+.home-hero-copy > p:not(.eyebrow) {
+  max-width: 520px;
+  color: #526071;
+  font-size: clamp(0.96rem, 1.45vw, 1.08rem);
+  font-weight: 800;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero-actions button {
+  min-height: 52px;
+  padding-inline: 20px;
+}
+
+.hero-actions .primary-button {
+  min-width: 168px;
+  background: #ffc247;
+  color: #172033;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.74),
+    0 0 24px rgba(255, 195, 71, 0.72),
+    0 12px 26px rgba(23, 32, 51, 0.16);
+}
+
+.home-learning-panel,
+.home-flow-panel {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.learning-grid article {
+  display: grid;
+  gap: 6px;
+  border: 1px solid rgba(23, 32, 51, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+
+.learning-grid strong {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #fff0bf;
+  color: #178a68;
+  font-size: 1.7rem;
+}
+
+.learning-grid span {
+  color: #172033;
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.learning-grid small {
   color: #526071;
   font-weight: 750;
-  line-height: 1.7;
 }
 
-.home-copy .eyebrow {
-  margin-bottom: 4px;
-  color: #6c7486;
-  font-size: 0.76rem;
-  font-weight: 800;
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.flow-steps span {
+  position: relative;
+  border-radius: 8px;
+  background: #eef3f4;
+  color: #172033;
+  padding: 14px 16px;
+  font-weight: 900;
+  text-align: center;
 }
 
 .home-actions {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  align-content: stretch;
 }
 
 .home-card {
   display: grid;
-  grid-template-columns: clamp(132px, 12vw, 156px) minmax(0, 1fr);
+  grid-template-columns: clamp(88px, 9vw, 116px) minmax(0, 1fr);
   align-items: center;
-  gap: 18px;
-  min-height: 178px;
+  gap: 14px;
+  min-height: 126px;
   border: 1px solid rgba(23, 32, 51, 0.1);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.88);
@@ -575,11 +673,21 @@ h3 {
   padding: 14px;
 }
 
+.home-doll-card .panel-heading {
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.home-doll-card h2 {
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.15;
+}
+
 .home-doll-stage {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 520px;
+  min-height: 360px;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
@@ -673,6 +781,98 @@ h3 {
   line-height: 1.45;
 }
 
+.home-daily-quest {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: clamp(92px, 10vw, 128px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(255, 191, 80, 0.5);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 232, 0.94), rgba(255, 239, 247, 0.88)),
+    radial-gradient(circle at 12% 18%, rgba(255, 210, 88, 0.28), transparent 42%);
+  padding: 16px;
+  box-shadow:
+    0 14px 30px rgba(23, 32, 51, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.64);
+}
+
+.daily-quest-art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 36% 30%, rgba(255, 255, 255, 0.9), transparent 28%),
+    linear-gradient(145deg, #ffe6a4, #ffb7d0 56%, #b9f2ff);
+  color: #172033;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 1000;
+  box-shadow: 0 10px 20px rgba(255, 181, 61, 0.25);
+}
+
+.daily-quest-art video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.daily-quest-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.daily-quest-copy h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.daily-quest-copy p:not(.eyebrow) {
+  color: #526071;
+  font-weight: 850;
+}
+
+.daily-quest-progress {
+  overflow: hidden;
+  width: min(100%, 440px);
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(23, 32, 51, 0.1);
+}
+
+.daily-quest-progress span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #59d8ff, #ffc247);
+  transition: width 0.25s ease;
+}
+
+.daily-quest-copy strong {
+  color: #172033;
+  font-size: 0.92rem;
+}
+
+.daily-quest-button {
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffd36d, #ffb84d);
+  color: #172033;
+  padding: 13px 16px;
+  font-weight: 950;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(255, 184, 77, 0.24);
+}
+
+.daily-quest-button:disabled {
+  background: #eef3f4;
+  color: #6c7486;
+  box-shadow: none;
+}
+
 .character-select {
   align-items: center;
   justify-content: space-between;
@@ -736,6 +936,10 @@ h3 {
 
 .closet-panel {
   flex: 1;
+  border-color: rgba(232, 154, 154, 0.46);
+  background:
+    linear-gradient(180deg, rgba(255, 247, 250, 0.94), rgba(255, 253, 247, 0.9)),
+    radial-gradient(circle at 12% 10%, rgba(255, 204, 214, 0.24), transparent 34%);
 }
 
 .panel-heading {
@@ -911,8 +1115,12 @@ select {
 .equipped-slots {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px 12px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(232, 154, 154, 0.34);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 239, 245, 0.9), rgba(255, 250, 244, 0.72));
+  padding: 10px;
 }
 
 .slot-button,
@@ -936,27 +1144,29 @@ select {
 
 .slot-button {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-columns: 44px minmax(0, 1fr);
   grid-template-rows: auto auto;
   align-items: center;
-  min-height: 74px;
+  min-height: 62px;
   gap: 2px 10px;
+  border: 1px solid rgba(232, 154, 154, 0.18);
+  background: rgba(255, 255, 255, 0.78);
   overflow-wrap: normal;
   text-align: left;
 }
 
 .slot-button.is-equipped {
-  outline: 1px solid #2f8fcc;
-  background: #edf8ff;
-  box-shadow: 0 0 0 2px rgba(47, 143, 204, 0.1);
+  border-color: rgba(216, 132, 151, 0.82);
+  background: linear-gradient(180deg, #fff2f6, #fffaf0);
+  box-shadow: 0 0 0 2px rgba(216, 132, 151, 0.14);
 }
 
 .slot-thumb {
   grid-row: span 2;
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   overflow: hidden;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
@@ -981,7 +1191,7 @@ select {
 }
 
 .slot-button.is-equipped .slot-thumb {
-  background: #d9f0ff;
+  background: #fff1d3;
   color: #172033;
   font-size: 1.65rem;
 }
@@ -1005,7 +1215,7 @@ select {
 }
 
 .slot-button.is-equipped .slot-state {
-  color: #2f8fcc;
+  color: #b85f79;
   font-weight: 900;
 }
 
@@ -1019,7 +1229,7 @@ select {
 
 .closet-tabs {
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   flex-wrap: wrap;
 }
 
@@ -1030,14 +1240,17 @@ select {
 }
 
 .closet-tab.is-active {
-  background: #172033;
-  color: #fff;
+  background: linear-gradient(180deg, #ffd36d, #ffb84d);
+  color: #172033;
+  box-shadow:
+    0 8px 18px rgba(232, 157, 53, 0.18),
+    0 0 0 2px rgba(255, 230, 138, 0.5);
 }
 
 .inventory-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 12px;
 }
 
 .empty-inventory-card {
@@ -1079,15 +1292,20 @@ select {
 }
 
 .set-group {
-  border: 1px solid rgba(23, 32, 51, 0.1);
+  border: 1px solid rgba(232, 154, 154, 0.52);
   border-radius: 8px;
-  background: #fff;
-  padding: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 250, 0.98) 0%, rgba(255, 253, 247, 0.96) 100%),
+    radial-gradient(circle at 10% 0%, rgba(255, 214, 220, 0.28), transparent 42%);
+  padding: 14px;
+  box-shadow: 0 12px 26px rgba(125, 70, 78, 0.07);
 }
 
 .set-group.is-complete {
-  border-color: rgba(232, 157, 53, 0.72);
-  background: #fffaf0;
+  border-color: rgba(216, 132, 151, 0.78);
+  background:
+    linear-gradient(180deg, #fff1f5 0%, #fff9ee 100%),
+    radial-gradient(circle at 0% 0%, rgba(255, 211, 221, 0.36), transparent 44%);
 }
 
 .set-group-heading {
@@ -1120,12 +1338,12 @@ select {
 .set-icon {
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
+  width: 70px;
+  height: 70px;
   overflow: hidden;
   flex: 0 0 auto;
   border-radius: 8px;
-  background: #fff3d9;
+  background: linear-gradient(180deg, #fff0f5, #fff4d8);
   font-size: 2rem;
 }
 
@@ -1138,9 +1356,9 @@ select {
 .set-toggle-mark {
   border-radius: 8px;
   border: 0;
-  background: #eef3f4;
+  background: #f5edf1;
   padding: 8px 10px;
-  color: #6c7486;
+  color: #8a5262;
   font-size: 0.78rem;
   font-weight: 850;
 }
@@ -1171,7 +1389,7 @@ select {
 .set-animation-action {
   border: 0;
   border-radius: 8px;
-  background: #ffbd42;
+  background: linear-gradient(180deg, #ffd36d, #ffb84d);
   color: #172033;
   padding: 8px 12px;
   font-size: 0.82rem;
@@ -1186,20 +1404,20 @@ select {
 .set-item-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  gap: 10px;
 }
 
 .item-button {
+  position: relative;
   display: grid;
-  grid-template-columns: 38px 1fr;
-  grid-template-rows: auto auto;
-  align-items: center;
-  gap: 2px 8px;
-  min-height: 62px;
-  border: 1px solid rgba(23, 32, 51, 0.1);
-  background: #fff;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 6px;
+  min-height: 118px;
+  border: 1px solid rgba(232, 154, 154, 0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 250, 244, 0.84));
   padding: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 .item-button strong,
@@ -1208,15 +1426,14 @@ select {
 }
 
 .item-icon {
-  grid-row: span 2;
   display: grid !important;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 58px;
+  height: 58px;
   border-radius: 8px;
-  background: #eef3f4;
+  background: linear-gradient(180deg, #fff0f5, #fff4d8);
   color: #172033;
-  font-size: 0.9rem;
+  font-size: 1.35rem;
 }
 
 .item-button span {
@@ -1230,8 +1447,36 @@ select {
 }
 
 .item-button.is-equipped {
-  border-color: #e89d35;
-  background: #fff7e7;
+  background: linear-gradient(180deg, #fff1f6, #fff7e6);
+  box-shadow:
+    0 0 0 3px rgba(216, 132, 151, 0.16),
+    0 10px 18px rgba(125, 70, 78, 0.08);
+}
+
+.item-button.is-equipped::after {
+  content: "✓";
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #c47a2d;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.item-button.is-locked {
+  filter: grayscale(0.15);
+  opacity: 0.64;
+}
+
+.item-button.is-locked .item-icon {
+  background: #eef0f2;
+  color: #8a93a4;
 }
 
 .item-button.rarity-common,
@@ -2092,6 +2337,10 @@ select {
   width: min(760px, 100%);
 }
 
+.multi-reward-modal .modal-card {
+  width: min(860px, 100%);
+}
+
 .set-animation-modal .eyebrow {
   display: none;
 }
@@ -2106,6 +2355,70 @@ select {
 
 .set-animation-preview .reward-preview-content {
   gap: 14px;
+}
+
+.multi-reward-preview {
+  align-items: stretch;
+  min-height: 0;
+  padding: 14px;
+  background: linear-gradient(180deg, #f8fbff 0%, #fff8e8 100%);
+}
+
+.multi-reward-preview .reward-preview-content {
+  place-items: stretch;
+}
+
+.multi-reward-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.multi-reward-result {
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+  padding: 8px;
+}
+
+.multi-reward-result .reward-item-card {
+  width: min(100%, 104px);
+  border-width: 3px;
+}
+
+.multi-reward-result .reward-set-icon {
+  width: 64%;
+  height: 64%;
+}
+
+.multi-reward-result .reward-slot-icon {
+  right: 6px;
+  bottom: 6px;
+  width: 30px;
+  height: 30px;
+  font-size: 0.9rem;
+}
+
+.multi-reward-result .reward-rarity {
+  left: 6px;
+  top: 6px;
+  padding: 3px 5px;
+  font-size: 0.66rem;
+}
+
+.multi-reward-result strong,
+.multi-reward-result span {
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.multi-reward-result.is-duplicate {
+  opacity: 0.72;
 }
 
 .set-animation-preview video {
@@ -2293,10 +2606,43 @@ select {
 }
 
 @media (max-width: 860px) {
+  body[data-page="home"],
+  body[data-page="settings"],
+  body[data-page="gm"],
+  body[data-page="privacy"],
+  body[data-page="about"],
+  body[data-page="parent-guide"],
+  body[data-page="contact"] {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.54) 58%, rgba(246, 247, 251, 0.82) 100%),
+      url("assets/Background/水晶島_Background_Mobile.png") center top / cover no-repeat,
+      linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+  }
+
+  body[data-page="practice"] {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.54) 58%, rgba(246, 247, 251, 0.82) 100%),
+      url("assets/Background/水晶試煉_Background_Mobile.png") center top / cover no-repeat,
+      linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+  }
+
+  body[data-page="chest"] {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.54) 58%, rgba(246, 247, 251, 0.82) 100%),
+      url("assets/Background/星光寶箱_Background_Mobile.png") center top / cover no-repeat,
+      linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+  }
+
+  body[data-page="dress"] {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.54) 58%, rgba(246, 247, 251, 0.82) 100%),
+      url("assets/Background/魔法衣櫃_Background_Mobile.png") center top / cover no-repeat,
+      linear-gradient(180deg, #dff7ff 0%, #f6f7fb 78%);
+  }
+
   .topbar,
   .app-tabs,
   .nav-resource-row,
-  .dress-room,
   .character-select,
   .reward-panel,
   .practice-reward-note,
@@ -2305,15 +2651,30 @@ select {
     align-items: stretch;
   }
 
-  .home-panel,
+  .home-hero,
   .home-actions,
+  .home-daily-quest,
+  .dress-room,
   .chest-reward-panel,
   .rate-list,
+  .learning-grid,
+  .flow-steps,
   .info-grid {
     grid-template-columns: 1fr;
   }
 
-  .home-copy {
+  .multi-reward-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-hero {
+    padding: 16px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.76) 54%, rgba(255, 255, 255, 0.18) 100%),
+      url("assets/Background/水晶島_Background_Mobile.png") center center / cover no-repeat;
+  }
+
+  .home-hero-copy {
     min-height: auto;
   }
 
@@ -2327,8 +2688,17 @@ select {
     aspect-ratio: 1 / 1;
   }
 
+  .home-daily-quest {
+    grid-template-columns: 84px minmax(0, 1fr);
+  }
+
+  .daily-quest-button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
   .home-doll-stage {
-    min-height: 390px;
+    min-height: 360px;
   }
 
   .resource-pill {
@@ -2562,6 +2932,11 @@ select {
 
   .home-card-media {
     aspect-ratio: 1 / 1;
+  }
+
+  .home-daily-quest {
+    grid-template-columns: 72px minmax(0, 1fr);
+    padding: 12px;
   }
 
   .home-card-copy {

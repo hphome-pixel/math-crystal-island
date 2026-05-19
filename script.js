@@ -2,6 +2,8 @@ const ROUND_SIZE = 10;
 const CHEST_COST = 50;
 const DUPLICATE_REFUND = Math.floor(CHEST_COST * 0.5);
 const CRYSTAL_REWARD = 1;
+const DAILY_QUEST_GOAL = 3;
+const DAILY_QUEST_REWARD = 60;
 const APP_VERSION = "0.1.0";
 const SAVE_VERSION = 1;
 const CRYSTAL_IDLE_VIDEO = "assets/Chest/BlueCrystal_idle.mp4";
@@ -54,6 +56,14 @@ const ITEM_RARITIES = {
   sage_garden_cafe_bag: "Common",
   sage_garden_cafe_aura: "Rare",
   sage_garden_cafe_background: "Legendary",
+  extra_head_rose_cocoa_melt: "Rare",
+  extra_head_cocoa_ribbon_wave_hair: "Epic",
+  extra_head_cotton_candy_twin_tail: "Legendary",
+  extra_sakura_pufflet: "Legendary",
+  extra_petal_puff: "Legendary",
+  extra_lemon_mochi: "Legendary",
+  extra_sage_puff: "Legendary",
+  extra_maple_puff: "Legendary",
 };
 const STANDARD_SKELETON_ID = "master_base";
 const DEFAULT_STAGE = {
@@ -282,7 +292,7 @@ const itemCatalog = [
     slot: "bottom",
     skeletonId: STANDARD_SKELETON_ID,
     rarity: "common",
-    path: "assets/paper-doll/Lemon Cream Daydream/Bottoms/_Lemon Cream Daydream_bottom.png",
+    path: "assets/paper-doll/Lemon Cream Daydream/Bottoms/Lemon Cream Daydream_bottom.png",
   },
   {
     id: "lemon_cream_daydream_shoe",
@@ -368,7 +378,7 @@ const itemCatalog = [
     slot: "shoe",
     skeletonId: STANDARD_SKELETON_ID,
     rarity: "common",
-    path: "assets/paper-doll/Rainy Blue Memory/Shoes/shoe.png",
+    path: "assets/paper-doll/Rainy Blue Memory/Shoes/Rainy Blue Memory_head_shoe.png",
   },
   {
     id: "rainy_blue_memory_bag",
@@ -436,7 +446,7 @@ const itemCatalog = [
     slot: "bottom",
     skeletonId: STANDARD_SKELETON_ID,
     rarity: "common",
-    path: "assets/paper-doll/Cherry Blossom Picnic/Bottoms/Picnic_bottom.png",
+    path: "assets/paper-doll/Cherry Blossom Picnic/Bottoms/Cherry Blossom Picnic_bottom.png",
   },
   {
     id: "cherry_blossom_picnic_shoe",
@@ -445,7 +455,7 @@ const itemCatalog = [
     slot: "shoe",
     skeletonId: STANDARD_SKELETON_ID,
     rarity: "common",
-    path: "assets/paper-doll/Cherry Blossom Picnic/Shoes/shoe.png",
+    path: "assets/paper-doll/Cherry Blossom Picnic/Shoes/Cherry Blossom Picnic_shoe.png",
   },
   {
     id: "cherry_blossom_picnic_clip",
@@ -551,6 +561,75 @@ const itemCatalog = [
     rarity: "common",
     path: "assets/paper-doll/Sage Garden Cafe/Aura/Sage Garden Cafe_aura.png",
   },
+  {
+    id: "extra_head_rose_cocoa_melt",
+    name: "Rose Cocoa Melt 髮型/表情",
+    slot: "head",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "rare",
+    path: "assets/paper-doll/Extra Items/Heads/extra_head_Rose Cocoa Melt.png",
+  },
+  {
+    id: "extra_head_cocoa_ribbon_wave_hair",
+    name: "Cocoa Ribbon Wave 髮型/表情",
+    slot: "head",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "epic",
+    path: "assets/paper-doll/Extra Items/Heads/extra_head_Cocoa_Ribbon_Wave_hair.png",
+  },
+  {
+    id: "extra_head_cotton_candy_twin_tail",
+    name: "Cotton Candy Twin Tail 髮型/表情",
+    slot: "head",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "legendary",
+    path: "assets/paper-doll/Extra Items/Heads/extra_head_Cotton_Candy_Twin_Tail.png",
+  },
+  {
+    id: "extra_sakura_pufflet",
+    name: "Sakura Pufflet 寵物",
+    setId: "cherry_blossom_picnic",
+    slot: "pet",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "legendary",
+    path: "assets/paper-doll/Cherry Blossom Picnic/Pets/extra_Sakura Pufflet.png",
+  },
+  {
+    id: "extra_petal_puff",
+    name: "Petal Puff 寵物",
+    setId: "rainy_blue_memory",
+    slot: "pet",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "legendary",
+    path: "assets/paper-doll/Rainy Blue Memory/Pets/extra_Petal Puff.png",
+  },
+  {
+    id: "extra_lemon_mochi",
+    name: "Lemon Mochi 寵物",
+    setId: "lemon_cream_daydream",
+    slot: "pet",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "legendary",
+    path: "assets/paper-doll/Lemon Cream Daydream/Pets/extra_Lemon Mochi.png",
+  },
+  {
+    id: "extra_sage_puff",
+    name: "Sage Puff 寵物",
+    setId: "sage_garden_cafe",
+    slot: "pet",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "legendary",
+    path: "assets/paper-doll/Sage Garden Cafe/Pets/extra_Sage Puff.png",
+  },
+  {
+    id: "extra_maple_puff",
+    name: "Maple Puff 寵物",
+    setId: "cozy_milk_tea_winter",
+    slot: "pet",
+    skeletonId: STANDARD_SKELETON_ID,
+    rarity: "legendary",
+    path: "assets/paper-doll/Cozy Milk Tea Winter/Pets/extra_Maple Puff.png",
+  },
 ];
 
 const slotLabels = {
@@ -598,21 +677,41 @@ const i18n = {
     appSubtitle: "Math Dress Up",
     appTitle: "數學水晶島",
     navHome: "水晶島",
-    navPractice: "數學練習",
-    navChest: "魔法寶箱",
-    navDress: "Aveline衣櫥",
+    navPractice: "水晶試煉",
+    navChest: "星光寶箱",
+    navDress: "魔法衣櫥",
     navGm: "GM測試",
     settingsButton: "設定",
     homeEyebrow: "Aveline Island",
-    homeIntro: "練習數學拿藍水晶，去魔法寶箱抽 Aveline 的新造型。",
+    heroTitle: "用數學力量\n點亮水晶島",
+    heroText: "完成練習、收集藍水晶，解鎖 Aveline 的夢幻穿搭與星光寶箱。",
+    heroPracticeButton: "開始冒險",
+    heroParentButton: "家長指南",
+    learningEyebrow: "Learning",
+    learningTitle: "今天的魔法課",
+    learningItems: [
+      ["＋", "加法", "進位與位數練習"],
+      ["－", "減法", "借位與直式練習"],
+      ["×", "乘法", "九九乘法與直式"],
+      ["÷", "除法", "除法表與長除法"],
+    ],
+    flowEyebrow: "How It Works",
+    flowTitle: "今天的冒險",
+    flowSteps: ["完成題目", "收集藍水晶", "開啟星光寶箱", "解鎖穿搭"],
+    homeIntro: "用數學力量點亮水晶島，去星光寶箱抽 Aveline 的新造型。",
     homeToday: "Today",
-    homeCurrent: "Aveline 目前造型",
-    homePracticeTitle: "數學練習",
-    homePracticeText: "答對題目拿藍水晶",
-    homeChestTitle: "魔法寶箱",
-    homeChestText: "50 藍水晶抽裝備",
-    homeDressTitle: "Aveline 衣櫃",
-    homeDressText: "換裝和看套裝",
+    homeCurrent: "Aveline 今日造型",
+    homePracticeTitle: "水晶試煉",
+    homePracticeText: "完成題目獲得藍水晶",
+    homeChestTitle: "星光寶箱",
+    homeChestText: "收集稀有服裝與飾品",
+    homeDressTitle: "魔法衣櫥",
+    homeDressText: "打造專屬穿搭風格",
+    dailyQuestTitle: "今日任務",
+    dailyQuestText: "完成 3 輪水晶試煉",
+    dailyQuestReward: "獎勵 60 藍水晶",
+    dailyQuestClaim: "領取 60 藍水晶",
+    dailyQuestClaimed: "今日已領取",
     settingsEyebrow: "Settings",
     settingsTitle: "設定",
     settingsIntro: "調整遊戲聲音與本機設定。",
@@ -640,17 +739,17 @@ const i18n = {
     footerContact: "聯絡我們",
     inventoryHint: "物品",
     emptyInventoryTitle: "衣櫃還是空的",
-    emptyInventoryText: "完成數學練習收集藍水晶，再去魔法寶箱抽新造型。",
+    emptyInventoryText: "完成水晶試煉收集藍水晶，再去星光寶箱抽新造型。",
     emptyFilterTitle: "這一類還沒有物品",
-    emptyFilterText: "換個分類看看，或去魔法寶箱抽新裝備。",
+    emptyFilterText: "換個分類看看，或去星光寶箱抽新裝備。",
     openChestReady: "可以開寶箱了",
     chestNeed: "還需要",
     crystals: "藍水晶",
     openChest: "開啟寶箱",
     openingChest: "開箱中",
     chestEyebrow: "Rules",
-    chestHeading: "一個魔法寶箱",
-    chestDescription: "消耗 50 個藍水晶，隨機開出目前所有套裝裝備；抽到已擁有物品會返還 25 藍水晶。",
+    chestHeading: "一個星光寶箱",
+    chestDescription: "消耗 50 個藍水晶，隨機開出目前所有套裝與額外裝飾品；抽到已擁有物品會返還 25 藍水晶。",
     crystalRulesTitle: "藍水晶規則",
     crystalRules: ["答對 1 題：+1", "10 題答對 5 題：額外 +2", "10 題答對 8 題：額外 +3", "10 題全對：額外 +5"],
     rarityRates: ["普通 60%", "稀有 25%", "史詩 12%", "傳說 3%"],
@@ -709,10 +808,10 @@ const i18n = {
       about: `
         <p class="eyebrow">About</p>
         <h2 id="aboutTitle">關於數學水晶島</h2>
-        <p>數學水晶島是一個結合數學練習、藍水晶獎勵、魔法寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。</p>
+        <p>數學水晶島是一個結合水晶試煉、藍水晶獎勵、星光寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。</p>
         <div class="info-grid">
           <article><h3>學習目標</h3><p>透過加法、減法、乘法與除法練習，讓孩子在短回合中累積成就感。</p></article>
-          <article><h3>遊戲循環</h3><p>答題取得藍水晶，再用藍水晶開啟魔法寶箱，收集不同套裝與動畫。</p></article>
+          <article><h3>遊戲循環</h3><p>答題取得藍水晶，再用藍水晶開啟星光寶箱，收集不同套裝與動畫。</p></article>
           <article><h3>目前狀態</h3><p>本網站仍是早期原型，會持續調整題型、手機排版、家長設定與素材整理。</p></article>
           <article><h3>適合使用方式</h3><p>建議每次練習 10 題，完成後讓孩子檢查答題紀錄，再回到首頁或衣櫃休息一下。</p></article>
         </div>
@@ -744,21 +843,41 @@ const i18n = {
     appSubtitle: "Math Dress Up",
     appTitle: "Math Crystal Island",
     navHome: "Crystal Island",
-    navPractice: "Math Practice",
-    navChest: "Magic Chest",
-    navDress: "Aveline Closet",
+    navPractice: "Crystal Trial",
+    navChest: "Starlight Chest",
+    navDress: "Magic Wardrobe",
     navGm: "GM Test",
     settingsButton: "Settings",
     homeEyebrow: "Aveline Island",
-    homeIntro: "Practice math to collect blue crystals, then open the magic chest for Aveline's new outfits.",
+    heroTitle: "Use Math Power\nTo Light Crystal Island",
+    heroText: "Complete practice, collect blue crystals, and unlock Aveline's dreamy outfits and starlight chest.",
+    heroPracticeButton: "Start Adventure",
+    heroParentButton: "Parent Guide",
+    learningEyebrow: "Learning",
+    learningTitle: "Today's Magic Lesson",
+    learningItems: [
+      ["＋", "Addition", "Place value and carrying"],
+      ["－", "Subtraction", "Borrowing and vertical practice"],
+      ["×", "Multiplication", "Times tables and vertical form"],
+      ["÷", "Division", "Division facts and long division"],
+    ],
+    flowEyebrow: "How It Works",
+    flowTitle: "Today's Adventure",
+    flowSteps: ["Complete questions", "Collect blue crystals", "Open the starlight chest", "Unlock outfits"],
+    homeIntro: "Use math power to light up Crystal Island, then open the starlight chest for Aveline's new outfits.",
     homeToday: "Today",
-    homeCurrent: "Aveline Current Look",
-    homePracticeTitle: "Math Practice",
-    homePracticeText: "Answer questions to earn blue crystals",
-    homeChestTitle: "Magic Chest",
-    homeChestText: "Spend 50 blue crystals for an item",
-    homeDressTitle: "Aveline Closet",
-    homeDressText: "Dress up and view outfit sets",
+    homeCurrent: "Aveline Today's Look",
+    homePracticeTitle: "Crystal Trial",
+    homePracticeText: "Complete questions to earn blue crystals",
+    homeChestTitle: "Starlight Chest",
+    homeChestText: "Collect rare outfits and accessories",
+    homeDressTitle: "Magic Wardrobe",
+    homeDressText: "Create your own dress-up style",
+    dailyQuestTitle: "Daily Quest",
+    dailyQuestText: "Complete 3 crystal trial rounds",
+    dailyQuestReward: "Reward: 60 blue crystals",
+    dailyQuestClaim: "Claim 60 blue crystals",
+    dailyQuestClaimed: "Claimed today",
     settingsEyebrow: "Settings",
     settingsTitle: "Settings",
     settingsIntro: "Adjust sound, language, and local app settings.",
@@ -786,17 +905,17 @@ const i18n = {
     footerContact: "Contact",
     inventoryHint: "items",
     emptyInventoryTitle: "Your closet is empty",
-    emptyInventoryText: "Practice math to collect blue crystals, then open the magic chest for new looks.",
+    emptyInventoryText: "Complete crystal trials to collect blue crystals, then open the starlight chest for new looks.",
     emptyFilterTitle: "No items in this category",
-    emptyFilterText: "Try another category or open the magic chest for new items.",
+    emptyFilterText: "Try another category or open the starlight chest for new items.",
     openChestReady: "Ready to open the chest",
     chestNeed: "Need",
     crystals: "blue crystals",
     openChest: "Open Chest",
     openingChest: "Opening",
     chestEyebrow: "Rules",
-    chestHeading: "One Magic Chest",
-    chestDescription: "Spend 50 blue crystals to open a random item from all current outfit sets. Duplicate items refund 25 blue crystals.",
+    chestHeading: "One Starlight Chest",
+    chestDescription: "Spend 50 blue crystals to open a random item from current outfit sets and extra items. Duplicate items refund 25 blue crystals.",
     crystalRulesTitle: "Blue Crystal Rules",
     crystalRules: ["1 correct answer: +1", "5 correct in 10: bonus +2", "8 correct in 10: bonus +3", "10 correct in 10: bonus +5"],
     rarityRates: ["Common 60%", "Rare 25%", "Epic 12%", "Legendary 3%"],
@@ -904,7 +1023,13 @@ const state = {
   score: 0,
   streak: 0,
   roundAnswers: [],
+  usedQuestionKeys: new Set(),
   blueCrystals: 0,
+  dailyQuest: {
+    date: "",
+    rounds: 0,
+    claimed: false,
+  },
   soundEnabled: true,
   language: "zh-Hant",
   isOpeningChest: false,
@@ -917,7 +1042,7 @@ const state = {
   scratchBoxes: [],
   previewCells: [],
   ownedItems: new Set(),
-  expandedSetIds: new Set(setCatalog.map((set) => set.id)),
+  expandedSetIds: new Set(),
   equipped: {
     background: null,
     head: null,
@@ -1041,12 +1166,18 @@ const resetOutfitButton = document.querySelector("#resetOutfitButton");
 const gmUnlockAllButton = document.querySelector("#gmUnlockAllButton");
 const gmAddCrystalButton = document.querySelector("#gmAddCrystalButton");
 const gmChestButton = document.querySelector("#gmChestButton");
+const gmTenChestButton = document.querySelector("#gmTenChestButton");
 const gmResetButton = document.querySelector("#gmResetButton");
 const girlCharacterButton = document.querySelector("#girlCharacterButton");
 const closetTabs = document.querySelectorAll(".closet-tab");
 const appTabs = document.querySelectorAll(".app-tab");
 const appPages = document.querySelectorAll("[data-page-panel]");
 const homeCards = document.querySelectorAll("[data-go-page]");
+const dailyQuestTitle = document.querySelector("#dailyQuestTitle");
+const dailyQuestText = document.querySelector("#dailyQuestText");
+const dailyQuestProgressBar = document.querySelector("#dailyQuestProgressBar");
+const dailyQuestProgressText = document.querySelector("#dailyQuestProgressText");
+const dailyQuestClaimButton = document.querySelector("#dailyQuestClaimButton");
 
 answerForm.addEventListener("submit", handleSubmit);
 clearWritingButton.addEventListener("click", clearWriting);
@@ -1074,6 +1205,7 @@ resetOutfitButton.addEventListener("click", resetOutfit);
 gmUnlockAllButton.addEventListener("click", unlockAllItems);
 gmAddCrystalButton.addEventListener("click", addGmCrystals);
 gmChestButton.addEventListener("click", () => startChestOpening({ requiresCrystals: false, preferUnowned: true }));
+gmTenChestButton.addEventListener("click", () => startChestOpening({ requiresCrystals: false, count: 10 }));
 gmResetButton.addEventListener("click", resetInventory);
 backgroundSlotButton.addEventListener("click", () => unequipSlot("background"));
 headSlotButton.addEventListener("click", () => unequipSlot("head"));
@@ -1085,7 +1217,7 @@ accessorySlotButton.addEventListener("click", () => unequipSlot("accessory"));
 auraSlotButton.addEventListener("click", () => unequipSlot("aura"));
 petSlotButton.addEventListener("click", () => unequipSlot("pet"));
 playSetAnimationButton.addEventListener("click", () => playCompletedSetAnimation());
-girlCharacterButton.addEventListener("click", () => chooseCharacter("master_base"));
+girlCharacterButton?.addEventListener("click", () => chooseCharacter("master_base"));
 
 [
   digitsSelect,
@@ -1108,9 +1240,6 @@ practiceModeInputs.forEach((input) => {
 closetTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     state.currentFilter = tab.dataset.filter;
-    if (state.currentFilter === "all") {
-      state.expandedSetIds = new Set(setCatalog.map((set) => set.id));
-    }
     closetTabs.forEach((candidate) => candidate.classList.toggle("is-active", candidate === tab));
     renderInventory();
   });
@@ -1129,6 +1258,7 @@ homeCards.forEach((card) => {
     showPage(card.dataset.goPage);
   });
 });
+dailyQuestClaimButton?.addEventListener("click", claimDailyQuestReward);
 
 configureGmVisibility();
 renderVersionInfo();
@@ -1139,12 +1269,13 @@ updatePracticeSettings();
 showPracticeSettings();
 renderInventory();
 renderDoll();
+renderStats();
 document.body.dataset.page = "home";
 preloadModalChestVideo();
 
 function chooseCharacter(characterId) {
   state.characterId = characterId;
-  girlCharacterButton.classList.toggle("is-selected", characterId === "master_base");
+  girlCharacterButton?.classList.toggle("is-selected", characterId === "master_base");
   renderDoll();
 }
 
@@ -1155,6 +1286,7 @@ function createSavePayload() {
     exportedAt: new Date().toISOString(),
     characterId: state.characterId,
     blueCrystals: state.blueCrystals,
+    dailyQuest: state.dailyQuest,
     soundEnabled: state.soundEnabled,
     language: state.language,
     ownedItems: [...state.ownedItems],
@@ -1170,6 +1302,7 @@ function applySavePayload(save) {
   const validItemIds = new Set(itemCatalog.map((item) => item.id));
   state.characterId = characterCatalog[save.characterId] ? save.characterId : "master_base";
   state.blueCrystals = Number.isFinite(save.blueCrystals) ? Math.max(0, save.blueCrystals) : 0;
+  state.dailyQuest = normalizeDailyQuest(save.dailyQuest);
   state.soundEnabled = save.soundEnabled !== false;
   state.language = save.language === "en" ? "en" : "zh-Hant";
   soundToggle.checked = state.soundEnabled;
@@ -1206,6 +1339,35 @@ function saveGame() {
   try {
     localStorage.setItem(SAVE_KEY, JSON.stringify(createSavePayload()));
   } catch {}
+}
+
+function getTodayKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function normalizeDailyQuest(quest) {
+  const today = getTodayKey();
+  if (!quest || quest.date !== today) {
+    return {
+      date: today,
+      rounds: 0,
+      claimed: false,
+    };
+  }
+
+  return {
+    date: today,
+    rounds: Math.min(DAILY_QUEST_GOAL, Math.max(0, Number(quest.rounds) || 0)),
+    claimed: Boolean(quest.claimed),
+  };
+}
+
+function ensureDailyQuest() {
+  state.dailyQuest = normalizeDailyQuest(state.dailyQuest);
 }
 
 function encodeSaveCode(payload) {
@@ -1303,6 +1465,10 @@ function importSavePayload(payload) {
 
 function showPage(pageName) {
   document.body.dataset.page = pageName;
+  if (pageName === "dress") {
+    state.expandedSetIds = new Set();
+    renderInventory();
+  }
   settingsButton.classList.toggle("is-active", pageName === "settings");
   settingsButton.setAttribute("aria-expanded", pageName === "settings" ? "true" : "false");
   appTabs.forEach((tab) => {
@@ -1331,6 +1497,7 @@ function startRound() {
   state.score = 0;
   state.streak = 0;
   state.roundAnswers = [];
+  state.usedQuestionKeys = new Set();
   state.addDifficulty = addDifficultySelect.value;
   state.subtractDifficulty = subtractDifficultySelect.value;
   feedbackText.textContent = "";
@@ -1349,6 +1516,7 @@ function showPracticeSettings() {
   state.score = 0;
   state.streak = 0;
   state.roundAnswers = [];
+  state.usedQuestionKeys = new Set();
   feedbackText.textContent = "";
   feedbackText.className = "feedback";
   closeDigitChoosers();
@@ -1363,18 +1531,44 @@ function showPracticeQuestion() {
 function nextQuestion() {
   state.addDifficulty = addDifficultySelect.value;
   state.subtractDifficulty = subtractDifficultySelect.value;
-  state.currentQuestion = makeQuestion(
-    getPracticeMode(),
-    Number(digitsSelect.value),
-    multiplyModeSelect.value,
-    divideModeSelect.value,
-  );
+  state.currentQuestion = makeUniqueQuestion();
   renderQuestion(state.currentQuestion);
   renderStats();
 }
 
 function getPracticeMode() {
-  return document.querySelector("input[name='practiceMode']:checked")?.value || "add";
+  const selectedMode = document.querySelector("input[name='practiceMode']:checked")?.value || "add";
+  if (["add", "subtract", "multiply", "divide"].includes(selectedMode)) {
+    return selectedMode;
+  }
+  document.querySelector('input[name="practiceMode"][value="add"]')?.click();
+  return "add";
+}
+
+function makeUniqueQuestion() {
+  const mode = getPracticeMode();
+  const digits = Number(digitsSelect.value);
+  let fallbackQuestion = null;
+
+  for (let attempt = 0; attempt < 30; attempt += 1) {
+    const question = makeQuestion(mode, digits, multiplyModeSelect.value, divideModeSelect.value);
+    fallbackQuestion = question;
+    const key = makeQuestionKey(question);
+    if (!state.usedQuestionKeys.has(key)) {
+      state.usedQuestionKeys.add(key);
+      return question;
+    }
+  }
+
+  const fallbackKey = makeQuestionKey(fallbackQuestion);
+  state.usedQuestionKeys.add(fallbackKey);
+  return fallbackQuestion;
+}
+
+function makeQuestionKey(question) {
+  const commutative = question.operation === "add" || question.operation === "multiply";
+  const numbers = commutative ? [question.a, question.b].sort((a, b) => a - b) : [question.a, question.b];
+  return [question.operation, question.layout ?? "vertical", ...numbers].join(":");
 }
 
 function updatePracticeSettings() {
@@ -1384,7 +1578,6 @@ function updatePracticeSettings() {
     subtract: ["digits", "subtract"],
     multiply: ["multiply"],
     divide: ["divide"],
-    mixed: ["digits"],
   }[mode] || ["digits"];
 
   settingControls.forEach((control) => {
@@ -1407,14 +1600,12 @@ function makePracticeSummary(mode) {
           subtract: "Subtraction",
           multiply: "Multiplication",
           divide: "Division",
-          mixed: "Mixed",
         }
       : {
           add: "加法練習",
           subtract: "減法練習",
           multiply: "乘法練習",
           divide: "除法練習",
-          mixed: "混合練習",
         };
   const digitsLabels =
     state.language === "en"
@@ -1492,6 +1683,7 @@ function showRoundResult() {
   if (bonusReward) {
     state.blueCrystals += bonusReward;
   }
+  recordDailyQuestRound();
 
   answerForm.classList.add("hidden");
   roundResult.classList.remove("hidden");
@@ -1510,6 +1702,47 @@ function showRoundResult() {
         : "本輪完成，繼續加油！";
   feedbackText.className = bonusReward ? "feedback correct" : "feedback";
   renderStats();
+}
+
+function recordDailyQuestRound() {
+  ensureDailyQuest();
+  if (state.dailyQuest.rounds < DAILY_QUEST_GOAL) {
+    state.dailyQuest.rounds += 1;
+  }
+  renderDailyQuest();
+}
+
+function claimDailyQuestReward() {
+  ensureDailyQuest();
+  if (state.dailyQuest.claimed || state.dailyQuest.rounds < DAILY_QUEST_GOAL) {
+    renderDailyQuest();
+    return;
+  }
+
+  state.dailyQuest.claimed = true;
+  state.blueCrystals += DAILY_QUEST_REWARD;
+  playSound(correctSound, 0.42);
+  renderStats();
+}
+
+function renderDailyQuest() {
+  ensureDailyQuest();
+  if (!dailyQuestTitle || !dailyQuestText || !dailyQuestProgressBar || !dailyQuestProgressText || !dailyQuestClaimButton) {
+    return;
+  }
+
+  const progress = Math.min(DAILY_QUEST_GOAL, state.dailyQuest.rounds);
+  const complete = progress >= DAILY_QUEST_GOAL;
+  dailyQuestTitle.textContent = tr("dailyQuestTitle");
+  dailyQuestText.textContent = tr("dailyQuestText");
+  dailyQuestProgressBar.style.width = `${(progress / DAILY_QUEST_GOAL) * 100}%`;
+  dailyQuestProgressText.textContent = `${progress} / ${DAILY_QUEST_GOAL}`;
+  dailyQuestClaimButton.disabled = !complete || state.dailyQuest.claimed;
+  dailyQuestClaimButton.textContent = state.dailyQuest.claimed
+    ? tr("dailyQuestClaimed")
+    : complete
+      ? tr("dailyQuestClaim")
+      : tr("dailyQuestReward");
 }
 
 function renderRoundReview() {
@@ -1622,10 +1855,39 @@ function translateStaticText() {
   setText('.app-tab[data-page="gm"]', tr("navGm"));
   settingsButton.lastChild.textContent = ` ${tr("settingsButton")}`;
 
-  setText(".home-copy .eyebrow", tr("homeEyebrow"));
-  setText("#homeTitle", tr("homeIntro"));
+  setText(".home-hero .eyebrow", tr("homeEyebrow"));
+  setText("#heroTitle", tr("heroTitle"));
+  setText(".home-hero-copy > p:not(.eyebrow)", tr("heroText"));
+  setText('.home-hero [data-go-page="practice"]', tr("heroPracticeButton"));
+  setText('.home-hero [data-go-page="parent-guide"]', tr("heroParentButton"));
+  setText(".home-learning-panel .eyebrow", tr("learningEyebrow"));
+  setText("#learningTitle", tr("learningTitle"));
+  document.querySelectorAll(".learning-grid article").forEach((article, index) => {
+    const labels = tr("learningItems")?.[index];
+    if (!labels) {
+      return;
+    }
+    const symbol = article.querySelector("strong");
+    const title = article.querySelector("span");
+    const text = article.querySelector("small");
+    if (symbol) {
+      symbol.textContent = labels[0];
+    }
+    if (title) {
+      title.textContent = labels[1];
+    }
+    if (text) {
+      text.textContent = labels[2];
+    }
+  });
+  setText(".home-flow-panel .eyebrow", tr("flowEyebrow"));
+  setText("#flowTitle", tr("flowTitle"));
+  document.querySelectorAll(".flow-steps span").forEach((step, index) => {
+    step.textContent = tr("flowSteps")?.[index] ?? step.textContent;
+  });
   setText(".home-doll-card .eyebrow", tr("homeToday"));
   setText(".home-doll-card h2", tr("homeCurrent"));
+  renderDailyQuest();
   setText('.home-card[data-go-page="practice"] strong', tr("homePracticeTitle"));
   setText('.home-card[data-go-page="practice"] small', tr("homePracticeText"));
   setText('.home-card[data-go-page="chest"] strong', tr("homeChestTitle"));
@@ -1646,7 +1908,7 @@ function translateStaticText() {
   setText('#answerForm .primary-button[type="submit"]', en ? "Submit Answer" : "送出答案");
   setText(".practice-reward-note > span", en ? "Correct answers earn" : "答對題目可獲得");
   document.querySelector(".practice-reward-note strong").innerHTML = `<span class="crystal-icon" aria-hidden="true"></span> +1 ${tr("crystals")}`;
-  setText("#chestTitle", en ? "Magic Chest" : "魔法寶箱");
+  setText("#chestTitle", tr("navChest"));
   setText(".chest-rules .eyebrow", tr("chestEyebrow"));
   setText(".chest-rules h3", tr("chestHeading"));
   const chestDescription = document.querySelectorAll(".chest-rules > p")[1];
@@ -1779,7 +2041,7 @@ function cheerHomeDoll() {
   const messages =
     state.language === "en"
       ? ["Let's practice today!", "Let's collect blue crystals!", "This look is perfect today!", "Open another magic chest!"]
-      : ["今天也一起練習吧！", "去拿藍水晶吧！", "這套看起來很適合今天！", "再開一個魔法寶箱吧！"];
+      : ["今天也一起練習吧！", "去拿藍水晶吧！", "這套看起來很適合今天！", "再開一個星光寶箱吧！"];
   homeDollStage.style.setProperty("--tap-glow-rgb", pick(dollGlowColors));
   homeDollSpeech.textContent = pick(messages);
   homeDollSpeech.classList.remove("hidden");
@@ -2295,24 +2557,29 @@ function padDigits(value, columns) {
   return String(value).padStart(columns, " ").split("");
 }
 
-function startChestOpening({ requiresCrystals, preferUnowned = false }) {
+function startChestOpening({ requiresCrystals, preferUnowned = false, count = 1 }) {
   if (state.isOpeningChest) {
     return;
   }
 
-  if (requiresCrystals && state.blueCrystals < CHEST_COST) {
+  const chestCost = CHEST_COST * count;
+  if (requiresCrystals && state.blueCrystals < chestCost) {
     renderStats();
     return;
   }
 
   if (requiresCrystals) {
-    state.blueCrystals -= CHEST_COST;
+    state.blueCrystals -= chestCost;
   }
 
   state.isOpeningChest = true;
   renderStats();
   playOpenChestVideo(() => {
-    grantChestReward(preferUnowned, { refundDuplicate: requiresCrystals });
+    if (count > 1) {
+      grantChestRewards(count, preferUnowned, { refundDuplicate: requiresCrystals });
+    } else {
+      grantChestReward(preferUnowned, { refundDuplicate: requiresCrystals });
+    }
     resetChestVideoToIdle();
     state.isOpeningChest = false;
     renderStats();
@@ -2328,7 +2595,7 @@ function playOpenChestVideo(onComplete) {
   resetRewardModalMode();
   state.rewardAction = "close";
   rewardTitle.textContent = state.language === "en" ? "Opening Chest" : "寶箱開啟中";
-  rewardMessage.textContent = state.language === "en" ? "The magic chest is opening..." : "魔法寶箱正在打開...";
+  rewardMessage.textContent = state.language === "en" ? "The starlight chest is opening..." : "星光寶箱正在打開...";
   closeRewardButton.classList.add("hidden");
   rewardPreviewContent.innerHTML = "";
   rewardPreview.classList.add("is-opening");
@@ -2385,27 +2652,13 @@ function preloadModalChestVideo() {
 }
 
 function grantChestReward(preferUnowned = false, { refundDuplicate = false } = {}) {
-  const item = pickChestItem(preferUnowned);
-  const isNew = !state.ownedItems.has(item.id);
-  const refundAmount = !isNew && refundDuplicate ? DUPLICATE_REFUND : 0;
-  if (refundAmount) {
-    state.blueCrystals += refundAmount;
-  }
-  state.ownedItems.add(item.id);
-  state.equipped[item.slot] = item.id;
-
-  const set = getSetById(item.setId);
+  const result = grantChestItem(preferUnowned, { refundDuplicate });
+  const { item, isNew, refundAmount } = result;
   const rarity = getItemRarity(item);
   resetRewardModalMode();
   state.rewardAction = "goDress";
   rewardTitle.textContent = state.language === "en" ? `New Item - ${getSlotLabel(item.slot)}` : `獲得物品 - ${getSlotLabel(item.slot)}`;
-  rewardPreviewContent.innerHTML = `
-    <div class="reward-item-card rarity-${rarity.toLowerCase()}">
-      <span class="reward-set-icon">${renderSetIcon(set)}</span>
-      <span class="reward-slot-icon" aria-hidden="true">${slotIcons[item.slot] ?? "物"}</span>
-      <span class="reward-rarity">${getRarityLabel(rarity)}</span>
-    </div>
-  `;
+  rewardPreviewContent.innerHTML = renderRewardItemCard(item, rarity);
   const duplicateNote =
     state.language === "en"
       ? refundAmount
@@ -2422,6 +2675,74 @@ function grantChestReward(preferUnowned = false, { refundDuplicate = false } = {
   renderInventory();
   renderDoll();
   renderStats();
+}
+
+function grantChestRewards(count, preferUnowned = false, { refundDuplicate = false } = {}) {
+  const results = Array.from({ length: count }, () => grantChestItem(preferUnowned, { refundDuplicate }));
+  resetRewardModalMode();
+  rewardModal.classList.add("multi-reward-modal");
+  rewardPreview.classList.add("multi-reward-preview");
+  state.rewardAction = "goDress";
+  rewardTitle.textContent = state.language === "en" ? "10-Pull Result" : "10 連抽結果";
+  rewardPreviewContent.innerHTML = `
+    <div class="multi-reward-grid">
+      ${results.map((result) => renderRewardResult(result)).join("")}
+    </div>
+  `;
+  const newCount = results.filter((result) => result.isNew).length;
+  const refundTotal = results.reduce((sum, result) => sum + result.refundAmount, 0);
+  rewardMessage.textContent =
+    state.language === "en"
+      ? `Got ${newCount} new item${newCount === 1 ? "" : "s"}${refundTotal ? `, refunded ${refundTotal} ${tr("crystals")}` : ""}.`
+      : `獲得 ${newCount} 件新物品${refundTotal ? `，返還 ${refundTotal} 藍水晶` : ""}。`;
+  closeRewardButton.textContent = state.language === "en" ? "View Closet" : "查看衣櫃";
+  closeRewardButton.classList.remove("hidden");
+  rewardModal.classList.remove("hidden");
+
+  renderInventory();
+  renderDoll();
+  renderStats();
+}
+
+function grantChestItem(preferUnowned = false, { refundDuplicate = false } = {}) {
+  const item = pickChestItem(preferUnowned);
+  const isNew = !state.ownedItems.has(item.id);
+  const refundAmount = !isNew && refundDuplicate ? DUPLICATE_REFUND : 0;
+  if (refundAmount) {
+    state.blueCrystals += refundAmount;
+  }
+  state.ownedItems.add(item.id);
+  state.equipped[item.slot] = item.id;
+  return { item, isNew, refundAmount };
+}
+
+function renderRewardResult(result) {
+  const rarity = getItemRarity(result.item);
+  return `
+    <div class="multi-reward-result ${result.isNew ? "is-new" : "is-duplicate"}">
+      ${renderRewardItemCard(result.item, rarity)}
+      <strong>${getSlotLabel(result.item.slot)}</strong>
+      <span>${result.isNew ? getRarityLabel(rarity) : state.language === "en" ? "Duplicate" : "重複"}</span>
+    </div>
+  `;
+}
+
+function renderRewardItemCard(item, rarity = getItemRarity(item)) {
+  return `
+    <div class="reward-item-card rarity-${rarity.toLowerCase()}">
+      <span class="reward-set-icon">${renderRewardIcon(item)}</span>
+      <span class="reward-slot-icon" aria-hidden="true">${slotIcons[item.slot] ?? "物"}</span>
+      <span class="reward-rarity">${getRarityLabel(rarity)}</span>
+    </div>
+  `;
+}
+
+function renderRewardIcon(item) {
+  const set = getSetById(item.setId);
+  if (set) {
+    return renderSetIcon(set);
+  }
+  return `<img src="${item.path}" alt="" aria-hidden="true" />`;
 }
 
 function pickChestItem(preferUnowned) {
@@ -2498,7 +2819,9 @@ function closeReward() {
 
 function resetRewardModalMode() {
   rewardModal.classList.remove("set-animation-modal");
+  rewardModal.classList.remove("multi-reward-modal");
   rewardPreview.classList.remove("set-animation-preview");
+  rewardPreview.classList.remove("multi-reward-preview");
   rewardPreview.classList.remove("is-opening");
   modalChestOpenVideo?.classList.add("hidden");
 }
@@ -2563,6 +2886,7 @@ function unequipSlot(slot) {
 }
 
 function renderStats() {
+  ensureDailyQuest();
   roundText.textContent =
     state.language === "en"
       ? `${tr("roundText")} ${state.questionIndex} / ${ROUND_SIZE}`
@@ -2578,23 +2902,17 @@ function renderStats() {
         ? `${tr("openChestReady")} (cost ${CHEST_COST})`
         : `${tr("openChestReady")}（消耗 ${CHEST_COST}）`
       : `${tr("chestNeed")} ${CHEST_COST - state.blueCrystals} ${tr("crystals")}`;
+  renderDailyQuest();
   saveGame();
 }
 
 function renderInventory() {
   const owned = itemCatalog.filter((item) => state.ownedItems.has(item.id) && isItemCompatibleWithCurrentBase(item));
-  const visibleItems = state.currentFilter === "all" ? owned : owned.filter((item) => item.slot === state.currentFilter);
-  const compatibleTotal = itemCatalog.filter((item) => isItemCompatibleWithCurrentBase(item)).length;
+  const compatibleItems = itemCatalog.filter((item) => isItemCompatibleWithCurrentBase(item));
+  const visibleItems =
+    state.currentFilter === "all" ? compatibleItems : compatibleItems.filter((item) => item.slot === state.currentFilter);
+  const compatibleTotal = compatibleItems.length;
   inventoryHint.textContent = `${owned.length} / ${compatibleTotal} ${tr("inventoryHint")}`;
-
-  if (!owned.length) {
-    inventoryGrid.innerHTML = makeEmptyInventoryCard(
-      tr("emptyInventoryTitle"),
-      tr("emptyInventoryText"),
-    );
-    renderSlots();
-    return;
-  }
 
   if (!visibleItems.length) {
     inventoryGrid.innerHTML = makeEmptyInventoryCard(
@@ -2644,16 +2962,29 @@ function renderSetGroups(items) {
   const setGroups = setCatalog
     .map((set) => ({
       set,
-      items: items
-        .filter((item) => item.setId === set.id)
+      items: set.requiredItemIds
+        .map((itemId) => itemCatalog.find((item) => item.id === itemId))
+        .filter((item) => item && items.includes(item))
         .sort((a, b) => slotOrder.indexOf(a.slot) - slotOrder.indexOf(b.slot)),
     }))
     .filter((group) => group.items.length);
 
-  const looseItems = items.filter((item) => !item.setId);
+  const requiredItemIds = new Set(setCatalog.flatMap((set) => set.requiredItemIds));
+  const looseItems = items
+    .filter((item) => !requiredItemIds.has(item.id))
+    .sort((a, b) => slotOrder.indexOf(a.slot) - slotOrder.indexOf(b.slot));
   const groupsMarkup = setGroups.map(({ set, items: setItems }) => renderSetGroup(set, setItems)).join("");
   const looseMarkup = looseItems.length
-    ? renderSetGroup({ name: state.language === "en" ? "Other Items" : "其他物品", requiredItemIds: [] }, looseItems)
+    ? renderSetGroup(
+        {
+          id: "extra_items",
+          name: state.language === "en" ? "Extra Collection" : "額外收藏",
+          icon: "✦",
+          requiredItemIds: looseItems.map((item) => item.id),
+          isExtra: true,
+        },
+        looseItems,
+      )
     : "";
   return groupsMarkup + looseMarkup;
 }
@@ -2666,7 +2997,8 @@ function renderSetGroup(set, items) {
   const completed = requiredCount > 0 && ownedCount >= requiredCount;
   const canToggle = Boolean(set.id);
   const isExpanded = !canToggle || state.expandedSetIds.has(set.id);
-  const animationButton = canToggle
+  const canPlayAnimation = canToggle && !set.isExtra;
+  const animationButton = canPlayAnimation
     ? `<button class="set-animation-action ${completed ? "" : "is-locked"}" type="button" ${
         completed ? `data-play-set-id="${set.id}"` : "disabled"
       }>${completed ? (state.language === "en" ? "Play" : "播放") : state.language === "en" ? "Locked" : "未完成"}</button>`
@@ -2699,12 +3031,15 @@ function renderSetGroup(set, items) {
 
 function renderInventoryItem(item) {
   const equipped = state.equipped[item.slot] === item.id;
+  const owned = state.ownedItems.has(item.id);
   const rarity = getItemRarity(item);
   return `
-    <button class="item-button rarity-${rarity.toLowerCase()} ${equipped ? "is-equipped" : ""}" type="button" data-item-id="${item.id}">
-      <span class="item-icon" aria-hidden="true">${slotIcons[item.slot] ?? "物"}</span>
+    <button class="item-button rarity-${rarity.toLowerCase()} ${equipped ? "is-equipped" : ""} ${owned ? "is-owned" : "is-locked"}" type="button" ${
+      owned ? `data-item-id="${item.id}"` : "disabled"
+    }>
+      <span class="item-icon" aria-hidden="true">${owned ? slotIcons[item.slot] ?? "物" : "?"}</span>
       <strong>${getSlotLabel(item.slot) ?? item.name}</strong>
-      <span>${equipped ? (state.language === "en" ? "Equipped" : "穿戴中") : getRarityLabel(rarity)}</span>
+      <span>${owned ? getRarityLabel(rarity) : state.language === "en" ? "Not collected" : "未取得"}</span>
     </button>
   `;
 }
@@ -2743,7 +3078,6 @@ function renderSlots() {
 
 function renderSlotButton(button, slot) {
   const item = getEquippedItem(slot);
-  const set = item ? getSetById(item.setId) : null;
   button.classList.toggle("is-equipped", Boolean(item));
   button.setAttribute(
     "aria-label",
@@ -2753,11 +3087,24 @@ function renderSlotButton(button, slot) {
   );
   button.innerHTML = `
     <span class="slot-thumb">
-      ${item ? renderSetIcon(set) : renderEmptySlotIcon(slot)}
+      ${renderEquippedSlotIcon(item, slot)}
     </span>
     <span class="slot-name">${getSlotLabel(slot)}</span>
     <span class="slot-state">${item ? (state.language === "en" ? "Equipped" : "已穿") : state.language === "en" ? "Empty" : "空"}</span>
   `;
+}
+
+function renderEquippedSlotIcon(item, slot) {
+  if (!item) {
+    return renderEmptySlotIcon(slot);
+  }
+
+  const set = getSetById(item.setId);
+  if (set) {
+    return renderSetIcon(set);
+  }
+
+  return `<img class="slot-item-icon" src="${item.path}" alt="" aria-hidden="true" />`;
 }
 
 function renderDoll() {

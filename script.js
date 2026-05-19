@@ -67,8 +67,8 @@ const ITEM_RARITIES = {
 };
 const STANDARD_SKELETON_ID = "master_base";
 const DEFAULT_STAGE = {
-  displayDollWidth: 430,
-  sceneDollWidth: 360,
+  displayDollWidth: 520,
+  sceneDollWidth: 390,
   characterY: 0,
   characterScale: 1,
 };
@@ -1239,8 +1239,12 @@ practiceModeInputs.forEach((input) => {
 
 closetTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    state.currentFilter = tab.dataset.filter;
-    closetTabs.forEach((candidate) => candidate.classList.toggle("is-active", candidate === tab));
+    const selectedFilter = tab.dataset.filter;
+    const nextFilter = state.currentFilter === selectedFilter && selectedFilter !== "all" ? "all" : selectedFilter;
+    state.currentFilter = nextFilter;
+    closetTabs.forEach((candidate) =>
+      candidate.classList.toggle("is-active", candidate.dataset.filter === nextFilter)
+    );
     renderInventory();
   });
 });

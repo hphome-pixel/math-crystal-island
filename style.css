@@ -1068,6 +1068,32 @@ select {
   filter: blur(9px);
 }
 
+.doll-character-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transform-origin: center bottom;
+}
+
+.doll-stage .doll-character-stack {
+  animation: dollBreath 3.2s ease-in-out infinite;
+}
+
+.pet-float-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  transform-origin: center bottom;
+}
+
+.doll-stage .pet-float-stack {
+  animation: petFloat 3.2s ease-in-out infinite;
+}
+
 .doll-layer {
   position: absolute;
   width: min(94%, var(--doll-width, 520px));
@@ -1127,6 +1153,35 @@ select {
 
 .pet-layer {
   z-index: 10;
+}
+
+@keyframes dollBreath {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-1px) scale(1.006);
+  }
+}
+
+@keyframes petFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-2px) scale(1.012);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doll-stage .doll-character-stack,
+  .doll-stage .pet-float-stack {
+    animation: none;
+  }
 }
 
 .animation-button {

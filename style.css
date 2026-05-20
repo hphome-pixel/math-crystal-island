@@ -1531,6 +1531,13 @@ select {
   font-size: 0.9rem;
 }
 
+.item-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
 .item-button.is-equipped {
   background: linear-gradient(180deg, #fff1f6, #fff7e6);
   box-shadow:

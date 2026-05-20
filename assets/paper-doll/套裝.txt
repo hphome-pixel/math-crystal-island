@@ -12,6 +12,7 @@ Cozy Milk Tea Winter_background | 背景 | (Legendary)
 
 套裝名稱:Lemon Cream Daydream
 總共 (8) 件組
+#f9d865
 Lemon Cream Daydream_head | 髮型/表情 | (Rare)
 Lemon Cream Daydream_top | 衣服 | (Epic)
 Lemon Cream Daydream_bottom | 下身 | (Epic)
@@ -23,6 +24,7 @@ Lemon Cream Daydream_background | 背景 | (Legendary)
 
 套裝名稱:Rainy Blue Memory
 總共 (8) 件組
+#71eafd
 Rainy Blue Memory_head | 髮型/表情 | (Rare)
 Rainy Blue Memory_top | 衣服 | (Epic)
 Rainy Blue Memory_bottom | 下身 | (Epic)
@@ -34,6 +36,7 @@ Rainy Blue Memory_background | 背景 | (Legendary)
 
 套裝名稱:Cherry Blossom Picnic
 總共 (8) 件組
+#f4ccc2
 Cherry Blossom Picnic_head | 髮型/表情 | (Rare)
 Cherry Blossom Picnic_top | 衣服 | (Epic)
 Cherry Blossom Picnic_bottom | 下身 | (Epic)
@@ -45,6 +48,7 @@ Cherry Blossom Picnic_background | 背景 | (Legendary)
 
 套裝名稱:Sage Garden Cafe
 總共 (8) 件組
+#b5c795
 Sage Garden Cafe_head | 髮型/表情 | (Rare)
 Sage Garden Cafe_top | 衣服 | (Epic)
 Sage Garden Cafe_bottom | 下身 | (Epic)

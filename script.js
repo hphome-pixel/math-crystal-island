@@ -670,6 +670,64 @@ const emptySlotIcons = {
   pet: "assets/paper-doll/ICONs/Empty_ICON/empty_pets.jpg",
 };
 
+const equippedIconPaths = {
+  cozy_milk_tea_winter: {
+    background: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_background.png",
+    head: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_head.png",
+    top: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_top.png",
+    bottom: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_bottom.png",
+    shoe: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_Shoe.png",
+    bag: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_bag.png",
+    accessory: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_accessory.png",
+    aura: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_aura.png",
+    pet: "assets/paper-doll/ICONs/Equipped_ICON/Cozy Milk Tea Winter/Cozy Milk Tea Winter_pet.png",
+  },
+  lemon_cream_daydream: {
+    background: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_background.png",
+    head: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_head.png",
+    top: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_top.png",
+    bottom: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_bottom.png",
+    shoe: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_Shoe.png",
+    bag: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_bag.png",
+    accessory: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_accessory.png",
+    aura: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_aura.png",
+    pet: "assets/paper-doll/ICONs/Equipped_ICON/Lemon Cream Daydream/Lemon Cream Daydream_pet.png",
+  },
+  rainy_blue_memory: {
+    background: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_background.png",
+    head: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_head.png",
+    top: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_top.png",
+    bottom: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_bottom.png",
+    shoe: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_Shoe.png",
+    bag: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_bag.png",
+    accessory: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_accessory.png",
+    aura: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_aura.png",
+    pet: "assets/paper-doll/ICONs/Equipped_ICON/Rainy Blue Memory/Rainy Blue Memory_pet.png",
+  },
+  cherry_blossom_picnic: {
+    background: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_background.png",
+    head: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_head.png",
+    top: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_top.png",
+    bottom: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_bottom.png",
+    shoe: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_Shoe.png",
+    bag: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_bag.png",
+    accessory: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_accessory.png",
+    aura: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_aura.png",
+    pet: "assets/paper-doll/ICONs/Equipped_ICON/Cherry Blossom Picnic/Cherry Blossom Picnic_pet.png",
+  },
+  sage_garden_cafe: {
+    background: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafebackground.png",
+    head: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafehead.png",
+    top: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafe_top.png",
+    bottom: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafebottom.png",
+    shoe: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafe_shoe.png",
+    bag: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafebag.png",
+    accessory: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafe_accessory.png",
+    aura: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafeaura.png",
+    pet: "assets/paper-doll/ICONs/Equipped_ICON/Sage Garden Cafe/Sage Garden Cafe_pet.png",
+  },
+};
+
 const dollGlowColors = ["118, 213, 255", "126, 231, 200", "200, 167, 255", "255, 173, 201", "255, 211, 110", "119, 240, 255"];
 
 const i18n = {
@@ -2742,9 +2800,9 @@ function renderRewardItemCard(item, rarity = getItemRarity(item)) {
 }
 
 function renderRewardIcon(item) {
-  const set = getSetById(item.setId);
-  if (set) {
-    return renderSetIcon(set);
+  const iconPath = getEquippedIconPath(item);
+  if (iconPath) {
+    return `<img src="${iconPath}" alt="" aria-hidden="true" />`;
   }
   return `<img src="${item.path}" alt="" aria-hidden="true" />`;
 }
@@ -3037,11 +3095,14 @@ function renderInventoryItem(item) {
   const equipped = state.equipped[item.slot] === item.id;
   const owned = state.ownedItems.has(item.id);
   const rarity = getItemRarity(item);
+  const iconPath = getEquippedIconPath(item);
   return `
     <button class="item-button rarity-${rarity.toLowerCase()} ${equipped ? "is-equipped" : ""} ${owned ? "is-owned" : "is-locked"}" type="button" ${
       owned ? `data-item-id="${item.id}"` : "disabled"
     }>
-      <span class="item-icon" aria-hidden="true">${owned ? slotIcons[item.slot] ?? "物" : "?"}</span>
+      <span class="item-icon" aria-hidden="true">${
+        owned && iconPath ? `<img src="${iconPath}" alt="" aria-hidden="true" />` : owned ? slotIcons[item.slot] ?? "物" : "?"
+      }</span>
       <strong>${getSlotLabel(item.slot) ?? item.name}</strong>
       <span>${owned ? getRarityLabel(rarity) : state.language === "en" ? "Not collected" : "未取得"}</span>
     </button>
@@ -3103,9 +3164,9 @@ function renderEquippedSlotIcon(item, slot) {
     return renderEmptySlotIcon(slot);
   }
 
-  const set = getSetById(item.setId);
-  if (set) {
-    return renderSetIcon(set);
+  const iconPath = getEquippedIconPath(item);
+  if (iconPath) {
+    return `<img class="slot-item-icon" src="${iconPath}" alt="" aria-hidden="true" />`;
   }
 
   return `<img class="slot-item-icon" src="${item.path}" alt="" aria-hidden="true" />`;
@@ -3184,6 +3245,13 @@ function getEquippedItem(slot) {
 
 function getSetById(setId) {
   return setCatalog.find((set) => set.id === setId) || null;
+}
+
+function getEquippedIconPath(item) {
+  if (!item?.setId) {
+    return null;
+  }
+  return equippedIconPaths[item.setId]?.[item.slot] ?? null;
 }
 
 function getActiveSkeletonId() {

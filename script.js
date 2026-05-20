@@ -838,6 +838,9 @@ const i18n = {
     missingAnswer: "先在答案格寫答案，或點下面小格修正數字。",
     wrongFeedback: "差一點，答案是",
     setAnimation: "播放套裝動畫",
+    adLabel: "Advertisement",
+    adPlaceholderTitle: "廣告預留區",
+    adPlaceholderText: "完成一輪練習後才會出現。正式上架前不載入廣告 SDK。",
     footerAria: "網站資訊",
     slot: {
       background: "背景",
@@ -854,46 +857,58 @@ const i18n = {
       privacy: `
         <p class="eyebrow">Privacy Policy</p>
         <h2 id="privacyTitle">隱私權政策</h2>
-        <p>數學水晶島目前是一個瀏覽器版學習與換裝原型。遊戲進度、藍水晶、衣櫃物品與設定會儲存在使用者裝置的瀏覽器 localStorage 中，不會由本網站主動上傳到伺服器。</p>
+        <p>數學水晶島是由 HPHome Pixel 製作的兒童數學練習與換裝遊戲。為了達到可營利、可審查與家長可理解的標準，本政策說明目前版本與未來加入廣告、分析、購買或帳號功能時可能涉及的資料處理方式。</p>
         <div class="info-grid">
-          <article><h3>我們目前不收集的資料</h3><p>本版本不要求登入、不要求姓名、生日、地址、電話，也不會要求孩子輸入可識別個人的資料。</p></article>
-          <article><h3>本機儲存</h3><p>遊戲會在同一台裝置與同一個瀏覽器中保存進度。清除瀏覽器資料後，進度可能會消失。</p></article>
-          <article><h3>第三方服務</h3><p>若未來加入廣告、分析或帳號功能，本頁會更新說明使用的第三方服務、資料用途與家長選項。</p></article>
-          <article><h3>家長提醒</h3><p>本遊戲以兒童學習為方向，建議家長陪同使用並協助管理瀏覽器資料與螢幕時間。</p></article>
+          <article><h3>目前收集的資料</h3><p>本版本不要求登入，不要求孩子輸入姓名、生日、地址、電話或學校。遊戲進度、藍水晶、衣櫃物品、語言與音效設定會儲存在使用者裝置的瀏覽器 localStorage 中。</p></article>
+          <article><h3>可能的技術資料</h3><p>若網站部署到正式主機，主機服務可能會處理基本連線資訊，例如 IP 位址、瀏覽器類型、裝置類型、日期時間、錯誤紀錄與安全紀錄，用於提供網站、維護安全與排除問題。</p></article>
+          <article><h3>廣告與營利</h3><p>若未來加入廣告、贊助、聯盟連結、訂閱或應用程式內購買，我們會依照法規、平台政策與家長同意要求處理資料。兒童導向區域不會使用禁止的行為定向廣告。</p></article>
+          <article><h3>分析與錯誤回報</h3><p>若未來加入分析或 crash reporting，可能會處理裝置型號、作業系統、瀏覽器、語言、國家或地區、版本、事件紀錄與錯誤資訊，以改善穩定性與學習體驗。</p></article>
+          <article><h3>兒童隱私</h3><p>我們不會故意在未取得必要家長同意的情況下收集兒童個人資料。若家長認為孩子提供了個人資料，可聯絡我們要求查看、刪除或限制使用。</p></article>
+          <article><h3>資料分享</h3><p>我們可能與網站主機、分析、錯誤回報、廣告、付款、資安或法遵服務提供者分享必要資料。這些服務只能依其服務目的處理資料。</p></article>
+          <article><h3>使用者與家長權利</h3><p>使用者或家長可要求存取、更正、刪除或限制個人資料。也可以透過瀏覽器或裝置設定清除 localStorage、限制追蹤、管理通知與廣告設定。</p></article>
+          <article><h3>資料保存與安全</h3><p>本機進度會留在同一台裝置與瀏覽器，直到使用者清除資料。服務端紀錄若有產生，會在達成營運、安全、法務或除錯目的後合理刪除。</p></article>
         </div>
-        <p class="info-note">最後更新：2026-05-17</p>
+        <p class="info-note">最後更新：2026-05-20。隱私或家長請求請寄信到 hphomemathcrystalisland@gmail.com，或使用 Contact 頁面提供的聯絡方式。</p>
       `,
       about: `
         <p class="eyebrow">About</p>
         <h2 id="aboutTitle">關於數學水晶島</h2>
-        <p>數學水晶島是一個結合水晶試煉、藍水晶獎勵、星光寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。</p>
+        <p>數學水晶島是一個結合數學練習、藍水晶獎勵、星光寶箱與 Aveline 紙娃娃換裝的兒童學習遊戲。它的設計目標是讓孩子在短回合中練習運算，同時透過可愛收集與換裝獎勵保持動機。</p>
         <div class="info-grid">
-          <article><h3>學習目標</h3><p>透過加法、減法、乘法與除法練習，讓孩子在短回合中累積成就感。</p></article>
-          <article><h3>遊戲循環</h3><p>答題取得藍水晶，再用藍水晶開啟星光寶箱，收集不同套裝與動畫。</p></article>
-          <article><h3>目前狀態</h3><p>本網站仍是早期原型，會持續調整題型、手機排版、家長設定與素材整理。</p></article>
-          <article><h3>適合使用方式</h3><p>建議每次練習 10 題，完成後讓孩子檢查答題紀錄，再回到首頁或衣櫃休息一下。</p></article>
+          <article><h3>學習目標</h3><p>孩子可以練習加法、減法、乘法與除法，並透過每輪結果回顧答題狀況。遊戲鼓勵穩定練習，而不是用高壓方式追求分數。</p></article>
+          <article><h3>遊戲循環</h3><p>完成水晶試煉取得藍水晶，再用藍水晶開啟星光寶箱，解鎖服裝、配件、背景、光效與寵物。</p></article>
+          <article><h3>適合對象</h3><p>本遊戲適合正在練習基礎四則運算的孩子。年齡、題型與使用時間仍建議由家長依孩子程度調整。</p></article>
+          <article><h3>營利透明</h3><p>若未來加入廣告、付費功能、訂閱或贊助內容，我們會在隱私權政策、家長指南與平台商店頁面清楚揭露。</p></article>
+          <article><h3>負責任設計</h3><p>我們避免要求孩子輸入可識別個人的資料，並把核心進度保存在本機瀏覽器，讓家長可以透過裝置與瀏覽器設定管理資料。</p></article>
+          <article><h3>發布者資訊</h3><p>發布者：HPHome Pixel。專案頁面：https://github.com/hphome-pixel/math-crystal-island。支援、隱私與家長請求請使用 Contact 頁面，或寄信到 hphomemathcrystalisland@gmail.com。</p></article>
         </div>
       `,
       parentGuide: `
         <p class="eyebrow">Parent Guide</p>
         <h2 id="parentGuideTitle">家長指南</h2>
-        <p>這份指南協助家長了解孩子在數學水晶島裡會做什麼，以及如何陪伴孩子使用。</p>
+        <p>這份指南協助家長了解孩子在數學水晶島裡會做什麼、資料如何保存、可能的營利方式，以及如何設定裝置與取得協助。</p>
         <div class="info-grid">
-          <article><h3>建議節奏</h3><p>一次以 10 題為一輪。答對 1 題可獲得 1 顆藍水晶，完成一輪後可查看剛剛的答題結果。</p></article>
-          <article><h3>獎勵規則</h3><p>10 題答對 5 題、8 題、10 題會有額外藍水晶。建議把獎勵當成練習動機，而不是壓力。</p></article>
-          <article><h3>陪伴方式</h3><p>孩子答錯時，可以先看本輪檢查，再一起討論位數、進位、借位或乘除概念。</p></article>
-          <article><h3>裝置與資料</h3><p>目前進度存在本機瀏覽器。換裝置或清除瀏覽器資料後，衣櫃與藍水晶可能無法保留。</p></article>
+          <article><h3>使用前建議</h3><p>請先確認孩子適合目前題型，並設定瀏覽器、裝置、螢幕時間與購買限制。若孩子年紀較小，建議家長在旁陪同第一次使用。</p></article>
+          <article><h3>練習節奏</h3><p>一次以 10 題為一輪。答對 1 題可獲得 1 顆藍水晶，5 題、8 題、10 題正確會有額外獎勵。請把獎勵當作練習動機，不要變成壓力。</p></article>
+          <article><h3>陪伴方式</h3><p>孩子答錯時，可以一起看本輪檢查，討論位數、進位、借位、九九乘法或除法概念。比起速度，更建議重視理解。</p></article>
+          <article><h3>資料與隱私</h3><p>目前進度存在本機瀏覽器。換裝置、換瀏覽器或清除瀏覽器資料後，衣櫃與藍水晶可能無法保留。請不要讓孩子在公開頁面留下姓名、照片、學校或地址。</p></article>
+          <article><h3>廣告與購買</h3><p>若未來加入廣告、內購或訂閱，家長應啟用裝置的購買核准、密碼或生物辨識限制。兒童導向內容會依平台規範使用適合兒童的廣告設定。</p></article>
+          <article><h3>建議裝置控制</h3><p>建議啟用家庭共享、家長監護、內容分級、購買核准、通知限制、廣告追蹤限制與螢幕時間工具。</p></article>
+          <article><h3>何時聯絡我們</h3><p>若你有隱私請求、兒童安全疑慮、資料刪除需求、購買問題、素材授權或 app review 問題，請透過 Contact 頁面聯絡。</p></article>
+          <article><h3>健康使用</h3><p>建議把遊戲安排成短時間練習：完成一輪、檢查結果、休息或換裝。若孩子感到挫折，請先暫停並改用紙筆或口頭討論。</p></article>
         </div>
       `,
       contact: `
         <p class="eyebrow">Contact</p>
         <h2 id="contactTitle">聯絡我們</h2>
-        <p>如果你想回報問題、提出建議，或討論素材與授權，可以透過 GitHub repository 的 Issues 聯絡。</p>
-        <div class="contact-card">
-          <strong>GitHub Issues</strong>
-          <a href="https://github.com/hphome-pixel/math-crystal-island/issues" target="_blank" rel="noreferrer">https://github.com/hphome-pixel/math-crystal-island/issues</a>
+        <p>如果你需要支援、想回報問題、提出隱私或家長請求、討論素材授權，或協助 app review / 廣告平台審查，可以寄信到 <a href="mailto:hphomemathcrystalisland@gmail.com">hphomemathcrystalisland@gmail.com</a>，也可以使用下列方式聯絡。</p>
+        <div class="info-grid">
+          <article><h3>一般支援</h3><p>請到 GitHub Issues 回報問題或建議：<a href="https://github.com/hphome-pixel/math-crystal-island/issues" target="_blank" rel="noreferrer">math-crystal-island/issues</a></p></article>
+          <article><h3>隱私與家長請求</h3><p>請在 issue 標題寫明「Privacy Request」或「Parent Request」。請勿公開張貼孩子姓名、照片、學校、地址、電話、帳號或任何可識別個人的資料。</p></article>
+          <article><h3>審查與商務</h3><p>App store reviewer、廣告平台、授權與合作聯絡可使用同一個 GitHub repository 聯絡。請附上平台、審查案號或相關連結。</p></article>
+          <article><h3>建議提供資訊</h3><p>請包含裝置平台、瀏覽器、語言、問題步驟、截圖或錯誤訊息。購買相關問題請提供平台訂單資訊，但不要公開付款資料。</p></article>
         </div>
-        <p class="info-note">請不要在公開 issue 中貼上孩子的姓名、照片、學校、地址或其他個人資料。</p>
+        <p class="info-note">正式聯絡信箱：<a href="mailto:hphomemathcrystalisland@gmail.com">hphomemathcrystalisland@gmail.com</a>。隱私、家長請求、app review、廣告平台審查與支援問題都可以使用此信箱。</p>
       `,
     },
   },
@@ -1004,6 +1019,9 @@ const i18n = {
     missingAnswer: "Write the answer first, or tap the small boxes below to fix the digits.",
     wrongFeedback: "Almost. The answer is",
     setAnimation: "Play outfit animation",
+    adLabel: "Advertisement",
+    adPlaceholderTitle: "Ad placeholder",
+    adPlaceholderText: "Appears only after a completed practice round. No ad SDK is loaded before production.",
     footerAria: "Site information",
     slot: {
       background: "Background",
@@ -1020,46 +1038,58 @@ const i18n = {
       privacy: `
         <p class="eyebrow">Privacy Policy</p>
         <h2 id="privacyTitle">Privacy Policy</h2>
-        <p>Math Crystal Island is currently a browser-based learning and dress-up prototype. Game progress, blue crystals, closet items, and settings are stored in this browser's localStorage on the user's device. This site does not actively upload that data to a server.</p>
+        <p>Math Crystal Island is a children's math practice and dress-up game created by HPHome Pixel. This Policy explains the current browser version and the data practices that may apply if advertising, analytics, purchases, accounts, or other monetization features are added.</p>
         <div class="info-grid">
-          <article><h3>Data we do not collect</h3><p>This version does not require sign-in, names, birthdays, addresses, phone numbers, or personal information from children.</p></article>
-          <article><h3>Local storage</h3><p>Progress is saved on the same device and browser. Clearing browser data may remove saved progress.</p></article>
-          <article><h3>Third-party services</h3><p>If ads, analytics, or account features are added later, this page will be updated with the services used, purposes, and parent choices.</p></article>
-          <article><h3>Parent note</h3><p>This game is designed for children's learning. Parents are encouraged to supervise use and help manage browser data and screen time.</p></article>
+          <article><h3>Data currently stored</h3><p>This version does not require sign-in and does not ask children for names, birthdays, addresses, phone numbers, schools, or other directly identifying information. Game progress, blue crystals, closet items, language, and sound settings are stored in the browser localStorage on the user's device.</p></article>
+          <article><h3>Technical data</h3><p>If the site is hosted online, the hosting provider may process basic connection data such as IP address, browser type, device type, date and time, error logs, and security logs to provide the site, maintain security, and troubleshoot problems.</p></article>
+          <article><h3>Ads and monetization</h3><p>If ads, sponsorships, affiliate links, subscriptions, or in-app purchases are added, we will handle data according to applicable law, platform policy, and consent requirements. Child-directed areas will not use prohibited behaviorally targeted advertising.</p></article>
+          <article><h3>Analytics and crash reporting</h3><p>If analytics or crash reporting are added, they may process device model, operating system, browser, language, country or region, app version, events, and error information to improve stability and the learning experience.</p></article>
+          <article><h3>Children's privacy</h3><p>We do not knowingly collect personal information from children without required parental consent. Parents may contact us to review, delete, or restrict information associated with their child.</p></article>
+          <article><h3>Sharing information</h3><p>We may share necessary information with hosting, analytics, crash reporting, advertising, payment, security, or legal compliance providers. These providers may process information only for their service purposes.</p></article>
+          <article><h3>User and parent rights</h3><p>Users and parents may request access, correction, deletion, or restriction of personal information. Browser and device settings can also clear localStorage, limit tracking, manage notifications, and control advertising preferences.</p></article>
+          <article><h3>Retention and security</h3><p>Local progress remains on the same device and browser until the user clears it. Server-side logs, if created, are retained only as reasonably needed for operations, security, legal compliance, or debugging.</p></article>
         </div>
-        <p class="info-note">Last updated: 2026-05-17</p>
+        <p class="info-note">Last updated: May 20, 2026. Email hphomemathcrystalisland@gmail.com or use the Contact page for privacy or parent requests.</p>
       `,
       about: `
         <p class="eyebrow">About</p>
         <h2 id="aboutTitle">About Math Crystal Island</h2>
-        <p>Math Crystal Island combines math practice, blue crystal rewards, a magic chest, and Aveline paper-doll dress-up in a kid-friendly learning game.</p>
+        <p>Math Crystal Island combines math practice, blue crystal rewards, a starlight chest, and Aveline paper-doll dress-up in a kid-friendly learning game. It is designed to help children practice arithmetic in short rounds while staying motivated through gentle collection and dress-up rewards.</p>
         <div class="info-grid">
-          <article><h3>Learning goal</h3><p>Children practice addition, subtraction, multiplication, and division in short, motivating rounds.</p></article>
-          <article><h3>Game loop</h3><p>Answer questions to earn blue crystals, then open the magic chest to collect outfit sets and animations.</p></article>
-          <article><h3>Current status</h3><p>This website is an early prototype and will continue improving question types, mobile layout, parent settings, and asset organization.</p></article>
-          <article><h3>Suggested use</h3><p>Practice 10 questions at a time, review the result list, then return to the island or closet for a short break.</p></article>
+          <article><h3>Learning goal</h3><p>Children can practice addition, subtraction, multiplication, and division, then review each round. The game encourages steady practice instead of high-pressure scoring.</p></article>
+          <article><h3>Game loop</h3><p>Complete crystal trials to earn blue crystals, then spend them on the starlight chest to unlock outfits, accessories, backgrounds, auras, and pets.</p></article>
+          <article><h3>Audience</h3><p>The game is intended for children practicing basic arithmetic. Parents should choose question types and session length based on the child's age and skill level.</p></article>
+          <article><h3>Monetization transparency</h3><p>If ads, paid features, subscriptions, or sponsored content are added later, they will be disclosed in the Privacy Policy, Parent Guide, and platform store listing.</p></article>
+          <article><h3>Responsible design</h3><p>We avoid asking children for directly identifying information, and core progress is stored in the local browser so parents can manage it through browser and device controls.</p></article>
+          <article><h3>Publisher information</h3><p>Publisher: HPHome Pixel. Project page: https://github.com/hphome-pixel/math-crystal-island. Use the Contact page or email hphomemathcrystalisland@gmail.com for support, privacy, and parent requests.</p></article>
         </div>
       `,
       parentGuide: `
         <p class="eyebrow">Parent Guide</p>
         <h2 id="parentGuideTitle">Parent Guide</h2>
-        <p>This guide helps parents understand what children do in Math Crystal Island and how to support their learning.</p>
+        <p>This guide helps parents understand what children do in Math Crystal Island, how progress is stored, what monetization may look like, and how to manage device settings or request help.</p>
         <div class="info-grid">
-          <article><h3>Suggested rhythm</h3><p>Each round has 10 questions. A correct answer earns 1 blue crystal, and the result screen helps children review their work.</p></article>
-          <article><h3>Reward rules</h3><p>Extra blue crystals are awarded for 5, 8, or 10 correct answers in a 10-question round. Treat rewards as motivation, not pressure.</p></article>
-          <article><h3>How to help</h3><p>When a child misses a question, review the round together and talk about place value, carrying, borrowing, or multiplication and division ideas.</p></article>
-          <article><h3>Device and data</h3><p>Progress is saved in the local browser. Changing devices or clearing browser data may remove closet items and blue crystals.</p></article>
+          <article><h3>Before use</h3><p>Check that the current question types fit your child, and set browser, device, screen-time, and purchase controls. For younger children, we recommend that a parent joins the first session.</p></article>
+          <article><h3>Practice rhythm</h3><p>Each round has 10 questions. A correct answer earns 1 blue crystal, with extra rewards at 5, 8, and 10 correct answers. Treat rewards as encouragement, not pressure.</p></article>
+          <article><h3>How to help</h3><p>When a child misses a question, review the round together and discuss place value, carrying, borrowing, times tables, or division ideas. Understanding matters more than speed.</p></article>
+          <article><h3>Data and privacy</h3><p>Progress is currently stored in the local browser. Changing devices, changing browsers, or clearing browser data may remove closet items and blue crystals. Children should not post names, photos, schools, or addresses publicly.</p></article>
+          <article><h3>Ads and purchases</h3><p>If ads, purchases, or subscriptions are added later, parents should enable device purchase approval, passwords, or biometric confirmation. Child-directed content will use advertising settings designed for platform compliance.</p></article>
+          <article><h3>Recommended controls</h3><p>Use family sharing, parental controls, content ratings, purchase approval, notification limits, ad tracking limits, and screen-time tools where available.</p></article>
+          <article><h3>When to contact us</h3><p>Contact us for privacy requests, child safety concerns, deletion requests, purchase questions, asset licensing, or app review questions.</p></article>
+          <article><h3>Healthy use</h3><p>We recommend short sessions: complete one round, review the results, then rest or dress up Aveline. If the child feels frustrated, pause and switch to paper, conversation, or another activity.</p></article>
         </div>
       `,
       contact: `
         <p class="eyebrow">Contact</p>
         <h2 id="contactTitle">Contact</h2>
-        <p>To report an issue, suggest an idea, or discuss assets and licensing, please use the repository's GitHub Issues page.</p>
-        <div class="contact-card">
-          <strong>GitHub Issues</strong>
-          <a href="https://github.com/hphome-pixel/math-crystal-island/issues" target="_blank" rel="noreferrer">https://github.com/hphome-pixel/math-crystal-island/issues</a>
+        <p>For support, issue reports, privacy or parent requests, asset licensing, app review, or advertising platform review, email <a href="mailto:hphomemathcrystalisland@gmail.com">hphomemathcrystalisland@gmail.com</a> or use the contact options below.</p>
+        <div class="info-grid">
+          <article><h3>General support</h3><p>Report issues or suggestions through GitHub Issues: <a href="https://github.com/hphome-pixel/math-crystal-island/issues" target="_blank" rel="noreferrer">math-crystal-island/issues</a></p></article>
+          <article><h3>Privacy and parent requests</h3><p>Use "Privacy Request" or "Parent Request" in the issue title. Do not publicly post a child's name, photo, school, address, phone number, account identifier, or other personal information.</p></article>
+          <article><h3>Review and business</h3><p>App store reviewers, advertising platforms, licensing contacts, and business partners may use the same repository contact path. Include the platform, review case, or relevant listing link when available.</p></article>
+          <article><h3>Helpful details</h3><p>Please include the device platform, browser, language, steps to reproduce, screenshots, or error messages. For purchase issues, include platform order details but do not publicly post payment information.</p></article>
         </div>
-        <p class="info-note">Please do not post a child's name, photo, school, address, or other personal information in a public issue.</p>
+        <p class="info-note">Official contact email: <a href="mailto:hphomemathcrystalisland@gmail.com">hphomemathcrystalisland@gmail.com</a>. Use this email for privacy requests, parent requests, app review, advertising platform review, and support.</p>
       `,
     },
   },
@@ -1970,6 +2000,9 @@ function translateStaticText() {
   setText('#answerForm .primary-button[type="submit"]', en ? "Submit Answer" : "送出答案");
   setText(".practice-reward-note > span", en ? "Correct answers earn" : "答對題目可獲得");
   document.querySelector(".practice-reward-note strong").innerHTML = `<span class="crystal-icon" aria-hidden="true"></span> +1 ${tr("crystals")}`;
+  setText(".ad-placeholder .ad-label", tr("adLabel"));
+  setText(".ad-placeholder strong", tr("adPlaceholderTitle"));
+  setText(".ad-placeholder p", tr("adPlaceholderText"));
   setText("#chestTitle", tr("navChest"));
   setText(".chest-rules .eyebrow", tr("chestEyebrow"));
   setText(".chest-rules h3", tr("chestHeading"));

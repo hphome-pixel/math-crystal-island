@@ -1,0 +1,25 @@
+{
+  "name": "數學水晶島",
+  "short_name": "水晶島",
+  "description": "用數學力量點亮水晶島，完成練習並收集 Aveline 的穿搭獎勵。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff8ed",
+  "theme_color": "#ffc24d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/paper-doll/首頁_icon/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/paper-doll/首頁_icon/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

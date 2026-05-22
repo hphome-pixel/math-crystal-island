@@ -796,6 +796,8 @@ const i18n = {
     footerParentGuide: "家長指南",
     footerContact: "聯絡我們",
     inventoryHint: "物品",
+    mobileDressPreview: "造型預覽",
+    mobileDressItems: "衣櫃物品",
     emptyInventoryTitle: "衣櫃還是空的",
     emptyInventoryText: "完成水晶試煉收集藍水晶，再去星光寶箱抽新造型。",
     emptyFilterTitle: "這一類還沒有物品",
@@ -1022,6 +1024,8 @@ const i18n = {
     adLabel: "Advertisement",
     adPlaceholderTitle: "Ad placeholder",
     adPlaceholderText: "Appears only after a completed practice round. No ad SDK is loaded before production.",
+    mobileDressPreview: "Look",
+    mobileDressItems: "Closet",
     footerAria: "Site information",
     slot: {
       background: "Background",
@@ -1257,6 +1261,8 @@ const gmChestButton = document.querySelector("#gmChestButton");
 const gmTenChestButton = document.querySelector("#gmTenChestButton");
 const gmResetButton = document.querySelector("#gmResetButton");
 const girlCharacterButton = document.querySelector("#girlCharacterButton");
+const dressRoom = document.querySelector(".dress-room");
+const mobileDressTabs = document.querySelectorAll("[data-mobile-dress-view]");
 const closetTabs = document.querySelectorAll(".closet-tab");
 const appTabs = document.querySelectorAll(".app-tab");
 const appPages = document.querySelectorAll("[data-page-panel]");
@@ -1306,6 +1312,9 @@ auraSlotButton.addEventListener("click", () => unequipSlot("aura"));
 petSlotButton.addEventListener("click", () => unequipSlot("pet"));
 playSetAnimationButton.addEventListener("click", () => playCompletedSetAnimation());
 girlCharacterButton?.addEventListener("click", () => chooseCharacter("master_base"));
+mobileDressTabs.forEach((button) => {
+  button.addEventListener("click", () => setMobileDressView(button.dataset.mobileDressView));
+});
 
 [
   digitsSelect,
@@ -1560,6 +1569,7 @@ function showPage(pageName) {
   if (pageName === "dress") {
     state.expandedSetIds = new Set();
     renderInventory();
+    setMobileDressView("preview");
   }
   settingsButton.classList.toggle("is-active", pageName === "settings");
   settingsButton.setAttribute("aria-expanded", pageName === "settings" ? "true" : "false");
@@ -1572,6 +1582,22 @@ function showPage(pageName) {
   if (pageName === "chest") {
     preloadModalChestVideo();
     resetChestVideoToIdle();
+  }
+}
+
+function setMobileDressView(view) {
+  const nextView = view === "items" ? "items" : "preview";
+  dressRoom?.setAttribute("data-mobile-view", nextView);
+  mobileDressTabs.forEach((button) => {
+    const isActive = button.dataset.mobileDressView === nextView;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", isActive ? "true" : "false");
+  });
+}
+
+function showMobileDressPreviewIfCompact() {
+  if (window.matchMedia?.("(max-width: 560px)")?.matches) {
+    setMobileDressView("preview");
   }
 }
 
@@ -1992,6 +2018,8 @@ function translateStaticText() {
   setText("#dressRoomTitle", en ? "Current Look" : "目前造型");
   setText("#closetTitle", en ? "Closet Slots" : "物品欄位");
   setText("#resetOutfitButton", en ? "Remove All" : "脫掉全部");
+  setText('[data-mobile-dress-view="preview"]', tr("mobileDressPreview"));
+  setText('[data-mobile-dress-view="items"]', tr("mobileDressItems"));
   setText("#practiceTitle", en ? "Practice Setup" : "試題練習");
   setText("#startPracticeButton", en ? "Start 10 Questions" : "開始 10 題");
   setText("#stopPracticeButton", en ? "Settings" : "設定");
@@ -2969,6 +2997,7 @@ function equipItem(itemId) {
 
   renderInventory();
   renderDoll();
+  showMobileDressPreviewIfCompact();
   if (!wasEquipped) {
     cheerDressDoll(state.language === "en" ? "New look equipped!" : "換上新造型！");
   }
@@ -3075,6 +3104,7 @@ function renderSetGroups(items) {
           id: "extra_items",
           name: state.language === "en" ? "Extra Collection" : "額外收藏",
           icon: "✦",
+          iconPath: "assets/Chest/額外收藏.png",
           requiredItemIds: looseItems.map((item) => item.id),
           isExtra: true,
         },

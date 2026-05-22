@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffc24d" />
     <title>數學水晶島</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/paper-doll/首頁_icon/app-icon-192.png" />
+    <link rel="apple-touch-icon" href="assets/paper-doll/首頁_icon/app-icon-512.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -178,7 +182,12 @@
       </section>
 
       <section class="app-page" id="dressPage" data-page-panel="dress">
-        <section class="dress-room" aria-labelledby="dressRoomTitle">
+        <section class="dress-room" aria-labelledby="dressRoomTitle" data-mobile-view="preview">
+          <div class="mobile-dress-switch" role="tablist" aria-label="手機衣櫃切換">
+            <button class="mobile-dress-tab is-active" type="button" data-mobile-dress-view="preview" aria-selected="true">造型預覽</button>
+            <button class="mobile-dress-tab" type="button" data-mobile-dress-view="items" aria-selected="false">衣櫃物品</button>
+          </div>
+
           <section class="doll-panel">
             <div class="panel-heading">
               <div>
